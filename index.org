@@ -1,4 +1,66 @@
 * My web space
 * Tech
-** Ruby on rails tips
-** Ruby on rails tips
+** ROR tips
+*** Rails Basic Commands
+- rails new depot
+- rake db:migrate
+- rails g scaffold Product title:string des:text image_url:string price:decimal
+- rails g scaffold cart
+- rails g scaffold line_item product_id:integer cart_id:interger
+- rails g scaffold order name:string address:text email:string pay_type:string
+- rails g controller store index
+- rails g migration add_quantity_to_line_item quantity:integer
+- rails g migration combine_items_in_cart
+- rails g migration add_order_id_to_line_item order_id:integer
+- rails g migration add_order_id_and_other_to_line_item order_id:inter other:string
+- rails server
+- rake db:seed / db:migrate / db:rollback
+- rake test:units / test:functionals
+*** rails tips
+- add colume to table(delete old migrate,delete db,g scaffold) 
+*** sqlite3 concole
+- sqlite3 -line db/development.sqlite3
+- .tables
+- select * from orders
+- select * from line_items
+- .quit
+*** Install toolkits for Windwos(like mysys/cygwin)
+*** railsinstaller for Windows(includes bash/git/rubyonrail)
+** emacs
+*** emacs setup & configuration
+1.Home:D:/Design
+2.Path:
+3.purcell's emacs.d( disable ;;require 'init_growl.el)
+4.use git bash(default is fly sh?)
+
+*** emacs common command
+- window
+- C-x o: switch windows
+- C-x 0: close current window
+
+- Select Copy Paste
+- C-@: Mark Set Start, then move to the end
+- C-w: Cut
+- M-w: Copy
+- C-y: Paste
+
+*** Dired cheatsheet
+- cursoner move:
+- n: next line
+- p: prev line
+- q: back; ^: parent dir;
+- ent: enter into the subdir
+- i: list subdir below
+- $: hide subdir(toggle)
+- C-u-k: hide subdir forever
+- m: mark current file
+- u: unmark file
+- k: hide marked file
+
+*** difficults
+Can't run ssh in emacs eshell/git bash on Windows7
+
+*** emacs FAQ
+- Q:Dir tree is a good manner to go?
+- Q:Dos purcell's .emacs load el after enter the associated mode, why so slow?
+- Q:Something uncommfortable:no filetree in Dire+; files info is to long to; no porject manage.
