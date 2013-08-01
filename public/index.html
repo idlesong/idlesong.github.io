@@ -7,8 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="index"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-08-01T14:37+0800"/>
-<meta name="author" content="dayigu"/>
+<meta name="generated" content="2013-08-01T16:35+0800"/>
+<meta name="author" content="idlesong"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
 <style type="text/css">
@@ -59,7 +59,7 @@
   .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
                                  font-weight:bold; }
   /*]]>*/-->
-</style><link rel="stylesheet" type="text/css" href="css/worg.css"/>
+</style><link rel="stylesheet" type="text/css" href="css/stylesheet.css"/>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -125,8 +125,32 @@ for the JavaScript code in this tag.
 <li><a href="#sec-1">My web space</a></li>
 <li><a href="#sec-2">Tech</a>
 <ul>
-<li><a href="#sec-2-1">Ruby on rails tips</a></li>
-<li><a href="#sec-2-2">Ruby on rails tips</a></li>
+<li><a href="#sec-2-1">ROR tips</a>
+<ul>
+<li><a href="#sec-2-1-1">Rails Basic Commands</a></li>
+<li><a href="#sec-2-1-2">rails tips</a></li>
+<li><a href="#sec-2-1-3">sqlite3 concole</a></li>
+<li><a href="#sec-2-1-4">Install toolkits for Windwos(like mysys/cygwin)</a></li>
+<li><a href="#sec-2-1-5">railsinstaller for Windows</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2">emacs tips</a>
+<ul>
+<li><a href="#sec-2-2-1">emacs setup &amp; configuration</a></li>
+<li><a href="#sec-2-2-2">emacs common command</a></li>
+<li><a href="#sec-2-2-3">Dired cheatsheet</a></li>
+<li><a href="#sec-2-2-4">Org mode</a></li>
+<li><a href="#sec-2-2-5">difficults</a></li>
+<li><a href="#sec-2-2-6">emacs FAQ</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-3">Linux tips</a>
+<ul>
+<li><a href="#sec-2-3-1">Shell commands</a></li>
+<li><a href="#sec-2-3-2">dir structure</a></li>
+<li><a href="#sec-2-3-3">fxce tips</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -137,7 +161,9 @@ for the JavaScript code in this tag.
 <h2 id="sec-1">My web space</h2>
 <div class="outline-text-2" id="text-1">
 
-</div>
+<p>My free space over the web, anything worth note.
+Main about tech right now.
+</p></div>
 
 </div>
 
@@ -149,25 +175,269 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1">Ruby on rails tips</h3>
+<h3 id="sec-2-1">ROR tips</h3>
 <div class="outline-text-3" id="text-2-1">
 
+
+</div>
+
+<div id="outline-container-2-1-1" class="outline-4">
+<h4 id="sec-2-1-1">Rails Basic Commands</h4>
+<div class="outline-text-4" id="text-2-1-1">
+
+<ul>
+<li>rails new depot
+</li>
+<li>rake db:migrate
+</li>
+<li>rails g scaffold Product title:string des:text image<sub>url</sub>:string price:decimal
+</li>
+<li>rails g scaffold cart
+</li>
+<li>rails g scaffold line<sub>item</sub> product<sub>id</sub>:integer cart<sub>id</sub>:interger
+</li>
+<li>rails g scaffold order name:string address:text email:string pay<sub>type</sub>:string
+</li>
+<li>rails g controller store index
+</li>
+<li>rails g migration add<sub>quantity</sub><sub>to</sub><sub>line</sub><sub>item</sub> quantity:integer
+</li>
+<li>rails g migration combine<sub>items</sub><sub>in</sub><sub>cart</sub>
+</li>
+<li>rails g migration add<sub>order</sub><sub>id</sub><sub>to</sub><sub>line</sub><sub>item</sub> order<sub>id</sub>:integer
+</li>
+<li>rails g migration add<sub>order</sub><sub>id</sub><sub>and</sub><sub>other</sub><sub>to</sub><sub>line</sub><sub>item</sub> order<sub>id</sub>:inter other:string
+</li>
+<li>rails server
+</li>
+<li>rake db:seed / db:migrate / db:rollback
+</li>
+<li>rake test:units / test:functionals
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-1-2" class="outline-4">
+<h4 id="sec-2-1-2">rails tips</h4>
+<div class="outline-text-4" id="text-2-1-2">
+
+<ul>
+<li>add colume to table(delete old migrate,delete db,g scaffold) 
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-1-3" class="outline-4">
+<h4 id="sec-2-1-3">sqlite3 concole</h4>
+<div class="outline-text-4" id="text-2-1-3">
+
+<ul>
+<li>sqlite3 -line db/development.sqlite3
+</li>
+<li>.tables
+</li>
+<li>select * from orders
+</li>
+<li>select * from line<sub>items</sub>
+</li>
+<li>.quit
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-1-4" class="outline-4">
+<h4 id="sec-2-1-4">Install toolkits for Windwos(like mysys/cygwin)</h4>
+<div class="outline-text-4" id="text-2-1-4">
+
+</div>
+
+</div>
+
+<div id="outline-container-2-1-5" class="outline-4">
+<h4 id="sec-2-1-5">railsinstaller for Windows</h4>
+<div class="outline-text-4" id="text-2-1-5">
+
+<p>railsinstaller is a good starter for Win(includes bash/git/rubyonrail)
+</p></div>
 </div>
 
 </div>
 
 <div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2">Ruby on rails tips</h3>
+<h3 id="sec-2-2">emacs tips</h3>
 <div class="outline-text-3" id="text-2-2">
 
+
+</div>
+
+<div id="outline-container-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1">emacs setup &amp; configuration</h4>
+<div class="outline-text-4" id="text-2-2-1">
+
+<p>1.Home:D:/Design
+2.Path:
+3.purcell's emacs.d( disable ;;require 'init<sub>growl</sub>.el)
+4.use git bash(default is fly sh?)
+5.install dired-details (see code)
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-2" class="outline-4">
+<h4 id="sec-2-2-2">emacs common command</h4>
+<div class="outline-text-4" id="text-2-2-2">
+
+<ul>
+<li>window
+</li>
+<li>C-x o: switch windows
+</li>
+<li>C-x 0: close current window
+
+</li>
+<li>Select Copy Paste
+</li>
+<li>C-@: Mark Set Start, then move to the end
+</li>
+<li>C-w: Cut
+</li>
+<li>M-w: Copy
+</li>
+<li>C-y: Paste
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-3" class="outline-4">
+<h4 id="sec-2-2-3">Dired cheatsheet</h4>
+<div class="outline-text-4" id="text-2-2-3">
+
+<ul>
+<li>cursoner move:
+</li>
+<li>n: next line
+</li>
+<li>p: prev line
+</li>
+<li>q: back; ^: parent dir;
+</li>
+<li>ent: enter into the subdir
+</li>
+<li>i: list subdir below
+</li>
+<li>$: hide subdir(toggle)
+</li>
+<li>C-u-k: hide subdir forever
+</li>
+<li>m: mark current file
+</li>
+<li>u: unmark file
+</li>
+<li>k: hide marked file
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-4" class="outline-4">
+<h4 id="sec-2-2-4">Org mode</h4>
+<div class="outline-text-4" id="text-2-2-4">
+
+<ul>
+<li>Publishing: C-c C-e
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-5" class="outline-4">
+<h4 id="sec-2-2-5">difficults</h4>
+<div class="outline-text-4" id="text-2-2-5">
+
+<p>Can't run ssh in emacs eshell/git bash on Windows7
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-6" class="outline-4">
+<h4 id="sec-2-2-6">emacs FAQ</h4>
+<div class="outline-text-4" id="text-2-2-6">
+
+<ul>
+<li>Q:Dir tree is a good manner to go?
+</li>
+<li>Q:Dos purcell's .emacs load el after enter the associated mode, why so slow?
+</li>
+<li>Q:Something uncommfortable:no filetree in Dire+; files info is to long to; no porject manage.
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3">Linux tips</h3>
+<div class="outline-text-3" id="text-2-3">
+
+
+</div>
+
+<div id="outline-container-2-3-1" class="outline-4">
+<h4 id="sec-2-3-1">Shell commands</h4>
+<div class="outline-text-4" id="text-2-3-1">
+
+<ul>
+<li>whereis emacs
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-3-2" class="outline-4">
+<h4 id="sec-2-3-2">dir structure</h4>
+<div class="outline-text-4" id="text-2-3-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-2-3-3" class="outline-4">
+<h4 id="sec-2-3-3">fxce tips</h4>
+<div class="outline-text-4" id="text-2-3-3">
+
+</div>
 </div>
 </div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2013-08-01T14:37+0800</p>
-<p class="author">Author: dayigu</p>
+<p class="date">Date: 2013-08-01T16:35+0800</p>
+<p class="author">Author: idlesong</p>
 <p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
 

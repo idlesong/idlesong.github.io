@@ -1,4 +1,6 @@
 * My web space
+My free space over the web, anything worth note.
+Main about tech right now.
 * Tech
 ** ROR tips
 *** Rails Basic Commands
@@ -25,13 +27,15 @@
 - select * from line_items
 - .quit
 *** Install toolkits for Windwos(like mysys/cygwin)
-*** railsinstaller for Windows(includes bash/git/rubyonrail)
-** emacs
+*** railsinstaller for Windows
+railsinstaller is a good starter for Win(includes bash/git/rubyonrail)
+** emacs tips
 *** emacs setup & configuration
 1.Home:D:/Design
 2.Path:
 3.purcell's emacs.d( disable ;;require 'init_growl.el)
 4.use git bash(default is fly sh?)
+5.install dired-details (see code)
 
 *** emacs common command
 - window
@@ -57,6 +61,8 @@
 - u: unmark file
 - k: hide marked file
 
+*** Org mode
+- Publishing: C-c C-e
 *** difficults
 Can't run ssh in emacs eshell/git bash on Windows7
 
@@ -64,3 +70,8 @@ Can't run ssh in emacs eshell/git bash on Windows7
 - Q:Dir tree is a good manner to go?
 - Q:Dos purcell's .emacs load el after enter the associated mode, why so slow?
 - Q:Something uncommfortable:no filetree in Dire+; files info is to long to; no porject manage.
+** Linux tips
+*** Shell commands
+- whereis emacs
+*** dir structure
+*** fxce tips
