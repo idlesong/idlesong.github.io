@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Technical tips, for quick remeber.</title>
-<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Technical tips, for quick remeber."/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-08-01T17:04+0800"/>
+<meta name="generated" content="2013-08-02T11:01+0800"/>
 <meta name="author" content="idlesong"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -136,24 +136,36 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#sec-2">emacs tips</a>
 <ul>
-<li>
+<li><a href="#sec-2-1">emacs setup &amp; configuration</a>
 <ul>
-<li><a href="#sec-2-1">emacs setup &amp; configuration</a></li>
-<li><a href="#sec-2-2">emacs common command</a></li>
-<li><a href="#sec-2-3">Dired cheatsheet</a></li>
-<li><a href="#sec-2-4">Org mode</a></li>
-<li><a href="#sec-2-5">difficults</a></li>
-<li><a href="#sec-2-6">emacs FAQ</a></li>
+<li><a href="#sec-2-1-1">on Windows 7</a></li>
+<li><a href="#sec-2-1-2">on Linux(manul install)</a></li>
+<li><a href="#sec-2-1-3">emacs common command</a></li>
+<li><a href="#sec-2-1-4">Dired cheatsheet</a></li>
+<li><a href="#sec-2-1-5">Org mode</a></li>
+<li><a href="#sec-2-1-6">difficults</a></li>
+<li><a href="#sec-2-1-7">emacs FAQ</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-3">Linux tips</a>
+<li><a href="#sec-3">git tips</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-3-1">Shell commands</a></li>
-<li><a href="#sec-3-2">dir structure</a></li>
-<li><a href="#sec-3-3">fxce tips</a></li>
+<li><a href="#sec-3-1">创建新仓库</a></li>
+<li><a href="#sec-3-2">检出仓库</a></li>
+<li><a href="#sec-3-3">添加与提交</a></li>
+<li><a href="#sec-3-4">丢弃本地代码,到服务器获取最新版本,并将本地主分支指向他</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-4">Linux tips</a>
+<ul>
+<li>
+<ul>
+<li><a href="#sec-4-1">Shell commands</a></li>
+<li><a href="#sec-4-2">dir structure</a></li>
+<li><a href="#sec-4-3">fxce tips</a></li>
 </ul>
 </li>
 </ul>
@@ -267,23 +279,56 @@ for the JavaScript code in this tag.
 
 </div>
 
-<div id="outline-container-2-1" class="outline-4">
-<h4 id="sec-2-1">emacs setup &amp; configuration</h4>
-<div class="outline-text-4" id="text-2-1">
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">emacs setup &amp; configuration</h3>
+<div class="outline-text-3" id="text-2-1">
+
+
+</div>
+
+<div id="outline-container-2-1-1" class="outline-4">
+<h4 id="sec-2-1-1">on Windows 7</h4>
+<div class="outline-text-4" id="text-2-1-1">
 
 <p>1.Home:D:/Design
 2.Path:
 3.purcell's emacs.d( disable ;;require 'init<sub>growl</sub>.el)
 4.use git bash(default is fly sh?)
 5.install dired-details (see code)
-</p>
-</div>
+</p></div>
 
 </div>
 
-<div id="outline-container-2-2" class="outline-4">
-<h4 id="sec-2-2">emacs common command</h4>
-<div class="outline-text-4" id="text-2-2">
+<div id="outline-container-2-1-2" class="outline-4">
+<h4 id="sec-2-1-2">on Linux(manul install)</h4>
+<div class="outline-text-4" id="text-2-1-2">
+
+<ul>
+<li>download emacs(emacs-24.3.tar.gz)
+</li>
+<li>apt-get install libncurses5-dev
+</li>
+<li>apt-get install libgtk2.0-dev
+</li>
+<li>apt-get install libxpm-dev libgif-dev libtiff-dev
+</li>
+<li>./configure
+</li>
+<li>make
+</li>
+<li>sudo make install
+</li>
+<li>sudo make uninstall (if you want)
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-1-3" class="outline-4">
+<h4 id="sec-2-1-3">emacs common command</h4>
+<div class="outline-text-4" id="text-2-1-3">
 
 <ul>
 <li>window
@@ -310,9 +355,9 @@ for the JavaScript code in this tag.
 
 </div>
 
-<div id="outline-container-2-3" class="outline-4">
-<h4 id="sec-2-3">Dired cheatsheet</h4>
-<div class="outline-text-4" id="text-2-3">
+<div id="outline-container-2-1-4" class="outline-4">
+<h4 id="sec-2-1-4">Dired cheatsheet</h4>
+<div class="outline-text-4" id="text-2-1-4">
 
 <ul>
 <li>cursoner move:
@@ -344,9 +389,9 @@ for the JavaScript code in this tag.
 
 </div>
 
-<div id="outline-container-2-4" class="outline-4">
-<h4 id="sec-2-4">Org mode</h4>
-<div class="outline-text-4" id="text-2-4">
+<div id="outline-container-2-1-5" class="outline-4">
+<h4 id="sec-2-1-5">Org mode</h4>
+<div class="outline-text-4" id="text-2-1-5">
 
 <ul>
 <li>Publishing: C-c C-e
@@ -357,9 +402,9 @@ for the JavaScript code in this tag.
 
 </div>
 
-<div id="outline-container-2-5" class="outline-4">
-<h4 id="sec-2-5">difficults</h4>
-<div class="outline-text-4" id="text-2-5">
+<div id="outline-container-2-1-6" class="outline-4">
+<h4 id="sec-2-1-6">difficults</h4>
+<div class="outline-text-4" id="text-2-1-6">
 
 <p>Can't run ssh in emacs eshell/git bash on Windows7
 </p>
@@ -367,9 +412,9 @@ for the JavaScript code in this tag.
 
 </div>
 
-<div id="outline-container-2-6" class="outline-4">
-<h4 id="sec-2-6">emacs FAQ</h4>
-<div class="outline-text-4" id="text-2-6">
+<div id="outline-container-2-1-7" class="outline-4">
+<h4 id="sec-2-1-7">emacs FAQ</h4>
+<div class="outline-text-4" id="text-2-1-7">
 
 <ul>
 <li>Q:Dir tree is a good manner to go?
@@ -382,19 +427,90 @@ for the JavaScript code in this tag.
 
 </div>
 </div>
+</div>
 
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Linux tips</h2>
+<h2 id="sec-3">git tips</h2>
 <div class="outline-text-2" id="text-3">
 
 
 </div>
 
 <div id="outline-container-3-1" class="outline-4">
-<h4 id="sec-3-1">Shell commands</h4>
+<h4 id="sec-3-1">创建新仓库</h4>
 <div class="outline-text-4" id="text-3-1">
+
+<ul>
+<li>git init
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-4">
+<h4 id="sec-3-2">检出仓库</h4>
+<div class="outline-text-4" id="text-3-2">
+
+<ul>
+<li>git clone /path/to/repository
+</li>
+<li>git clone username@host:/path/to/repository
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-3" class="outline-4">
+<h4 id="sec-3-3">添加与提交</h4>
+<div class="outline-text-4" id="text-3-3">
+
+<ul>
+<li>git add &lt;filename&gt;
+</li>
+<li>git add .
+</li>
+<li>git commit -m "commit info"
+</li>
+<li>git push origin master
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-4" class="outline-4">
+<h4 id="sec-3-4">丢弃本地代码,到服务器获取最新版本,并将本地主分支指向他</h4>
+<div class="outline-text-4" id="text-3-4">
+
+<ul>
+<li>git fetch origin 
+</li>
+<li>git reset &ndash;hard origin/master
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Linux tips</h2>
+<div class="outline-text-2" id="text-4">
+
+
+</div>
+
+<div id="outline-container-4-1" class="outline-4">
+<h4 id="sec-4-1">Shell commands</h4>
+<div class="outline-text-4" id="text-4-1">
 
 <ul>
 <li>whereis emacs
@@ -405,17 +521,17 @@ for the JavaScript code in this tag.
 
 </div>
 
-<div id="outline-container-3-2" class="outline-4">
-<h4 id="sec-3-2">dir structure</h4>
-<div class="outline-text-4" id="text-3-2">
+<div id="outline-container-4-2" class="outline-4">
+<h4 id="sec-4-2">dir structure</h4>
+<div class="outline-text-4" id="text-4-2">
 
 </div>
 
 </div>
 
-<div id="outline-container-3-3" class="outline-4">
-<h4 id="sec-3-3">fxce tips</h4>
-<div class="outline-text-4" id="text-3-3">
+<div id="outline-container-4-3" class="outline-4">
+<h4 id="sec-4-3">fxce tips</h4>
+<div class="outline-text-4" id="text-4-3">
 
 </div>
 </div>
@@ -423,7 +539,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2013-08-01T17:04+0800</p>
+<p class="date">Date: 2013-08-02T11:01+0800</p>
 <p class="author">Author: idlesong</p>
 <p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

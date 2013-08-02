@@ -1,4 +1,4 @@
 #+TITLE: Sitemap
 
-   + [[file:index.org][index]]
    + [[file:tech_tips.org][Technical tips, for quick remeber.]]
+   + [[file:index.org][index]]

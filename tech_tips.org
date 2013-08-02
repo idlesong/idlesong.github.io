@@ -27,13 +27,22 @@ Technical tips, for quick remeber.
 *** railsinstaller for Windows
 railsinstaller is a good starter for Win(includes bash/git/rubyonrail)
 * emacs tips
-*** emacs setup & configuration
+** emacs setup & configuration
+*** on Windows 7
 1.Home:D:/Design
 2.Path:
 3.purcell's emacs.d( disable ;;require 'init_growl.el)
 4.use git bash(default is fly sh?)
 5.install dired-details (see code)
-
+*** on Linux(manul install)
+- download emacs(emacs-24.3.tar.gz)
+- apt-get install libncurses5-dev
+- apt-get install libgtk2.0-dev
+- apt-get install libxpm-dev libgif-dev libtiff-dev
+- ./configure
+- make
+- sudo make install
+- sudo make uninstall (if you want)
 *** emacs common command
 - window
 - C-x o: switch windows
@@ -67,6 +76,20 @@ Can't run ssh in emacs eshell/git bash on Windows7
 - Q:Dir tree is a good manner to go?
 - Q:Dos purcell's .emacs load el after enter the associated mode, why so slow?
 - Q:Something uncommfortable:no filetree in Dire+; files info is to long to; no porject manage.
+* git tips
+*** 创建新仓库
+- git init
+*** 检出仓库
+- git clone /path/to/repository
+- git clone username@host:/path/to/repository
+*** 添加与提交
+- git add <filename>
+- git add .
+- git commit -m "commit info"
+- git push origin master
+*** 丢弃本地代码,到服务器获取最新版本,并将本地主分支指向他
+- git fetch origin 
+- git reset --hard origin/master
 * Linux tips
 *** Shell commands
 - whereis emacs
