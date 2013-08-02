@@ -83,6 +83,7 @@ Can't run ssh in emacs eshell/git bash on Windows7
 - git clone /path/to/repository
 - git clone username@host:/path/to/repository
 *** 添加与提交
+- git status
 - git add <filename>
 - git add .
 - git commit -m "commit info"
@@ -95,3 +96,6 @@ Can't run ssh in emacs eshell/git bash on Windows7
 - whereis emacs
 *** dir structure
 *** fxce tips
+参考[[http://visayafan.com/index.html#linuxkernel][visayafan]] 界面的风格编写一个cheatsheet
+* Main purpose cheatsheet
+use other's css
