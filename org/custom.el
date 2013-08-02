@@ -25,9 +25,9 @@
 (setq org-publish-project-alist
       '(
         ("org-notes"
-         :base-directory "~/org/space/"
+         :base-directory "~/space/org/"
          :base-extension "org"
-         :publishing-directory "~/org/space/public/"
+         :publishing-directory "~/space/"
          :recursive t
          :publishing-function org-publish-org-to-html
          :headline-levels 4
@@ -42,9 +42,9 @@
          )
 
         ("org-static"
-         :base-directory "~/org/space/"
+         :base-directory "~/space/org/"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-         :publishing-directory "~/org/space/public/"
+         :publishing-directory "~/space/"
          :recursive t
          :publishing-function org-publish-attachment
          )
