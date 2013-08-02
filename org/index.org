@@ -1,6 +1,6 @@
  Welcome to Idlesong's web space!
 * Introduce
-[[file:~/space/img/my_icon.JPG]] Hi, I'm idlesong.
+[[file:./img/my_icon.JPG]] Hi, I'm idlesong.
 
 It's my space over web, about anything worth note. Main about tech right now.
 * Technical
