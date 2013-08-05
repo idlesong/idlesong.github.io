@@ -2,3 +2,4 @@
 
    + [[file:tech_tips.org][Technical tips, for quick remeber.]]
    + [[file:index.org][Welcome to Idlesong's web space!]]
+   + [[file:org_publish_html_tips.org][org_publish_html_tips]]

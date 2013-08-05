@@ -98,4 +98,4 @@ Can't run ssh in emacs eshell/git bash on Windows7
 *** fxce tips
 参考[[http://visayafan.com/index.html#linuxkernel][visayafan]] 界面的风格编写一个cheatsheet
 * Main purpose cheatsheet
-use other's css
+use other's css flex layout

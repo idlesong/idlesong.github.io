@@ -8,4 +8,5 @@ It's my space over web, about anything worth note. Main about tech right now.
 [[file:tech_tips.html][My techinical tips(for my own)]]
 ** ROR develop cheatsheet
 * Other
+** Other worth to note
 
