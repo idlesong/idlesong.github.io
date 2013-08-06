@@ -17,6 +17,13 @@ Technical tips, for quick remeber.
 - rake test:units / test:functionals
 *** rails tips
 - add colume to table(delete old migrate,delete db,g scaffold) 
+- rails console
+#+BEGIN_SRC sh
+>rails console
+>> User.create(:name => 'dave', :password => 'secret',
+   :password_confirmation => 'secret')
+>> User.count
+#+END_SRC 
 *** sqlite3 concole
 - sqlite3 -line db/development.sqlite3
 - .tables

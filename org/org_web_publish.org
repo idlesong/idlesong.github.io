@@ -26,19 +26,9 @@ Use this [[http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html]
 *** Use git to commit website to github.io
 
 * Deeper:customlize the css tempalte
-** Basic: CSS layout
-*** Normal css layout
-- header(basically include logo, meaubar)
-- Site content(include content and sidebar)
-- footer
-*** org css layout
-- preamble
-- content
-- table of content
-- postamble
-
-** Find a free css template you like.
-- edit the .eamcs file to replace the default preamble & postamble
+The simplest way to customlize the template is use my css and .emacs code
+1. my css template (modified from simplestyle_7)
+2. my code added to my .emacs (to configure publish,add preamble and postamble)
 #+BEGIN_SRC emacs-lisp
 (require 'org-publish)
 (setq org-publish-project-alist
@@ -90,6 +80,42 @@ Use this [[http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html]
       </div>
     </div>
 
+")
+
+(setq org-export-html-postamble "
+    <p>Copyright @idlesong <a href=\"http://orgmode.org\">;design from HTML5webtemplates.co.uk </a> </p>
+    ")
+#+END_SRC
+** Basic: CSS layout
+*** Normal css layout
+- header(basically include logo, meaubar)
+- Site content(include content and sidebar)
+- footer
+*** org css layout
+- preamble
+- content
+- table of content
+- postamble
+
+** Find a free css template you like.
+- edit the .eamcs file to replace the default preamble & postamble
+#+BEGIN_SRC emacs-lisp
+(setq org-export-html-preamble "
+    <div id=\"header\">
+      <div id=\"logo\">
+        <h1><img src=\"img/my_icon_mid.jpg\"  /> Idlesong's_<a href=\"#\">Mind Space</a></h1>
+        <div class=\"slogan\">for colorful life</div>
+      </div>
+      <div id=\"menubar\">
+        <ul id=\"menu\">
+          <li class=\"current\"><a href=\"index.html\">Home</a></li>
+          <li><a href=\"tech.html\">Tech</a></li>
+          <li><a href=\"life.html\">Life</a></li>
+          <li><a href=\"other.html\">Other</a></li>
+          <li><a href=\"contact.html\">Contact Me</a></li>
+        </ul>
+      </div>
+    </div>
 ")
 
 (setq org-export-html-postamble "

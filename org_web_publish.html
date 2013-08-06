@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Publish your whole static website to github,only use emacs org-mode(with git)"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-08-06T12:29+0800"/>
+<meta name="generated" content="2013-08-06T16:35+0800"/>
 <meta name="author" content="idlesong"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -263,6 +263,74 @@ You can use an existed index.html instead ccho a new file.
 <h2 id="sec-2">Deeper:customlize the css tempalte</h2>
 <div class="outline-text-2" id="text-2">
 
+<p>The simplest way to customlize the template is use my css and .emacs code
+</p><ol>
+<li>my css template (modified from simplestyle<sub>7</sub>)
+</li>
+<li>my code added to my .emacs (to configure publish,add preamble and postamble)
+</li>
+</ol>
+
+
+
+
+<pre class="src src-emacs-lisp">(<span style="color: #b4fa70;">require</span> '<span style="color: #e6a8df;">org-publish</span>)
+(setq org-publish-project-alist
+      '(
+        (<span style="color: #e9b96e;">"org-notes"</span>
+         <span style="color: #ad7fa8;">:base-directory</span> <span style="color: #e9b96e;">"~/space/org/"</span>
+         <span style="color: #ad7fa8;">:base-extension</span> <span style="color: #e9b96e;">"org"</span>
+         <span style="color: #ad7fa8;">:publishing-directory</span> <span style="color: #e9b96e;">"~/space/"</span>
+         <span style="color: #ad7fa8;">:recursive</span> t
+         <span style="color: #ad7fa8;">:publishing-function</span> org-publish-org-to-html
+         <span style="color: #ad7fa8;">:headline-levels</span> 4
+         <span style="color: #ad7fa8;">:section-numbers</span> nil
+         <span style="color: #ad7fa8;">:auto-preamble</span> t
+         <span style="color: #ad7fa8;">:auto-sitemap</span> t                <span style="color: #73d216;">; </span><span style="color: #73d216;">Generate sitemap.org automagically...</span>
+         <span style="color: #ad7fa8;">:sitemap-filename</span> <span style="color: #e9b96e;">"sitemap.org"</span>  <span style="color: #73d216;">; </span><span style="color: #73d216;">... call it sitemap.org (it's the default)...</span>
+         <span style="color: #ad7fa8;">:sitemap-title</span> <span style="color: #e9b96e;">"Sitemap"</span>         <span style="color: #73d216;">; </span><span style="color: #73d216;">... with title 'Sitemap'.</span>
+         <span style="color: #ad7fa8;">:author</span> <span style="color: #e9b96e;">"idlesong"</span>
+         <span style="color: #ad7fa8;">:email</span> <span style="color: #e9b96e;">"idele at gmail dot com"</span>
+         <span style="color: #ad7fa8;">:style</span> <span style="color: #e9b96e;">"&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"css/stylesheet.css\"/&gt;"</span>
+         )
+
+        (<span style="color: #e9b96e;">"org-static"</span>
+         <span style="color: #ad7fa8;">:base-directory</span> <span style="color: #e9b96e;">"~/space/org/"</span>
+         <span style="color: #ad7fa8;">:base-extension</span> <span style="color: #e9b96e;">"css</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">js</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">png</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">jpg</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">gif</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">pdf</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">mp3</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">ogg</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">swf"</span>
+         <span style="color: #ad7fa8;">:publishing-directory</span> <span style="color: #e9b96e;">"~/space/"</span>
+         <span style="color: #ad7fa8;">:recursive</span> t
+         <span style="color: #ad7fa8;">:publishing-function</span> org-publish-attachment
+         )
+        (<span style="color: #e9b96e;">"org"</span> <span style="color: #ad7fa8;">:components</span> (<span style="color: #e9b96e;">"org-notes"</span> <span style="color: #e9b96e;">"org-static"</span>))
+        <span style="color: #73d216;">;;</span>
+        )
+)
+
+(setq org-export-html-preamble <span style="color: #e9b96e;">"</span>
+
+<span style="color: #e9b96e;">    &lt;div id=\"header\"&gt;</span>
+<span style="color: #e9b96e;">      &lt;div id=\"logo\"&gt;</span>
+<span style="color: #e9b96e;">        &lt;h1&gt;&lt;img src=\"img/my_icon_mid.jpg\"  /&gt; Idlesong's_&lt;a href=\"#\"&gt;Mind Space&lt;/a&gt;&lt;/h1&gt;</span>
+<span style="color: #e9b96e;">        &lt;div class=\"slogan\"&gt;for colorful life&lt;/div&gt;</span>
+<span style="color: #e9b96e;">      &lt;/div&gt;</span>
+<span style="color: #e9b96e;">      &lt;div id=\"menubar\"&gt;</span>
+<span style="color: #e9b96e;">        &lt;ul id=\"menu\"&gt;</span>
+<span style="color: #e9b96e;">          &lt;li class=\"current\"&gt;&lt;a href=\"index.html\"&gt;Home&lt;/a&gt;&lt;/li&gt;</span>
+<span style="color: #e9b96e;">          &lt;li&gt;&lt;a href=\"tech.html\"&gt;Tech&lt;/a&gt;&lt;/li&gt;</span>
+<span style="color: #e9b96e;">          &lt;li&gt;&lt;a href=\"life.html\"&gt;Life&lt;/a&gt;&lt;/li&gt;</span>
+<span style="color: #e9b96e;">          &lt;li&gt;&lt;a href=\"other.html\"&gt;Other&lt;/a&gt;&lt;/li&gt;</span>
+<span style="color: #e9b96e;">          &lt;li&gt;&lt;a href=\"contact.html\"&gt;Contact Me&lt;/a&gt;&lt;/li&gt;</span>
+<span style="color: #e9b96e;">        &lt;/ul&gt;</span>
+<span style="color: #e9b96e;">      &lt;/div&gt;</span>
+<span style="color: #e9b96e;">    &lt;/div&gt;</span>
+
+<span style="color: #e9b96e;">"</span>)
+
+(setq org-export-html-postamble <span style="color: #e9b96e;">"</span>
+<span style="color: #e9b96e;">    &lt;p&gt;Copyright @idlesong &lt;a href=\"http://orgmode.org\"&gt;;design from HTML5webtemplates.co.uk &lt;/a&gt; &lt;/p&gt;</span>
+<span style="color: #e9b96e;">    "</span>)
+</pre>
+
 
 </div>
 
@@ -323,40 +391,7 @@ You can use an existed index.html instead ccho a new file.
 
 
 
-<pre class="src src-emacs-lisp">(<span style="color: #b4fa70;">require</span> '<span style="color: #e6a8df;">org-publish</span>)
-(setq org-publish-project-alist
-      '(
-        (<span style="color: #e9b96e;">"org-notes"</span>
-         <span style="color: #ad7fa8;">:base-directory</span> <span style="color: #e9b96e;">"~/space/org/"</span>
-         <span style="color: #ad7fa8;">:base-extension</span> <span style="color: #e9b96e;">"org"</span>
-         <span style="color: #ad7fa8;">:publishing-directory</span> <span style="color: #e9b96e;">"~/space/"</span>
-         <span style="color: #ad7fa8;">:recursive</span> t
-         <span style="color: #ad7fa8;">:publishing-function</span> org-publish-org-to-html
-         <span style="color: #ad7fa8;">:headline-levels</span> 4
-         <span style="color: #ad7fa8;">:section-numbers</span> nil
-         <span style="color: #ad7fa8;">:auto-preamble</span> t
-         <span style="color: #ad7fa8;">:auto-sitemap</span> t                <span style="color: #73d216;">; </span><span style="color: #73d216;">Generate sitemap.org automagically...</span>
-         <span style="color: #ad7fa8;">:sitemap-filename</span> <span style="color: #e9b96e;">"sitemap.org"</span>  <span style="color: #73d216;">; </span><span style="color: #73d216;">... call it sitemap.org (it's the default)...</span>
-         <span style="color: #ad7fa8;">:sitemap-title</span> <span style="color: #e9b96e;">"Sitemap"</span>         <span style="color: #73d216;">; </span><span style="color: #73d216;">... with title 'Sitemap'.</span>
-         <span style="color: #ad7fa8;">:author</span> <span style="color: #e9b96e;">"idlesong"</span>
-         <span style="color: #ad7fa8;">:email</span> <span style="color: #e9b96e;">"idele at gmail dot com"</span>
-         <span style="color: #ad7fa8;">:style</span> <span style="color: #e9b96e;">"&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"css/stylesheet.css\"/&gt;"</span>
-         )
-
-        (<span style="color: #e9b96e;">"org-static"</span>
-         <span style="color: #ad7fa8;">:base-directory</span> <span style="color: #e9b96e;">"~/space/org/"</span>
-         <span style="color: #ad7fa8;">:base-extension</span> <span style="color: #e9b96e;">"css</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">js</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">png</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">jpg</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">gif</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">pdf</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">mp3</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">ogg</span><span style="color: #e9b96e; font-weight: bold;">\\</span><span style="color: #e9b96e; font-weight: bold;">|</span><span style="color: #e9b96e;">swf"</span>
-         <span style="color: #ad7fa8;">:publishing-directory</span> <span style="color: #e9b96e;">"~/space/"</span>
-         <span style="color: #ad7fa8;">:recursive</span> t
-         <span style="color: #ad7fa8;">:publishing-function</span> org-publish-attachment
-         )
-        (<span style="color: #e9b96e;">"org"</span> <span style="color: #ad7fa8;">:components</span> (<span style="color: #e9b96e;">"org-notes"</span> <span style="color: #e9b96e;">"org-static"</span>))
-        <span style="color: #73d216;">;;</span>
-        )
-)
-
-(setq org-export-html-preamble <span style="color: #e9b96e;">"</span>
-
+<pre class="src src-emacs-lisp">(setq org-export-html-preamble <span style="color: #e9b96e;">"</span>
 <span style="color: #e9b96e;">    &lt;div id=\"header\"&gt;</span>
 <span style="color: #e9b96e;">      &lt;div id=\"logo\"&gt;</span>
 <span style="color: #e9b96e;">        &lt;h1&gt;&lt;img src=\"img/my_icon_mid.jpg\"  /&gt; Idlesong's_&lt;a href=\"#\"&gt;Mind Space&lt;/a&gt;&lt;/h1&gt;</span>
@@ -372,7 +407,6 @@ You can use an existed index.html instead ccho a new file.
 <span style="color: #e9b96e;">        &lt;/ul&gt;</span>
 <span style="color: #e9b96e;">      &lt;/div&gt;</span>
 <span style="color: #e9b96e;">    &lt;/div&gt;</span>
-
 <span style="color: #e9b96e;">"</span>)
 
 (setq org-export-html-postamble <span style="color: #e9b96e;">"</span>

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Technical tips, for quick remeber."/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-08-06T14:45+0800"/>
+<meta name="generated" content="2013-08-06T15:17+0800"/>
 <meta name="author" content="idlesong"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -245,7 +245,18 @@ for the JavaScript code in this tag.
 <ul>
 <li>add colume to table(delete old migrate,delete db,g scaffold) 
 </li>
+<li>rails console
+</li>
 </ul>
+
+
+
+
+<pre class="src src-sh">&gt;rails console
+&gt;&gt; User.create(:name =&gt; <span style="color: #e9b96e;">'dave'</span>, :password =&gt; <span style="color: #e9b96e;">'secret'</span>,
+   :password_confirmation =&gt; <span style="color: #e9b96e;">'secret'</span>)
+&gt;&gt; User.count
+</pre>
 
 </div>
 
