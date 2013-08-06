@@ -1,6 +1,6 @@
  Welcome to Idlesong's web space!
 * Introduce
-Hi, I'm idlesong. You can find me on Google+ [[file:./img/my_icon_mid.JPG]]
+Hi, I'm idlesong. You can find me on Google+ [[file:./img/my_icon_mid.jpg]]
 
 It's my space over web, about anything worth note. Main about tech right now.
 * Technical
