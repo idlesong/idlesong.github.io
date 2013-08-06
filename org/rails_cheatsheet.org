@@ -1,0 +1,98 @@
+* ROUTING API
+* BUNDLER
+* ACTIVERELATION
+* XSS PROTECTION & UJS
+* ACTIONMAILER & ACTIONCONTROLLER
+* ACTIVE MODE
+** DIRTY
+#+BEGIN_SRC ruby
+class Person
+  include ActiveModel::Dirty
+  define_attribute_methods [:name]
+
+  def name
+    @name
+  end
+
+  def name=(val)
+    name_will_change!
+    @name = val
+  end
+
+  def save
+    @previously_changed = changes
+    @changed_attributes.clear
+  end
+#+END_SRC
+
+#+BEGIN_SRC ruby
+>> person = Person.find(id)
+>> person.changed?
+=> false
+>> person.name = 'Bob'
+>> Person.changed?
+=> true
+>> person.name_was
+=> 'Uncle Bob'
+>> Person.name_change
+=> ['Uncle Bob','Bob']
+>> Person.name = 'Bill'
+>> Person.name_change
+=> ['Uncle Bob','Bill']
+#+END_SRC
+
+** VALIDATIONS
+#+BEGIN_SRC ruby
+class Person
+  include ActiveModel::Validations
+  attr_accessor :email
+  validates_presence_of :email
+#+END_SRC
+
+#+BEGIN_SRC ruby
+>> p = Person.new
+=> #<Person:0x0000001021b7198>
+>> p.valid?
+=> false
+>> p.errors
+=> {:email=>["can't be blank"]}
+#+END_SRC
+
+*** Shortcuts
+#+BEGIN_SRC ruby
+validates :terms, :acceptance => true
+validates :password, :confirmation => true
+validates :username, :exclusion => { :in => %w(admin) }
+validates :email, :format => {
+  :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i,
+  :on => :create }
+validates :age, :inclusion => { :in => 0..9 }
+validates :first_name, :length => { :maximum => 30 }
+validates :age, :numericality => true
+validates :username, :presence => true
+validates :username, :uniqueness => true
+#+END_SRC
+
+** SERIALIZATION
+#+BEGIN_SRC ruby
+class Person
+  include ActiveModel::Serializers::JSON
+  attr_accessor :name
+  def attributes
+    {:name => name}
+  end
+end
+#+END_SRC
+
+#+BEGIN_SRC ruby
+>> p = Person.new
+=> #<Person:0x00000102186d68>
+>> p.name = "Gregg"
+=> "Gregg"
+>> p.to_json
+=> "{\"name\":\"Gregg\"}"
+#+END_SRC
+
+** CALLBACKS
+
+** MODULES
