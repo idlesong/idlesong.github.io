@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>rails<sub>cheatsheet</sub></title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="rails<sub>cheatsheet</sub>"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-08-06T09:43+0800"/>
+<meta name="author" content="idlesong"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style><link rel="stylesheet" type="text/css" href="css/stylesheet.css"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+
+    <div id="header">
+      <div id="logo">
+        <h1><img src="img/my_icon_mid.JPG"  /> Idlesong's_<a href="#">Mind Space</a></h1>
+        <div class="slogan">life!</div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <li class="current"><a href="index.html">Home</a></li>
+          <li><a href="tech.html">Tech</a></li>
+          <li><a href="life.html">Life</a></li>
+          <li><a href="other.html">Other</a></li>
+          <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+</div>
+
+<div id="content">
+<h1 class="title">rails<sub>cheatsheet</sub></h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">ROUTING API</a></li>
+<li><a href="#sec-2">BUNDLER</a></li>
+<li><a href="#sec-3">ACTIVERELATION</a></li>
+<li><a href="#sec-4">XSS PROTECTION &amp; UJS</a></li>
+<li><a href="#sec-5">ACTIONMAILER &amp; ACTIONCONTROLLER</a></li>
+<li><a href="#sec-6">ACTIVE MODE</a>
+<ul>
+<li><a href="#sec-6-1">DIRTY</a></li>
+<li><a href="#sec-6-2">VALIDATIONS</a>
+<ul>
+<li><a href="#sec-6-2-1">Shortcuts</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-3">SERIALIZATION</a></li>
+<li><a href="#sec-6-4">CALLBACKS</a></li>
+<li><a href="#sec-6-5">MODULES</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">ROUTING API</h2>
+<div class="outline-text-2" id="text-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">BUNDLER</h2>
+<div class="outline-text-2" id="text-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">ACTIVERELATION</h2>
+<div class="outline-text-2" id="text-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">XSS PROTECTION &amp; UJS</h2>
+<div class="outline-text-2" id="text-4">
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">ACTIONMAILER &amp; ACTIONCONTROLLER</h2>
+<div class="outline-text-2" id="text-5">
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">ACTIVE MODE</h2>
+<div class="outline-text-2" id="text-6">
+
+
+</div>
+
+<div id="outline-container-6-1" class="outline-3">
+<h3 id="sec-6-1">DIRTY</h3>
+<div class="outline-text-3" id="text-6-1">
+
+
+
+
+<pre class="src src-ruby"><span style="color: #b4fa70;">class</span> <span style="color: #8cc4ff;">Person</span>
+  include <span style="color: #8cc4ff;">ActiveModel</span>::<span style="color: #8cc4ff;">Dirty</span>
+  define_attribute_methods [<span style="color: #e6a8df;">:name</span>]
+
+  <span style="color: #b4fa70;">def</span> <span style="color: #fce94f;">name</span>
+    <span style="color: #fcaf3e;">@name</span>
+  <span style="color: #b4fa70;">end</span>
+
+  <span style="color: #b4fa70;">def</span> <span style="color: #fce94f;">name=</span>(val)
+    name_will_change!
+    <span style="color: #fcaf3e;">@name</span> = val
+  <span style="color: #b4fa70;">end</span>
+
+  <span style="color: #b4fa70;">def</span> <span style="color: #fce94f;">save</span>
+    <span style="color: #fcaf3e;">@previously_changed</span> = changes
+    <span style="color: #fcaf3e;">@changed_attributes</span>.clear
+  <span style="color: #b4fa70;">end</span>
+</pre>
+
+
+
+<pre class="src src-ruby">&gt;&gt; person = <span style="color: #8cc4ff;">Person</span>.find(id)
+&gt;&gt; person.changed?
+=&gt; <span style="color: #fcaf3e;">false</span>
+&gt;&gt; person.name = <span style="color: #e9b96e;">'Bob'</span>
+&gt;&gt; <span style="color: #8cc4ff;">Person</span>.changed?
+=&gt; <span style="color: #fcaf3e;">true</span>
+&gt;&gt; person.name_was
+=&gt; <span style="color: #e9b96e;">'Uncle Bob'</span>
+&gt;&gt; <span style="color: #8cc4ff;">Person</span>.name_change
+=&gt; [<span style="color: #e9b96e;">'Uncle Bob'</span>,<span style="color: #e9b96e;">'Bob'</span>]
+&gt;&gt; <span style="color: #8cc4ff;">Person</span>.name = <span style="color: #e9b96e;">'Bill'</span>
+&gt;&gt; <span style="color: #8cc4ff;">Person</span>.name_change
+=&gt; [<span style="color: #e9b96e;">'Uncle Bob'</span>,<span style="color: #e9b96e;">'Bill'</span>]
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6-2" class="outline-3">
+<h3 id="sec-6-2">VALIDATIONS</h3>
+<div class="outline-text-3" id="text-6-2">
+
+
+
+
+<pre class="src src-ruby"><span style="color: #b4fa70;">class</span> <span style="color: #8cc4ff;">Person</span>
+  include <span style="color: #8cc4ff;">ActiveModel</span>::<span style="color: #8cc4ff;">Validations</span>
+  attr_accessor <span style="color: #e6a8df;">:email</span>
+  validates_presence_of <span style="color: #e6a8df;">:email</span>
+</pre>
+
+
+
+<pre class="src src-ruby">&gt;&gt; p = <span style="color: #8cc4ff;">Person</span>.new
+=&gt; <span style="color: #73d216;">#</span><span style="color: #73d216;">&lt;Person:0x0000001021b7198&gt;</span>
+&gt;&gt; p.valid?
+=&gt; <span style="color: #fcaf3e;">false</span>
+&gt;&gt; p.errors
+=&gt; {<span style="color: #e6a8df;">:email=</span>&gt;[<span style="color: #e9b96e;">"can't be blank"</span>]}
+</pre>
+
+
+
+</div>
+
+<div id="outline-container-6-2-1" class="outline-4">
+<h4 id="sec-6-2-1">Shortcuts</h4>
+<div class="outline-text-4" id="text-6-2-1">
+
+
+
+
+<pre class="src src-ruby">validates <span style="color: #e6a8df;">:terms</span>, <span style="color: #e6a8df;">:acceptance</span> =&gt; <span style="color: #fcaf3e;">true</span>
+validates <span style="color: #e6a8df;">:password</span>, <span style="color: #e6a8df;">:confirmation</span> =&gt; <span style="color: #fcaf3e;">true</span>
+validates <span style="color: #e6a8df;">:username</span>, <span style="color: #e6a8df;">:exclusion</span> =&gt; { <span style="color: #e6a8df;">:in</span> =&gt; <span style="color: #e9b96e;">%w(admin)</span> }
+validates <span style="color: #e6a8df;">:email</span>, <span style="color: #e6a8df;">:format</span> =&gt; {
+  <span style="color: #e6a8df;">:with</span> =&gt; <span style="color: #e9b96e;">/</span><span style="color: #e9b96e; font-weight: bold;">\A</span><span style="color: #e9b96e;">([^@</span><span style="color: #e9b96e; font-weight: bold;">\s</span><span style="color: #e9b96e;">]+)@((?:[-a-z0-9]+</span><span style="color: #e9b96e; font-weight: bold;">\.</span><span style="color: #e9b96e;">)+[a-z]{2,})</span><span style="color: #e9b96e; font-weight: bold;">\Z</span><span style="color: #e9b96e;">/</span>i,
+  <span style="color: #e6a8df;">:on</span> =&gt; <span style="color: #e6a8df;">:create</span> }
+validates <span style="color: #e6a8df;">:age</span>, <span style="color: #e6a8df;">:inclusion</span> =&gt; { <span style="color: #e6a8df;">:in</span> =&gt; 0..9 }
+validates <span style="color: #e6a8df;">:first_name</span>, <span style="color: #e6a8df;">:length</span> =&gt; { <span style="color: #e6a8df;">:maximum</span> =&gt; 30 }
+validates <span style="color: #e6a8df;">:age</span>, <span style="color: #e6a8df;">:numericality</span> =&gt; <span style="color: #fcaf3e;">true</span>
+validates <span style="color: #e6a8df;">:username</span>, <span style="color: #e6a8df;">:presence</span> =&gt; <span style="color: #fcaf3e;">true</span>
+validates <span style="color: #e6a8df;">:username</span>, <span style="color: #e6a8df;">:uniqueness</span> =&gt; <span style="color: #fcaf3e;">true</span>
+</pre>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-6-3" class="outline-3">
+<h3 id="sec-6-3">SERIALIZATION</h3>
+<div class="outline-text-3" id="text-6-3">
+
+
+
+
+<pre class="src src-ruby"><span style="color: #b4fa70;">class</span> <span style="color: #8cc4ff;">Person</span>
+  include <span style="color: #8cc4ff;">ActiveModel</span>::<span style="color: #8cc4ff;">Serializers</span>::<span style="color: #8cc4ff;">JSON</span>
+  attr_accessor <span style="color: #e6a8df;">:name</span>
+  <span style="color: #b4fa70;">def</span> <span style="color: #fce94f;">attributes</span>
+    {<span style="color: #e6a8df;">:name</span> =&gt; name}
+  <span style="color: #b4fa70;">end</span>
+<span style="color: #b4fa70;">end</span>
+</pre>
+
+
+
+<pre class="src src-ruby">&gt;&gt; p = <span style="color: #8cc4ff;">Person</span>.new
+=&gt; <span style="color: #73d216;">#</span><span style="color: #73d216;">&lt;Person:0x00000102186d68&gt;</span>
+&gt;&gt; p.name = <span style="color: #e9b96e;">"Gregg"</span>
+=&gt; <span style="color: #e9b96e;">"Gregg"</span>
+&gt;&gt; p.to_json
+=&gt; <span style="color: #e9b96e;">"{</span><span style="color: #e9b96e; font-weight: bold;">\"</span><span style="color: #e9b96e;">name</span><span style="color: #e9b96e; font-weight: bold;">\"</span><span style="color: #e9b96e;">:</span><span style="color: #e9b96e; font-weight: bold;">\"</span><span style="color: #e9b96e;">Gregg</span><span style="color: #e9b96e; font-weight: bold;">\"</span><span style="color: #e9b96e;">}"</span>
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6-4" class="outline-3">
+<h3 id="sec-6-4">CALLBACKS</h3>
+<div class="outline-text-3" id="text-6-4">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6-5" class="outline-3">
+<h3 id="sec-6-5">MODULES</h3>
+<div class="outline-text-3" id="text-6-5">
+
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+
+    <p>Copyright @idlesong <a href="http://orgmode.org">design from HTML5webtemplates.co.uk </a> </p>
+    
+</div>
+</body>
+</html>
