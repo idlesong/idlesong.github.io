@@ -19,12 +19,13 @@ $ echo "My GitHub Page" > index.html
 $ git commit -a -m "First Pages commit"
 $ git commit origin master
 #+END_SRC
+You can use an existed index.html instead ccho a new file.
 ** How to pubish your website
 *** Use org-mode to publish the html
 Use this [[http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][official tutorial]] to learn how to publish Org-mode files to HTML.
 *** Use git to commit website to github.io
 
-* Customlize the css tempalte
+* Deeper:customlize the css tempalte
 ** Basic: CSS layout
 *** Normal css layout
 - header(basically include logo, meaubar)

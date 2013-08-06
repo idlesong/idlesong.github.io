@@ -47,7 +47,7 @@ railsinstaller is a good starter for Win(includes bash/git/rubyonrail)
 - window
 - C-x o: switch windows
 - C-x 0: close current window
-
+- C-x C-b; => m => t => D : kill all other buffers
 - Select Copy Paste
 - C-@: Mark Set Start, then move to the end
 - C-w: Cut

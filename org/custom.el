@@ -74,6 +74,6 @@
 ")
 
 (setq org-export-html-postamble "
-    <p>Copyright @idlesong <a href=\"http://orgmode.org\">;design from HTML5webtemplates.co.uk </a> </p>
+    <p>Copyright GFDL; @idlesong <a href=\"http://orgmode.org\">;design from HTML5webtemplates.co.uk </a> </p>
     ")
 
