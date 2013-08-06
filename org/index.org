@@ -7,7 +7,6 @@ It's my space over web, about anything worth note. Main about tech right now.
 Notice: Pages only listed on below are formal, others are draft and notes for myself.
 * Technical 
 Some technical content may worth note.
-- [[file:org_web_publish.html][use org mode to publish html]]
 * Life
 some life content may worth note
 * Other

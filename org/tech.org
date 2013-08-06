@@ -1,5 +1,7 @@
-Notes and draft of technical for myself!!!
+Notes and draft of technical !!!only for myself!!!
 * Ruby and Rails
 [[file:rails_cheatsheet.html][rails cheatsheet]]
 * Others
-[[file:tech_tips.html][technical tips]]
+- [[file:tech_tips.html][technical tips]]
+- [[file:org_web_publish.html][publish website use org-mode to github]]
+
