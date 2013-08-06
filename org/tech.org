@@ -1,0 +1,5 @@
+Notes and draft of technical for myself!!!
+* Ruby and Rails
+[[file:rails_cheatsheet.html][rails cheatsheet]]
+* Others
+[[file:tech_tips.html][technical tips]]

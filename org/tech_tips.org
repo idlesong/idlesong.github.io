@@ -29,11 +29,11 @@ railsinstaller is a good starter for Win(includes bash/git/rubyonrail)
 * emacs tips
 ** emacs setup & configuration
 *** on Windows 7
-1.Home:D:/Design
-2.Path:
-3.purcell's emacs.d( disable ;;require 'init_growl.el)
-4.use git bash(default is fly sh?)
-5.install dired-details (see code)
+1. Home:D:/Design
+2. Path:
+3. purcell's emacs.d( disable ;;require 'init_growl.el)
+4. use git bash(default is fly sh?)
+5. install dired-details (see code)
 *** on Linux(manul install)
 - download emacs(emacs-24.3.tar.gz)
 - apt-get install libncurses5-dev

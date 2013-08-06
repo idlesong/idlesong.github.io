@@ -3,12 +3,13 @@
 Hi, I'm idlesong. You can find me on Google+ [[file:./img/my_icon_mid.jpg]]
 
 It's my space over web, about anything worth note. Main about tech right now.
-* Technical
-** ROR develop tips
-[[file:tech_tips.html][My techinical tips(for my own)]]
-** ROR develop cheatsheet
-[[file:rails_cheatsheet.html][rails cheatsheet]]
+
+Notice: Pages only listed on below are formal, others are draft and notes for myself.
+* Technical 
+Some technical content may worth note.
+- [[file:org_web_publish.html][use org mode to publish html]]
+* Life
+some life content may worth note
 * Other
-** Other worth to note
-marketing and so on and other
+Some life content may worth note
 

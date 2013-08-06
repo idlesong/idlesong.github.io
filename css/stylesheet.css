@@ -145,8 +145,9 @@ ol li
 { float: right; 
   padding-right: 25px;
   text-align: right; 
-  font: 500% 'tangerine', arial; 
-  color: #111;}
+  font: 200%, arial;
+  font-style: italic; 
+  color: red;}
 
 #menubar
 { height: 46px;

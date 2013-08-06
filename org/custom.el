@@ -57,8 +57,8 @@
 
     <div id=\"header\">
       <div id=\"logo\">
-        <h1><img src=\"img/my_icon_mid.JPG\"  /> Idlesong's_<a href=\"#\">Mind Space</a></h1>
-        <div class=\"slogan\">life!</div>
+        <h1><img src=\"img/my_icon_mid.jpg\"  /> Idlesong's_<a href=\"#\">Mind Space</a></h1>
+        <div class=\"slogan\">for colorful life</div>
       </div>
       <div id=\"menubar\">
         <ul id=\"menu\">
@@ -74,6 +74,6 @@
 ")
 
 (setq org-export-html-postamble "
-    <p>Copyright @idlesong <a href=\"http://orgmode.org\">design from HTML5webtemplates.co.uk </a> </p>
+    <p>Copyright @idlesong <a href=\"http://orgmode.org\">;design from HTML5webtemplates.co.uk </a> </p>
     ")
 
