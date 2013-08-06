@@ -52,3 +52,28 @@
         ;;
         )
 )
+
+(setq org-export-html-preamble "
+
+    <div id=\"header\">
+      <div id=\"logo\">
+        <h1><img src=\"img/my_icon_mid.JPG\"  /> Idlesong's_<a href=\"#\">Mind Space</a></h1>
+        <div class=\"slogan\">life!</div>
+      </div>
+      <div id=\"menubar\">
+        <ul id=\"menu\">
+          <li class=\"current\"><a href=\"index.html\">Home</a></li>
+          <li><a href=\"tech.html\">Tech</a></li>
+          <li><a href=\"life.html\">Life</a></li>
+          <li><a href=\"other.html\">Other</a></li>
+          <li><a href=\"contact.html\">Contact Me</a></li>
+        </ul>
+      </div>
+    </div>
+
+")
+
+(setq org-export-html-postamble "
+    <p>Copyright @idlesong <a href=\"http://orgmode.org\">design from HTML5webtemplates.co.uk </a> </p>
+    ")
+

@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Yanone Kaffeesatz Regular'), local('YanoneKaffeesatz-Regular'), url(http://themes.googleusercontent.com/static/fonts/yanonekaffeesatz/v4/YDAoLskQQ5MOAgvHUQCcLRTHiN2BPBirwIkMLKUspj4.woff) format('woff');
+}
+
 html
 { height: 100%;}
 
@@ -113,7 +120,7 @@ ol li
 
 
 #logo
-{ width: 950px;
+{ //width: 950px;
   float: left;
   height: 100px;
   background: transparent;
@@ -349,3 +356,10 @@ table tr td
 { background: #FBFBFB;
   color: #111;
   border-top: 1px solid #FFF;}
+
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Yanone Kaffeesatz Regular'), local('YanoneKaffeesatz-Regular'), url(http://themes.googleusercontent.com/static/fonts/yanonekaffeesatz/v4/YDAoLskQQ5MOAgvHUQCcLRTHiN2BPBirwIkMLKUspj4.woff) format('woff');
+}  

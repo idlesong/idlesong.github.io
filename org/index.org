@@ -1,12 +1,14 @@
  Welcome to Idlesong's web space!
 * Introduce
-[[file:./img/my_icon.JPG]] Hi, I'm idlesong.
+Hi, I'm idlesong. You can find me on Google+ [[file:./img/my_icon_mid.JPG]]
 
 It's my space over web, about anything worth note. Main about tech right now.
 * Technical
 ** ROR develop tips
 [[file:tech_tips.html][My techinical tips(for my own)]]
 ** ROR develop cheatsheet
+[[file:rails_cheatsheet.html][rails cheatsheet]]
 * Other
 ** Other worth to note
+marketing and so on and other
 
