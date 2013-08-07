@@ -18,36 +18,62 @@ body
   color: #555;}
 
 p
-{ padding: 0 0 20px 0;
+{ padding: 0 0 0px 0;
   line-height: 1.5em;
   font-size: 107%;}
 
 img
 { border: 0;}
 
-h1, h2, h3, h4, h5, h6 
+/*h1, h2, h3, h4, h5, h6 */
+h1
 { font: normal 250% 'Yanone Kaffeesatz', arial, sans-serif;
   color: #444;
   margin: 0 0 15px 0;
-  padding: 5px 0 5px 0;}
+  padding: 5px 0 5px 0;
+}
 
 h2
-{ font: normal 170% 'Yanone Kaffeesatz', arial, sans-serif;
+{ font: normal 200% 'Yanone Kaffeesatz', arial, sans-serif;
   color: #F14E23;  
   margin: 0;
-  padding: 0 0 8px 0;}
+  padding: 1em 0 0.5em 0;
+}
+
+.outline-text-2 {
+  margin-left: 0.2em;
+  border-top: 1px solid #ddd;  
+}
 
 h3
-{ font-size: 200%;
+{ font: normal 170% 'Yanone Kaffeesatz', arial, sans-serif;
   margin: 0 0 9px 0;
-  color: #444;}
+  color: #444;
+  margin: 0.5em 0  0 0.6em;
+}
 
-h4, h5, h6
-{ margin: 0;
+.outline-text-3 {
+  margin-left: 0.9em;
+}
+
+h4
+{ font: 135% 'Yanone Kaffeesatz', arial, sans-serif;
+  margin: 5px 0 9px 0;
+  color: #444;
+  margin-left: 1.2em;
+}
+
+h5, h6
+{ 
+  margin-left: 1.2em;
   padding: 0 0 5px 0;
-  font: normal 100% arial, sans-serif;
+  font: normal 120% arial, sans-serif;
   color: #F14E23;
   line-height: 1em;}
+
+.outline-text-4 {
+  margin-left: 1.6em;
+}  
 
 h5, h6
 { font: italic 95% arial, sans-serif;
@@ -81,7 +107,7 @@ a:hover
   margin: 20px auto;}
 
 ul
-{ margin: 2px 0 22px 17px;}
+{ margin: 2px 0 5px 17px;}
 
 ul li
 { list-style-type: circle;
@@ -89,10 +115,14 @@ ul li
   padding: 0 0 4px 5px;}
 
 ol
-{ margin: 8px 0 22px 20px;}
+{ margin: 8px 0 5px 20px;}
 
 ol li
-{ margin: 0 0 11px 0;}
+{ margin: 0 0 0 0;}
+
+pre {
+  margin-bottom: 2px;
+}
 
 #main, #header, #logo, #menubar, #site_content, #footer
 { margin-left: auto; 
