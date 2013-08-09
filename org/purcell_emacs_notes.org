@@ -1,0 +1,21 @@
+Notes about usage of Purcell's .emacs.d config, thanks for binchen's blog.
+** Common Usage
+*** ido
+*** dired
+*** auto complete
+How to use in web developmengt
+** Org mode
+*** Org mode
+** Web Develop
+<Menubar is a good entry to learn the main function>
+*** MMM(Multiple Major Modes:Psgml mode,php-mode,css-mode)
+- Parse Block
+- Parse Buffer
+- Parse Region
+- List Insert keys
+*** SGML[emacs]
+auto insert elements with attributes
+*** HTML
+auto insert elements & show curent buffer content
+*** Tidy
+*** flymake(javascript jsLint
