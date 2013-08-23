@@ -1,6 +1,8 @@
 Notes and draft of technical !!!only for myself!!!
+* Try to use tech to help fancy everything
+- right now focus on ruby(try ruby everywhere)
 * Ruby and Rails
-[[file:rails_cheatsheet.html][rails cheatsheet]]
+- [[file:rails_cheatsheet.html][rails cheatsheet]]
 * Others
 - [[file:tech_tips.html][technical tips]]
 - [[file:org_web_publish.html][publish website use org-mode to github]]

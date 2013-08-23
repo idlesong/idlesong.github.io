@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Technical tips, for quick remeber."/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-08-06T15:17+0800"/>
+<meta name="generated" content="2013-08-11T17:21+0800"/>
 <meta name="author" content="idlesong"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -112,24 +112,6 @@ for the JavaScript code in this tag.
 
 <div id="preamble">
 
-
-    <div id="header">
-      <div id="logo">
-        <h1><img src="img/my_icon_mid.jpg"  /> Idlesong's_<a href="#">Mind Space</a></h1>
-        <div class="slogan">for colorful life</div>
-      </div>
-      <div id="menubar">
-        <ul id="menu">
-          <li class="current"><a href="index.html">Home</a></li>
-          <li><a href="tech.html">Tech</a></li>
-          <li><a href="life.html">Life</a></li>
-          <li><a href="other.html">Other</a></li>
-          <li><a href="contact.html">Contact Me</a></li>
-        </ul>
-      </div>
-    </div>
-
-
 </div>
 
 <div id="content">
@@ -158,11 +140,12 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#sec-2-1-1">on Windows 7</a></li>
 <li><a href="#sec-2-1-2">on Linux(manul install)</a></li>
-<li><a href="#sec-2-1-3">emacs common command</a></li>
+<li><a href="#sec-2-1-3">common commands</a></li>
 <li><a href="#sec-2-1-4">Dired cheatsheet</a></li>
 <li><a href="#sec-2-1-5">Org mode</a></li>
-<li><a href="#sec-2-1-6">difficults</a></li>
-<li><a href="#sec-2-1-7">emacs FAQ</a></li>
+<li><a href="#sec-2-1-6">Useful tips</a></li>
+<li><a href="#sec-2-1-7">difficults</a></li>
+<li><a href="#sec-2-1-8">emacs FAQ</a></li>
 </ul></li>
 </ul>
 </li>
@@ -253,8 +236,8 @@ for the JavaScript code in this tag.
 
 
 <pre class="src src-sh">&gt;rails console
-&gt;&gt; User.create(:name =&gt; <span style="color: #e9b96e;">'dave'</span>, :password =&gt; <span style="color: #e9b96e;">'secret'</span>,
-   :password_confirmation =&gt; <span style="color: #e9b96e;">'secret'</span>)
+&gt;&gt; User.create(:name =&gt; <span style="color: #66cccc;">'dave'</span>, :password =&gt; <span style="color: #66cccc;">'secret'</span>,
+   :password_confirmation =&gt; <span style="color: #66cccc;">'secret'</span>)
 &gt;&gt; User.count
 </pre>
 
@@ -364,27 +347,36 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-2-1-3" class="outline-4">
-<h4 id="sec-2-1-3">emacs common command</h4>
+<h4 id="sec-2-1-3">common commands</h4>
 <div class="outline-text-4" id="text-2-1-3">
 
-<ul>
-<li>window
-</li>
+<p>window
+</p><ul>
 <li>C-x o: switch windows
 </li>
 <li>C-x 0: close current window
 </li>
 <li>C-x C-b; =&gt; m =&gt; t =&gt; D : kill all other buffers
 </li>
-<li>Select Copy Paste
-</li>
-<li>C-@: Mark Set Start, then move to the end
+</ul>
+
+<p>Select Copy Paste
+</p><ul>
+<li>C-@/C-.: Mark Set Start, then move to the end
 </li>
 <li>C-w: Cut
 </li>
 <li>M-w: Copy
 </li>
 <li>C-y: Paste
+</li>
+</ul>
+
+<p>help
+</p><ul>
+<li>C-h C-h
+</li>
+<li>C-h r
 </li>
 </ul>
 
@@ -436,13 +428,27 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 
+
 </div>
 
 </div>
 
 <div id="outline-container-2-1-6" class="outline-4">
-<h4 id="sec-2-1-6">difficults</h4>
+<h4 id="sec-2-1-6">Useful tips</h4>
 <div class="outline-text-4" id="text-2-1-6">
+
+<ul>
+<li>C-x C-f /sudo:root@localhost filename;;; Use Tramp to sudo open file
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-1-7" class="outline-4">
+<h4 id="sec-2-1-7">difficults</h4>
+<div class="outline-text-4" id="text-2-1-7">
 
 <p>Can't run ssh in emacs eshell/git bash on Windows7
 </p>
@@ -450,9 +456,9 @@ for the JavaScript code in this tag.
 
 </div>
 
-<div id="outline-container-2-1-7" class="outline-4">
-<h4 id="sec-2-1-7">emacs FAQ</h4>
-<div class="outline-text-4" id="text-2-1-7">
+<div id="outline-container-2-1-8" class="outline-4">
+<h4 id="sec-2-1-8">emacs FAQ</h4>
+<div class="outline-text-4" id="text-2-1-8">
 
 <ul>
 <li>Q:Dir tree is a good manner to go?
@@ -589,9 +595,11 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="postamble">
+<p class="date">Date: 2013-08-11T17:21+0800</p>
+<p class="author">Author: idlesong</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
 
-    <p>Copyright GFDL; @idlesong <a href="http://orgmode.org">;design from HTML5webtemplates.co.uk </a> </p>
-    
 </div>
 </body>
 </html>

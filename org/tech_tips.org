@@ -50,16 +50,19 @@ railsinstaller is a good starter for Win(includes bash/git/rubyonrail)
 - make
 - sudo make install
 - sudo make uninstall (if you want)
-*** emacs common command
-- window
+*** common commands
+window
 - C-x o: switch windows
 - C-x 0: close current window
 - C-x C-b; => m => t => D : kill all other buffers
-- Select Copy Paste
-- C-@: Mark Set Start, then move to the end
+Select Copy Paste
+- C-@/C-.: Mark Set Start, then move to the end
 - C-w: Cut
 - M-w: Copy
 - C-y: Paste
+help
+- C-h C-h
+- C-h r
 
 *** Dired cheatsheet
 - cursoner move:
@@ -76,6 +79,9 @@ railsinstaller is a good starter for Win(includes bash/git/rubyonrail)
 
 *** Org mode
 - Publishing: C-c C-e
+
+*** Useful tips
+- C-x C-f /sudo:root@localhost filename;;; Use Tramp to sudo open file
 *** difficults
 Can't run ssh in emacs eshell/git bash on Windows7
 
