@@ -1,9 +1,0 @@
-#+TITLE: Sitemap
-
-   + [[file:purcell_emacs_notes.org][Notes about usage of Purcell's .emacs.d config, thanks for binchen's blog.]]
-   + [[file:tech.org][Notes and draft of technical !!!only for myself!!!]]
-   + [[file:org_web_publish.org][Publish your whole static website to github,only use emacs org-mode(with git)]]
-   + [[file:tech_tips.org][Technical tips, for quick remeber.]]
-   + [[file:index.org][Welcome to Idlesong's web space!]]
-   + [[file:org_publish_html_tips.org][org_publish_html_tips]]
-   + [[file:rails_cheatsheet.org][rails_cheatsheet]]

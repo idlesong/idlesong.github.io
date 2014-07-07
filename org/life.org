@@ -1,8 +1,0 @@
-* Travel
-** Wikipedia (hangzhou travel resources)
-- [[http://zh.wikipedia.org/wiki/%E6%9D%AD%E5%B7%9E%E6%97%85%E6%B8%B8][Hangzhou place list]]
-- 偏于记载史实的《或淳临安志》,《梦梁录》《都城记胜》《武林旧事》
-- WebApp: like douban reader( to help read wikisource.org
-
-** Google maps(my maps)
-- big yangpu crazy run
