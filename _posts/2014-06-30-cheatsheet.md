@@ -7,6 +7,7 @@ categories: jekyll update
 参考github的cheatsheet， 通过css排版固定文件，然后通过快速导航
 
 ## git
+
 #### 创建新仓库
 - git init
 
@@ -27,6 +28,7 @@ categories: jekyll update
 - git reset –hard origin/master
 
 ## rails
+
 ##### Rails Basic Commands
 - rails new depot
 - rake db:migrate
