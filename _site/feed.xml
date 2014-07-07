@@ -5,8 +5,8 @@
     <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</description>
     <link>http://idlesong.github.io/</link>
     <atom:link href="http://idlesong.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 07 Jul 2014 08:55:25 +0800</pubDate>
-    <lastBuildDate>Mon, 07 Jul 2014 08:55:25 +0800</lastBuildDate>
+    <pubDate>Mon, 07 Jul 2014 10:14:10 +0800</pubDate>
+    <lastBuildDate>Mon, 07 Jul 2014 10:14:10 +0800</lastBuildDate>
     <generator>Jekyll v2.1.0</generator>
     
       <item>
@@ -42,17 +42,20 @@ To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; direc
 &lt;p&gt;参考github的cheatsheet， 通过css排版固定文件，然后通过快速导航&lt;/p&gt;
 
 &lt;h2 id=&quot;git&quot;&gt;git&lt;/h2&gt;
-&lt;p&gt;#### 创建新仓库
-- git init&lt;/p&gt;
 
-&lt;h4 id=&quot;section&quot;&gt;检出仓库&lt;/h4&gt;
+&lt;h4 id=&quot;section&quot;&gt;创建新仓库&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;git init&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;检出仓库&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;git clone /path/to/repository&lt;/li&gt;
   &lt;li&gt;git clone username@host:/path/to/repository&lt;/li&gt;
   &lt;li&gt;git clone&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section-1&quot;&gt;添加与提交&lt;/h4&gt;
+&lt;h4 id=&quot;section-2&quot;&gt;添加与提交&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;git status&lt;/li&gt;
   &lt;li&gt;git add &lt;filename&gt;&lt;/filename&gt;&lt;/li&gt;
@@ -61,27 +64,30 @@ To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; direc
   &lt;li&gt;git push origin master&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section-2&quot;&gt;丢弃本地代码,到服务器获取最新版本,并将本地主分支指向他&lt;/h4&gt;
+&lt;h4 id=&quot;section-3&quot;&gt;丢弃本地代码,到服务器获取最新版本,并将本地主分支指向他&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;git fetch origin&lt;/li&gt;
   &lt;li&gt;git reset –hard origin/master&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;rails&quot;&gt;rails&lt;/h2&gt;
-&lt;p&gt;##### Rails Basic Commands
-- rails new depot
-- rake db:migrate
-- rails g scaffold Product title:string des:text imageurl:string price:decimal
-- rails g scaffold cart
-- rails g scaffold line_item product_id:integer cartid:interger
-- rails g scaffold order name:string address:text email:string paytype:string
-- rails g controller store index
-- rails g migration combine_items_in_cart
-- rails g migration add_order_id_to_lineitem order_id:integer
-- rails g migration add_order_id_and_other_to_lineitem order_id:inter other:string
-- rails server
-- rake db:seed / db:migrate / db:rollback
-- rake test:units / test:functionals&lt;/p&gt;
+
+&lt;h5 id=&quot;rails-basic-commands&quot;&gt;Rails Basic Commands&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;rails new depot&lt;/li&gt;
+  &lt;li&gt;rake db:migrate&lt;/li&gt;
+  &lt;li&gt;rails g scaffold Product title:string des:text imageurl:string price:decimal&lt;/li&gt;
+  &lt;li&gt;rails g scaffold cart&lt;/li&gt;
+  &lt;li&gt;rails g scaffold line_item product_id:integer cartid:interger&lt;/li&gt;
+  &lt;li&gt;rails g scaffold order name:string address:text email:string paytype:string&lt;/li&gt;
+  &lt;li&gt;rails g controller store index&lt;/li&gt;
+  &lt;li&gt;rails g migration combine_items_in_cart&lt;/li&gt;
+  &lt;li&gt;rails g migration add_order_id_to_lineitem order_id:integer&lt;/li&gt;
+  &lt;li&gt;rails g migration add_order_id_and_other_to_lineitem order_id:inter other:string&lt;/li&gt;
+  &lt;li&gt;rails server&lt;/li&gt;
+  &lt;li&gt;rake db:seed / db:migrate / db:rollback&lt;/li&gt;
+  &lt;li&gt;rake test:units / test:functionals&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h4 id=&quot;rails-tips&quot;&gt;rails tips&lt;/h4&gt;
 &lt;ul&gt;
