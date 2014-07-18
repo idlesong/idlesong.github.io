@@ -15,6 +15,7 @@ EFI select sda (the default one)
 
 ### 3.安装好系统，需针对Macbook Air 2013稍作修改
 Ubuntu Gnome 14.04 在MacbookAir上安装bug已不太多，稍微修改即可。
+
 1. grub的修改
   - 在grub中添加nosmp参数; 修改/etc/defaults/grub文件，使其永久保存；
 2. wifi驱动的安装（Broadcom 802.11 Linux STA wireless driver）
