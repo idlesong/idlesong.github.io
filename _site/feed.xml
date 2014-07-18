@@ -5,9 +5,64 @@
     <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</description>
     <link>http://idlesong.github.io/</link>
     <atom:link href="http://idlesong.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 07 Jul 2014 10:14:10 +0800</pubDate>
-    <lastBuildDate>Mon, 07 Jul 2014 10:14:10 +0800</lastBuildDate>
+    <pubDate>Fri, 18 Jul 2014 10:33:40 +0800</pubDate>
+    <lastBuildDate>Fri, 18 Jul 2014 10:33:40 +0800</lastBuildDate>
     <generator>Jekyll v2.1.0</generator>
+    
+      <item>
+        <title>在MacbookAir2013上安装Ubuntu Gnome</title>
+        <description>&lt;h1 id=&quot;macbookair2013ubuntu-gnome-1404&quot;&gt;在MacbookAir2013上安装Ubuntu Gnome 14.04注意事项&lt;/h1&gt;
+
+&lt;h3 id=&quot;ubuntu-gnome-1404&quot;&gt;1.下载安装Ubuntu Gnome 14.04&lt;/h3&gt;
+&lt;p&gt;提示：Ubuntu Gnome 14.04已不再需要专门的Mac版本&lt;/p&gt;
+
+&lt;h3 id=&quot;httpwwwthatsthewayyoudoitme201304how-to-install-ubuntu-1304-on-macbookhtmlubuntu-gnome&quot;&gt;2.参考这个&lt;a href=&quot;http://www.thatsthewayyoudoit.me/2013/04/how-to-install-ubuntu-1304-on-macbook.html&quot;&gt;安装教程&lt;/a&gt;完成Ubuntu Gnome的安装。&lt;/h3&gt;
+&lt;p&gt;EFI select sda (the default one)&lt;/p&gt;
+
+&lt;p&gt;注意:安装Ubuntu时一定要选择： something else(to assign the / ).&lt;/p&gt;
+
+&lt;h3 id=&quot;macbook-air-2013&quot;&gt;3.安装好系统，需针对Macbook Air 2013稍作修改&lt;/h3&gt;
+&lt;p&gt;Ubuntu Gnome 14.04 在MacbookAir上安装bug已不太多，稍微修改即可。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;grub的修改
+    &lt;ul&gt;
+      &lt;li&gt;在grub中添加nosmp参数; 修改/etc/defaults/grub文件，使其永久保存；&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;wifi驱动的安装（Broadcom 802.11 Linux STA wireless driver）
+&lt;a href=&quot;http://launchpadlibrarian.net/157283339/bcmwl-kernel-source_6.30.223.141%2Bbdcom-0ubuntu2_amd64.deb&quot;&gt;driver deb&lt;/a&gt;;需要先安装dkms依赖&lt;/li&gt;
+  &lt;li&gt;按键的Bug修改
+grave asciitilde key:
+&amp;gt; xmodmap -e “keycode 49 shift = less greater”
+&amp;gt; xmodmap -e “keycode 94 shift = grave asciitilde”&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;ubuntu-gnome&quot;&gt;4.Ubuntu Gnome配置和常用软件安装&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;输入法的安装 Fcitx google-pinyin （安装好后用Fcitx配置工具选择）&lt;/li&gt;
+  &lt;li&gt;Chrome的安装&lt;/li&gt;
+  &lt;li&gt;goagent的安装&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;4.reference&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.thatsthewayyoudoit.me/2013/04/how-to-install-ubuntu-1304-on-macbook.html&quot;&gt;在MacbookAir2013上安装Ubuntu&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blogs.aerys.in/jeanmarc-leroux/2013/08/28/ubuntu-13-04-on-the-new-macbook-air-2013/&quot;&gt;修改Macbook上的ubuntu的bug&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.miek.nl/blog/archives/2013/08/31/macbook_air_61_2013_model_with_ubuntu/index.html&quot;&gt;修改Macbook上的ubuntu的bug2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://my.oschina.net/daizhe11/blog/170150&quot;&gt;ubuntu配置和常用软件&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 18 Jul 2014 00:00:00 +0800</pubDate>
+        <link>http://idlesong.github.io/jekyll/update/2014/07/18/UbuntuGnomeInstall/</link>
+        <guid isPermaLink="true">http://idlesong.github.io/jekyll/update/2014/07/18/UbuntuGnomeInstall/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
     
       <item>
         <title>Welcome to Jekyll!</title>
@@ -102,6 +157,8 @@ To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; direc
 &amp;gt; User.count&lt;/p&gt;
     &lt;/blockquote&gt;
   &lt;/li&gt;
+  &lt;li&gt;rake db:setup RAILS_ENV=production&lt;/li&gt;
+  &lt;li&gt;rails server -e production or: RAILS_ENV=production rails server&lt;/li&gt;
   &lt;li&gt;/bin/bash –login&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -116,10 +173,57 @@ select * from lineitems;
 &lt;p&gt;## linux&lt;/p&gt;
 
 &lt;h2 id=&quot;markdown&quot;&gt;Markdown&lt;/h2&gt;
+
+&lt;h2 id=&quot;postgres-with-rails&quot;&gt;postgres with rails&lt;/h2&gt;
+
+&lt;h3 id=&quot;postgres-&quot;&gt;postgres 用户命令&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;sudo su - postgres   //进入命令&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;psql -U dbuser -d exampledb -h 127.0.0.1 -p 5432&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;注意以下两条命令可以在psql中创建，但删除却不可以
+- dropuser -i -e dbuser
+- dropdb -i -e exampledb&lt;/p&gt;
+
+&lt;h3 id=&quot;psql-commandsq-&quot;&gt;psql commands(注意命令后的；\q 可在任何状态下退出)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;postgre=# CREATE USER dbuser With Password ‘password’;&lt;/li&gt;
+  &lt;li&gt;postgre=# Create database exampledb owner dbuser;&lt;/li&gt;
+  &lt;li&gt;postgre=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;&lt;/li&gt;
+  &lt;li&gt;postgre=# \q&lt;/li&gt;
+  &lt;li&gt;postgre=# \l list all databases&lt;/li&gt;
+  &lt;li&gt;postgre=# \td&lt;/li&gt;
+  &lt;li&gt;postgre=# \du list all users&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;notes&quot;&gt;notes&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Don’t forget host: localhost. //&lt;/li&gt;
+  &lt;li&gt;create role myapp with createdb login password ‘password1’&lt;/li&gt;
+  &lt;li&gt;Pipeline issue: in stylesheets references just reference application.css&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;setup-ruby-on-rails-with-postgres&quot;&gt;setup-ruby-on-rails-with-postgres&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-setup-ruby-on-rails-with-postgres&quot;&gt;how-to-setup-ruby-on-rails-with-postgres&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;note: Don’t forget host: localhost. //database.yml&lt;/p&gt;
+
+&lt;h3 id=&quot;local-postgres-setup&quot;&gt;local postgres setup&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;config.consider_all_requests_local = true&lt;/li&gt;
+  &lt;li&gt;rake db:setup RAILS_ENV=production&lt;/li&gt;
+  &lt;li&gt;rake assets:precompile&lt;/li&gt;
+  &lt;li&gt;rails server -e production  //or: RAILS_ENV=production rails server&lt;/li&gt;
+&lt;/ul&gt;
 </description>
-        <pubDate>Mon, 30 Jun 2014 00:00:00 +0800</pubDate>
-        <link>http://idlesong.github.io/jekyll/update/2014/06/30/cheatsheet/</link>
-        <guid isPermaLink="true">http://idlesong.github.io/jekyll/update/2014/06/30/cheatsheet/</guid>
+        <pubDate>Tue, 01 Jul 2014 00:00:00 +0800</pubDate>
+        <link>http://idlesong.github.io/jekyll/update/2014/07/01/cheatsheet/</link>
+        <guid isPermaLink="true">http://idlesong.github.io/jekyll/update/2014/07/01/cheatsheet/</guid>
         
         
         <category>jekyll</category>

@@ -7,7 +7,7 @@
     <title>cheatsheet gallery</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
-    <link rel="canonical" href="http://idlesong.github.io/jekyll/update/2014/06/30/cheatsheet/">
+    <link rel="canonical" href="http://idlesong.github.io/jekyll/update/2014/07/01/cheatsheet/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -61,7 +61,7 @@
 
   <header class="post-header">
     <h1>cheatsheet gallery</h1>
-    <p class="meta">Jun 30, 2014</p>
+    <p class="meta">Jul 1, 2014</p>
   </header>
 
   <article class="post-content">
@@ -129,6 +129,8 @@
 &gt; User.count</p>
     </blockquote>
   </li>
+  <li>rake db:setup RAILS_ENV=production</li>
+  <li>rails server -e production or: RAILS_ENV=production rails server</li>
   <li>/bin/bash –login</li>
 </ul>
 
@@ -143,6 +145,53 @@ select * from lineitems;
 <p>## linux</p>
 
 <h2 id="markdown">Markdown</h2>
+
+<h2 id="postgres-with-rails">postgres with rails</h2>
+
+<h3 id="postgres-">postgres 用户命令</h3>
+<ul>
+  <li>
+    <p>sudo su - postgres   //进入命令</p>
+  </li>
+  <li>
+    <p>psql -U dbuser -d exampledb -h 127.0.0.1 -p 5432</p>
+  </li>
+</ul>
+
+<p>注意以下两条命令可以在psql中创建，但删除却不可以
+- dropuser -i -e dbuser
+- dropdb -i -e exampledb</p>
+
+<h3 id="psql-commandsq-">psql commands(注意命令后的；\q 可在任何状态下退出)</h3>
+<ul>
+  <li>postgre=# CREATE USER dbuser With Password ‘password’;</li>
+  <li>postgre=# Create database exampledb owner dbuser;</li>
+  <li>postgre=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;</li>
+  <li>postgre=# \q</li>
+  <li>postgre=# \l list all databases</li>
+  <li>postgre=# \td</li>
+  <li>postgre=# \du list all users</li>
+</ul>
+
+<h3 id="notes">notes</h3>
+<ul>
+  <li>Don’t forget host: localhost. //</li>
+  <li>create role myapp with createdb login password ‘password1’</li>
+  <li>Pipeline issue: in stylesheets references just reference application.css</li>
+</ul>
+
+<h3 id="setup-ruby-on-rails-with-postgres">setup-ruby-on-rails-with-postgres</h3>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-setup-ruby-on-rails-with-postgres">how-to-setup-ruby-on-rails-with-postgres</a></p>
+
+<p>note: Don’t forget host: localhost. //database.yml</p>
+
+<h3 id="local-postgres-setup">local postgres setup</h3>
+<ul>
+  <li>config.consider_all_requests_local = true</li>
+  <li>rake db:setup RAILS_ENV=production</li>
+  <li>rake assets:precompile</li>
+  <li>rails server -e production  //or: RAILS_ENV=production rails server</li>
+</ul>
 
   </article>
 
