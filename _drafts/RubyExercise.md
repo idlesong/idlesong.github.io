@@ -14,5 +14,9 @@ Features:
 3. 能与wikisource对接,将反馈带回去
 4. 可能的话提供镜像功能,以便不翻墙的人阅读.
 
-Chrome cast
+### Chrome cast
 - 可以为此写各种各样的App了.
+
+### Web Study
+- 各种练习，上传到Heroku，blog中做个介绍和链接
+- JQuery实现Alfred的功能

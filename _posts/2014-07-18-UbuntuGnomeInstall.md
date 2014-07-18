@@ -1,10 +1,18 @@
+---
+layout: post
+title:  "在MacbookAir2013上安装Ubuntu Gnome"
+categories: jekyll update
+---
 # 在MacbookAir2013上安装Ubuntu Gnome 14.04注意事项
+
 ### 1.下载安装Ubuntu Gnome 14.04
 提示：Ubuntu Gnome 14.04已不再需要专门的Mac版本
+
 ### 2.参考这个[安装教程](http://www.thatsthewayyoudoit.me/2013/04/how-to-install-ubuntu-1304-on-macbook.html)完成Ubuntu Gnome的安装。
 EFI select sda (the default one)
 
 注意:安装Ubuntu时一定要选择： something else(to assign the / ).
+
 ### 3.安装好系统，需针对Macbook Air 2013稍作修改
 Ubuntu Gnome 14.04 在MacbookAir上安装bug已不太多，稍微修改即可。
 1. grub的修改

@@ -51,6 +51,3 @@ JQuery
 
 http://tympanus.net/Tutorials/CSS3Accordion/
 这里有很多CSS效果, 看能否有效得整合成类似 JQuery UI一样的theme.
-
-
-> Written with [StackEdit](https://stackedit.io/).
