@@ -25,7 +25,7 @@ categories: jekyll update
 
 #### 丢弃本地代码,到服务器获取最新版本,并将本地主分支指向他
 - git fetch origin
-- git reset –hard origin/master
+- git reset --hard origin/master
 
 ## rails
 
@@ -49,7 +49,7 @@ categories: jekyll update
     select * from orders;
     select * from lineitems;
     .quit;
-    
+
 #### rails tips
 - add colume to table(delete old migrate,delete db,g scaffold)
 - rails console
@@ -106,3 +106,5 @@ note: Don't forget host: localhost. //database.yml
 - rake db:setup RAILS_ENV=production
 - rake assets:precompile
 - rails server -e production  //or: RAILS_ENV=production rails server
+
+## bootstrap

@@ -1,4 +1,4 @@
-### Gnome Damme Lies 改进
+## Gnome Damme Lies 改进
 **如果按照github的思路改造应该不错**：
 
 #### 图形化git在Damne Lies的应用（毕竟翻译的人不是开发者）：
@@ -21,5 +21,9 @@
 - ××××为什么每版都要从头再翻译一遍，有没有办法重复利用？如gimp2.2的中文翻译。似乎发PO，对比以前PO，在线列出差异，然后之翻译有差异的部分，是否可行？节省时间，毕竟还有太多的软件没有翻译。
 - 另外把整个Manul放在github上供人自行修改岂不更好？把不同语言的翻译的PO剥离出来。
 
-### Gnome Software Center 改进
-软件能否和软件的社区结合：比如Wiki，Q&A，Online Documents；又或者使用Wikipedia的介绍（有Wikipedia介绍可以作为一个评价指标）
+## Gnome Software Center 改进
+- 软件能否和软件的社区结合：比如Wiki，Q&A，Online Documents；
+- 又或者使用Wikipedia的介绍（有Wikipedia介绍可以作为一个评价指标）
+
+## Gtk ruby
+- 整合一个类似rails一样的教程网站

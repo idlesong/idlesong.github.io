@@ -41,9 +41,6 @@ Features
 ** 方便
 ** 美观,可以的话
 
-#WebApp博客托管
+# WebApp博客托管
 轻博客如何升级建立像网页应用一样方便
 WordPress只提供建站工具，自动升级
-
-
-> Written with [StackEdit](https://stackedit.io/).
