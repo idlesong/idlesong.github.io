@@ -20,3 +20,8 @@ Features:
 ### Web Study
 - 各种练习，上传到Heroku，blog中做个介绍和链接
 - JQuery实现Alfred的功能
+
+### Rewrite gnome apps with ruby gtk
+- dictionary
+- calculator
+- note

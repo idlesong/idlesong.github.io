@@ -18,7 +18,8 @@
 
 #### note
 - gimp的在线手册要做到Ruby rails一样简洁
-- ××××为什么每版都要从头再翻译一遍，有没有办法重复利用？如gimp2.2的中文翻译。似乎发PO，对比以前PO，在线列出差异，然后之翻译有差异的部分，是否可行？节省时间，毕竟还有太多的软件没有翻译。
+- ××××为什么每版都要从头再翻译一遍，有没有办法重复利用？如gimp2.2的中文翻译。似乎发PO，对比以前PO，
+在线列出差异，然后之翻译有差异的部分，是否可行？节省时间，毕竟还有太多的软件没有翻译。
 - 另外把整个Manul放在github上供人自行修改岂不更好？把不同语言的翻译的PO剥离出来。
 
 ## Gnome Software Center 改进
@@ -27,3 +28,16 @@
 
 ## Gtk ruby
 - 整合一个类似rails一样的教程网站
+
+## App 资源
+- Command Apps need GUI
+- Gnome applications
+
+
+## gnome 畅想
+- GirFFI 能否改进成类似rails的框架（MVC），这样就不需要IDE了
+- Gnome javascript/css，有没可能搞个Browser式的调试工具
+
+## gnome software
+- 评论中的 关键字，留言者如果未标注label，其他人可以标注并通知原评论者，可按label显示
+- 自动装机工具：各种应用，特别是Software中有的

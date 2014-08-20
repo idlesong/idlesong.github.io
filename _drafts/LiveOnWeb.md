@@ -4,7 +4,7 @@
 
 [草莓音乐节的Geek感觉也不错](http://www.huxiu.com/article/33006/1.html)
 
-#网络黑珍珠
+# 网络黑珍珠
 
 P2P的信息沟通平台（永存网络P2P，旗帜永远有效，社交通信简单）
 
@@ -35,7 +35,7 @@ reddit的社区方式是否可以？
 
 blog除了twitter，facebook还能进化成什么？
 
-##去中心化： p2p，email？
+## 去中心化： p2p，email？
 标准的且能互相通信的理论上都是去中心化的？
 email也应算是去中心化
 
@@ -44,7 +44,7 @@ email也应算是去中心化
 IRC选用户名，需要再注册的方式也挺好
 
 
-#工具的进化
+# 工具的进化
 
 * Web 开发资源(CSS, JS, HTML)
 JQuery
