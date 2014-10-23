@@ -1,3 +1,9 @@
+### Usage
+- Running
+ ./twisterd -daemon -rpcuser=user -rpcpassword=pwd -rpcallowip=127.0.0.1
+- User Interface
+http://user:pwd@127.0.0.1:28332
+
 ### twister术语
 
 - torrent

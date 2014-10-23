@@ -8,5 +8,9 @@ twitter_username: idlesong
 github_username:  idlesong
 
 # Build settings
-markdown: kramdown
+#markdown: kramdown
+markdown: redcarpet
+#redcarpet:
+#  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
+
 permalink: pretty

@@ -5,52 +5,1025 @@
     <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</description>
     <link>http://idlesong.github.io/</link>
     <atom:link href="http://idlesong.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 18 Jul 2014 10:33:40 +0800</pubDate>
-    <lastBuildDate>Fri, 18 Jul 2014 10:33:40 +0800</lastBuildDate>
+    <pubDate>Wed, 24 Sep 2014 12:59:13 +0800</pubDate>
+    <lastBuildDate>Wed, 24 Sep 2014 12:59:13 +0800</lastBuildDate>
     <generator>Jekyll v2.1.0</generator>
     
       <item>
-        <title>在MacbookAir2013上安装Ubuntu Gnome</title>
-        <description>&lt;h1 id=&quot;macbookair2013ubuntu-gnome-1404&quot;&gt;在MacbookAir2013上安装Ubuntu Gnome 14.04注意事项&lt;/h1&gt;
+        <title>guide-start</title>
+        <description>&lt;h1&gt;ruby-gnome 2.2.0 ruby-gtk guide&lt;/h1&gt;
 
-&lt;h3 id=&quot;ubuntu-gnome-1404&quot;&gt;1.下载安装Ubuntu Gnome 14.04&lt;/h3&gt;
+&lt;h2&gt;Get started!&lt;/h2&gt;
+
+&lt;h3&gt;Introduction&lt;/h3&gt;
+
+&lt;h4&gt;About GTK&lt;/h4&gt;
+
+&lt;p&gt;GTK (GIMP Toolkit) is a library for creating graphical user interfaces. It is licensed using the LGPL license, so you can develop open software, free software, or even commercial non-free software using GTK without having to spend anything for licenses or royalties.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s called the GIMP toolkit because it was originally written for developing the GNU Image Manipulation Program (GIMP), but GTK has now been used in a large number of software projects, including the GNU Network Object Model Environment (GNOME) project. GTK is built on top of GDK (GIMP Drawing Kit) which is basically a wrapper around the low-level functions for accessing the underlying windowing functions (Xlib in the case of the X windows system), and gdk-pixbuf, a library for client-side image manipulation.
+(from GTK Tutorial)&lt;/p&gt;
+
+&lt;p&gt;GTK is essentially an object oriented application programmers interface (API). Although written completely in C, it is implemented using the idea of classes and callback functions (pointers to functions).&lt;/p&gt;
+
+&lt;p&gt;There is also a third component called GLib which contains a few replacements for some standard calls, as well as some additional functions for handling linked lists, etc. The replacement functions are used to increase GTK&amp;#39;s portability, as some of the functions implemented here are not available or are nonstandard on other Unixes such as g&lt;em&gt;strerror(). Some also contain enhancements to the libc versions, such as g&lt;/em&gt;malloc() that has enhanced debugging utilities.&lt;/p&gt;
+
+&lt;p&gt;In version 2.0, GLib has picked up the type system which forms the foundation for GTK&amp;#39;s class hierarchy, the signal system which is used throughout GTK, a thread API which abstracts the different native thread APIs of the various platforms and a facility for loading modules.&lt;/p&gt;
+
+&lt;p&gt;As the last component, GTK uses the Pango library for internationalized text output.&lt;/p&gt;
+
+&lt;h4&gt;About Ruby-GNOME2&lt;/h4&gt;
+
+&lt;p&gt;(according to the Ruby-GNOME2 Tutorial)&lt;/p&gt;
+
+&lt;p&gt;Ruby is &amp;quot;the interpreted scripting language for quick and easy object-oriented programing&amp;quot;. It has a simple syntax exception handling features to make it easy to handle errors. The operators are syntax sugar for methods, as you can redefine them easily. Ruby is a true OOL. This means that everything in Ruby is an object. Ruby is also cross platform, and will run on many types of UNIX, DOS, Windows, Mac, etc.&lt;/p&gt;
+
+&lt;p&gt;The primary author of Ruby is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;   Yukihiro Matsumoto (Matz)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ruby-GNOME2 is a binding for the Ruby language to use the GTK library, as well as some of the GNOME libraries. Ruby-GNOME2 provides a way to create a GUI frontend for anything you can write in Ruby.&lt;/p&gt;
+
+&lt;p&gt;The primary authors of Ruby-GNOME2 are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;   Masahiro Sakai&lt;/li&gt;
+&lt;li&gt;   Masao Mutoh&lt;/li&gt;
+&lt;li&gt;   Takehiro Kubo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;About this tutorial&lt;/h4&gt;
+
+&lt;p&gt;GTK is accessible through several programming languages, such as C++, Guile, Perl, Python, TOM, Ada95, Objective C, Free Pascal, Eiffel, Java, and C#. This document covers Ruby/GTK2, the Ruby binding for the GTK library version 2.&lt;/p&gt;
+
+&lt;p&gt;The reader should have some Ruby knowledge. It would be better if he/she has some experience on X programming, but this is not required.&lt;/p&gt;
+
+&lt;p&gt;This document is still under construction. Do not hesitate to send comments or ask questions to the mailing list. Any feedback will be greatly appreciated.&lt;/p&gt;
+
+&lt;h3&gt;First Start&lt;/h3&gt;
+
+&lt;p&gt;Obviously, you need to install Ruby-GNOME2 on your machine. Please consult one of our Install Guide. If your system is not yet covered, just download manually the latest package from SourceForge, decompress the tarball and read the README file for further instructions.&lt;/p&gt;
+
+&lt;p&gt;(More recently, installation process has been significantly improved - see the Installation documentation).&lt;/p&gt;
+
+&lt;p&gt;To begin our introduction to GTK, we&amp;#39;ll start with the simplest program possible. This program will create a 200x200 pixel window and has no way of exiting except to be killed by using the shell:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;gtk2&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Save this program in a file named base.rb, and call it with:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rb&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We will comment now each step of the program.&lt;/p&gt;
+
+&lt;p&gt;The first line links the Ruby/GTK2 library in the program.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;gtk2&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The second line uses Gtk::Window.new to create a new GTK window with default parameters, as follows:
+- size: 200x200
+- style: Gtk::Window::TOPLEVEL
+- style: Gtk::Window::POPUP ( does not work)
+- title: same as your program name (here: base.rb)&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The third line calls Gtk::Window#show to display the window we just created:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The last line enters the GTK main processing loop:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Gtk.main is another call you will see in every Ruby/GTK2 application. When control reaches this point, GTK will sleep waiting for X events (such as button or key presses), timeouts, or file IO notifications to occur. In our simple example, however, events are ignored.&lt;/p&gt;
+
+&lt;h5&gt;Note about the section Caveat&lt;/h5&gt;
+
+&lt;p&gt;Ideally all the features available in original C language GTK library should be found also in Ruby, however, where it does not make sense or is not absolutely necessary, they were omitted. For completion I&amp;#39;d like to point out to such omissions or any other relevant differences in the section, under the heading Caveat.&lt;/p&gt;
+
+&lt;h5&gt;Caveat&lt;/h5&gt;
+
+&lt;p&gt;As you&amp;#39;ve seen window type (style) can be either Gtk::Window::TOPLEVEL or Gtk::Window::POPUP. While you have some control of the size and placement of top-level windows on the display, the top-level window is ultimately controlled by window manager. However, the pop-up window is different. They are normally used for things that are often not considered windows, such tooltips and menus. They are ignored by the window manager, and therefor have no decorations or border frame. In Ruby the second POPUP style is mostly ignored, hence, there really is only one style of window to be considered, namely the default Gtk::Window::TOPLEVEL.&lt;/p&gt;
+
+&lt;p&gt;This may be the reason that Window instance methods that allow querying and setting Window type/style (Gtk::Window::type, ...) at the time of this writing are not supported, though you will find them in the documentation.&lt;/p&gt;
+
+&lt;p&gt;In particular, do not use Gtk::Window::POPUP just to turn off the window borders; use Gtk::Window#decorated= for that:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;TOPLEVEL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decorated&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Hello World!&lt;/h2&gt;
+
+&lt;p&gt;Here is a typical &amp;quot;Hello World&amp;quot; style program for Ruby/GTK2.&lt;/p&gt;
+
+&lt;p&gt;This program is also available in the file &amp;quot;gtk/sample/misc/helloworld.rb&amp;quot; in the ruby-gnome2 package.
+```ruby&lt;/p&gt;
+
+&lt;h1&gt;!/usr/bin/env ruby&lt;/h1&gt;
+
+&lt;p&gt;=begin
+  helloworld.rb - Ruby/GTK first sample script.&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2002,2003 Ruby-GNOME2 Project Team
+  This program is licenced under the same licence as Ruby-GNOME2.&lt;/p&gt;
+
+&lt;p&gt;$Id: helloworld.rb,v 1.4 2003/02/01 16:46:22 mutoh Exp $
+=end&lt;/p&gt;
+
+&lt;p&gt;require &amp;#39;gtk2&amp;#39;&lt;/p&gt;
+
+&lt;p&gt;button = Gtk::Button.new(&amp;quot;Hello World&amp;quot;)
+button.signal_connect(&amp;quot;clicked&amp;quot;) {
+  puts &amp;quot;Hello World&amp;quot;
+}&lt;/p&gt;
+
+&lt;p&gt;window = Gtk::Window.new
+window.signal&lt;em&gt;connect(&amp;quot;delete&lt;/em&gt;event&amp;quot;) {
+  puts &amp;quot;delete event occurred&amp;quot;
+  #true
+  false
+}&lt;/p&gt;
+
+&lt;p&gt;window.signal&lt;em&gt;connect(&amp;quot;destroy&amp;quot;) {
+  puts &amp;quot;destroy event occurred&amp;quot;
+  Gtk.main&lt;/em&gt;quit
+}&lt;/p&gt;
+
+&lt;p&gt;window.border&lt;em&gt;width = 10
+window.add(button)
+window.show&lt;/em&gt;all&lt;/p&gt;
+
+&lt;p&gt;Gtk.main
+```&lt;/p&gt;
+
+&lt;h2&gt;Mechanism of signals and callbacks&lt;/h2&gt;
+
+&lt;p&gt;Before looking at the &amp;quot;Hello World&amp;quot; program in details, we should study a bit how GTK handles signals and callbacks.&lt;/p&gt;
+
+&lt;p&gt;In the same way as your system delivers a signal to processes upon shutdown 1, GTK sends a signal to the main loop (Gtk.main) when a special event occured. The main loop will therefore call back the appropriate function of the widget.&lt;/p&gt;
+
+&lt;p&gt;Until a signal is received, the main loop will sleep.&lt;/p&gt;
+
+&lt;p&gt;In order to tell a GTK widget that it has to catch a specific signal, and then execute appropriate code, we need to set a signal handler.&lt;/p&gt;
+
+&lt;p&gt;This can be done with the GLib::Instantiatable#signal_connect method, which is part of the Ruby/GLib library (do not forget that GTK is built on GLib):&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;GLib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Instantiatable&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#signal_connect(&amp;quot;signal name&amp;quot;) do&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Code to execute when &amp;quot;signal name&amp;quot; is caught.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;GLib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Instantiatable&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#signal_connect needs 2 things:&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;signal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;which&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;will&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;be&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;caught&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;that&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;will&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;be&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;executed&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;upon&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reception&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;given&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;The&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;can&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;take&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;an&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;optional&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parameter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;follows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;GLib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Instantiatable&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#signal_connect(&amp;quot;signal name&amp;quot;) do |w|&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The widget which issues the signal will be therefore substituted by the parameter w.&lt;/p&gt;
+
+&lt;h2&gt;Events&lt;/h2&gt;
+
+&lt;p&gt;In addition to the above signal mechanism, events from the X Window Server are also reflected in GTK.&lt;/p&gt;
+
+&lt;p&gt;Here is an exhaustive list of catchable events:&lt;/p&gt;
+
+&lt;h4&gt;event&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;   button&lt;em&gt;press&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   button&lt;em&gt;release&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   scroll_event&lt;/li&gt;
+&lt;li&gt;   motion&lt;em&gt;notify&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   delete_event&lt;/li&gt;
+&lt;li&gt;   destroy_event&lt;/li&gt;
+&lt;li&gt;   expose_event&lt;/li&gt;
+&lt;li&gt;   key&lt;em&gt;press&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   key&lt;em&gt;release&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   enter&lt;em&gt;notify&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   leave&lt;em&gt;notify&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   configure_event&lt;/li&gt;
+&lt;li&gt;   focus&lt;em&gt;in&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   focus&lt;em&gt;out&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   map_event&lt;/li&gt;
+&lt;li&gt;   unmap_event&lt;/li&gt;
+&lt;li&gt;   property&lt;em&gt;notify&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   selection&lt;em&gt;clear&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   selection&lt;em&gt;request&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   selection&lt;em&gt;notify&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   proximity&lt;em&gt;in&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   proximity&lt;em&gt;out&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   visibility&lt;em&gt;notify&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   client_event&lt;/li&gt;
+&lt;li&gt;   no&lt;em&gt;expose&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   window&lt;em&gt;state&lt;/em&gt;event&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can connect some code to a specific X11 event exactly in the same way as we saw previously with GTK signals. Just provide one of the above mentioned &amp;quot;event name&amp;quot; instead of &amp;quot;signal name&amp;quot;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;GLib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Instantiatable&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#signal_connect(&amp;quot;event name&amp;quot;) do&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Code to execute upon reception of &amp;quot;event name&amp;quot;.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The callback code can accept 2 parameters, as follows:
+&lt;code&gt;ruby
+GLib::Instantiatable#signal_connect(&amp;quot;event name&amp;quot;) do |w, e|
+    # ...
+end
+&lt;/code&gt;
+(in this case, w will refer the widget, and e the event).&lt;/p&gt;
+
+&lt;p&gt;Depending of the return value of the block code, GTK will decide if the event should be spread or not:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;   if true, GTK will stop the event processing here;&lt;/li&gt;
+&lt;li&gt;   if false, GTK will continue to propagate the event [xxx explain more]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Also, GDK selections and drag-and-drop issue several events, but these are reflected by GTK signals:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;   selection_received&lt;/li&gt;
+&lt;li&gt;   selection_get&lt;/li&gt;
+&lt;li&gt;   drag&lt;em&gt;begin&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   drag&lt;em&gt;end&lt;/em&gt;event&lt;/li&gt;
+&lt;li&gt;   drag&lt;em&gt;data&lt;/em&gt;delete&lt;/li&gt;
+&lt;li&gt;   drag_motion&lt;/li&gt;
+&lt;li&gt;   drag_drop&lt;/li&gt;
+&lt;li&gt;   drag&lt;em&gt;data&lt;/em&gt;get&lt;/li&gt;
+&lt;li&gt;   drag&lt;em&gt;data&lt;/em&gt;received&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;More on Signals Handlers&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;#39;s take another look at GLib::Instantiatable#signal_connect:
+``` ruby
+% irb --simple-prompt&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;require &amp;#39;gtk2&amp;#39;
+=&amp;gt; true
+b = Gtk::Button.new(&amp;quot;hoge&amp;quot;)
+=&amp;gt; #&lt;Gtk::Button:0x40a2a858 ptr=0x8237df8&gt;
+b.signal&lt;em&gt;connect(&amp;quot;clicked&amp;quot;) { puts 1 }
+=&amp;gt; 1
+b.signal&lt;/em&gt;connect(&amp;quot;clicked&amp;quot;) { puts 2 }
+=&amp;gt; 2&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Notice the returned integer value?
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is a tag that identifies your callback block. As stated above, you may have as many callbacks per signal and per object as you need, and each will be executed in turn, in the order they were attached.&lt;/p&gt;
+
+&lt;p&gt;Now, we are going to manually emit a signal. The GLib::Instantiatable#signal_emit method will post the specified signal name passed as its argument.&lt;/p&gt;
+
+&lt;p&gt;You can observe here that our blocks are called in the order of their installation:
+``` ruby&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;b.signal_emit(&amp;quot;clicked&amp;quot;)
+1
+2
+=&amp;gt; nil&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;GLib::Instantiatable#signal&lt;em&gt;handler&lt;/em&gt;disconnect is used to remove a previously installed signal handler, identified by the tag returned by GLib::Instantiatable#signal_connect:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal_handler_disconnect&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;Gtk::Button:0x40a2a858 ptr=0x8237df8&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal_emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;clicked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can also temporarily disable a callback block code with GLib::Instantiatable#signal&lt;em&gt;handler&lt;/em&gt;block and GLib::Instantiatable#signal&lt;em&gt;handler&lt;/em&gt;unblock:
+``` ruby&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;b.signal&lt;em&gt;handler&lt;/em&gt;block 2
+=&amp;gt; #&lt;Gtk::Button:0x40a2a858 ptr=0x8237df8&gt;
+b.signal&lt;em&gt;emit(&amp;quot;clicked&amp;quot;)
+=&amp;gt; nil
+b.signal&lt;/em&gt;handler&lt;em&gt;unblock 2
+=&amp;gt; #&lt;Gtk::Button:0x40a2a858 ptr=0x8237df8&gt;
+b.signal&lt;/em&gt;emit(&amp;quot;clicked&amp;quot;)
+2
+=&amp;gt; nil&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;An Upgrade Hello world&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;#39;s take a look at a slightly improved helloworld with better examples of callbacks block. This will also introduce us to our next topic, packing widgets.
+```ruby&lt;/p&gt;
+
+&lt;h1&gt;!/usr/bin/env ruby&lt;/h1&gt;
+
+&lt;h1&gt;Initializes Ruby/GTK2, as usual.&lt;/h1&gt;
+
+&lt;p&gt;require &amp;#39;gtk2&amp;#39;&lt;/p&gt;
+
+&lt;h1&gt;A push on a button will call this method.&lt;/h1&gt;
+
+&lt;p&gt;def callback(widget)
+  # Display the &amp;#39;label&amp;#39; property of the widget.
+  # Refer to the API reference for more information.
+  puts &amp;quot;Hello again - #{widget.label}(#{widget}) was pressed.&amp;quot;
+end&lt;/p&gt;
+
+&lt;h1&gt;Creates the window.&lt;/h1&gt;
+
+&lt;p&gt;window = Gtk::Window.new&lt;/p&gt;
+
+&lt;h1&gt;Specify the title and border of the window.&lt;/h1&gt;
+
+&lt;p&gt;window.title = &amp;quot;Hello Buttons&amp;quot;
+window.border_width = 10&lt;/p&gt;
+
+&lt;h1&gt;The program will directly end upon &amp;#39;delete_event&amp;#39;.&lt;/h1&gt;
+
+&lt;p&gt;window.signal&lt;em&gt;connect(&amp;#39;delete&lt;/em&gt;event&amp;#39;) do
+  Gtk.main_quit
+  false
+end&lt;/p&gt;
+
+&lt;h1&gt;We create a box to pack widgets into.&lt;/h1&gt;
+
+&lt;h1&gt;This is described in detail in the following section.&lt;/h1&gt;
+
+&lt;h1&gt;The box is not really visible, it is just used as a tool to arrange&lt;/h1&gt;
+
+&lt;h1&gt;widgets.&lt;/h1&gt;
+
+&lt;p&gt;box1 = Gtk::HBox.new(false, 0)&lt;/p&gt;
+
+&lt;h1&gt;Put the box into the main window.&lt;/h1&gt;
+
+&lt;p&gt;window.add(box1)&lt;/p&gt;
+
+&lt;h1&gt;Creates a new button with the label &amp;quot;Button 1&amp;quot;.&lt;/h1&gt;
+
+&lt;p&gt;button1 = Gtk::Button.new(&amp;quot;Button 1&amp;quot;)&lt;/p&gt;
+
+&lt;h1&gt;Now when the button is clicked, we call the &amp;quot;callback&amp;quot; method&lt;/h1&gt;
+
+&lt;h1&gt;with a reference to &amp;quot;button 1&amp;quot; as its argument.&lt;/h1&gt;
+
+&lt;p&gt;button1.signal_connect( &amp;quot;clicked&amp;quot; ) do |w|
+  callback(w)
+end&lt;/p&gt;
+
+&lt;h1&gt;Instead of window.add, we pack this button into the invisible&lt;/h1&gt;
+
+&lt;h1&gt;box, which has been packed into the window.&lt;/h1&gt;
+
+&lt;p&gt;box1.pack_start(button1, true, true, 0)&lt;/p&gt;
+
+&lt;h1&gt;Do these same steps again to create a second button.&lt;/h1&gt;
+
+&lt;p&gt;button2 = Gtk::Button.new(&amp;quot;Button 2&amp;quot;)&lt;/p&gt;
+
+&lt;h1&gt;Call the same callback function with a different argument,&lt;/h1&gt;
+
+&lt;h1&gt;passing a reference to &amp;quot;button 2&amp;quot; instead.&lt;/h1&gt;
+
+&lt;p&gt;button2.signal_connect(&amp;quot;clicked&amp;quot;) do |w|
+  callback(w)
+end&lt;/p&gt;
+
+&lt;h1&gt;Pack the second button in a box as well.&lt;/h1&gt;
+
+&lt;p&gt;box1.pack_start(button2, true, true, 0)&lt;/p&gt;
+
+&lt;h1&gt;You may call the show method of each widgets, as follows:&lt;/h1&gt;
+
+&lt;h1&gt;button1.show&lt;/h1&gt;
+
+&lt;h1&gt;button2.show&lt;/h1&gt;
+
+&lt;h1&gt;box1.show&lt;/h1&gt;
+
+&lt;h1&gt;window.show&lt;/h1&gt;
+
+&lt;p&gt;window.show_all
+Gtk.main
+```
+Like the first Hello World, you&amp;#39;ll notice this time there is no easy way to exit the program, you have to use your window manager or command line to kill it.&lt;/p&gt;
+
+&lt;p&gt;A good exercise for the reader would be to insert a third &amp;quot;Quit&amp;quot; button that will exit the program.&lt;/p&gt;
+
+&lt;p&gt;You may also wish to play with the options to Gtk::Box#pack_start while reading the next section. Try resizing the window, and observe the behavior.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 23 Sep 2014 00:00:00 +0800</pubDate>
+        <link>http://idlesong.github.io/jekyll/update/2014/09/23/ruby-gtk-guide-start/</link>
+        <guid isPermaLink="true">http://idlesong.github.io/jekyll/update/2014/09/23/ruby-gtk-guide-start/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>guide-pack</title>
+        <description>&lt;h2&gt;Packing Widgets&lt;/h2&gt;
+
+&lt;p&gt;When creating an application, you&amp;#39;ll want to put more than one widget inside a window.&lt;/p&gt;
+
+&lt;p&gt;Our first helloworld example only used one widget so we could simply use
+&lt;a href=&quot;http://www.gtk.org&quot;&gt;Gtk::Container#add&lt;/a&gt;  to &amp;quot;pack&amp;quot; the widget into the window. But when you want to
+put more than one widget into a window, how do you control where that widget is positioned?&lt;/p&gt;
+
+&lt;p&gt;This is where packing comes in.&lt;/p&gt;
+
+&lt;h3&gt;Theory of Packing Boxes&lt;/h3&gt;
+
+&lt;p&gt;Most packing is done by creating boxes. These are invisible widget containers that we can pack our widgets into which come in two forms, a horizontal box, and a vertical box. When packing widgets into a horizontal box, the objects are inserted horizontally from left to right or right to left depending on the method used. In a vertical box, widgets are packed from top to bottom or vice versa. You may use any combination of boxes inside or beside other boxes to create the desired effect.&lt;/p&gt;
+
+&lt;p&gt;To create a new horizontal box, we use &lt;a href=&quot;&quot;&gt;Gtk::HBox.new&lt;/a&gt;, and for vertical boxes, &lt;a href=&quot;&quot;&gt;Gtk::VBox.new&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;&quot;&gt;Gtk::Box#pack_start&lt;/a&gt; and &lt;a href=&quot;&quot;&gt;Gtk::Box#pack_end&lt;/a&gt; methods are used to place objects inside of these containers.&lt;/p&gt;
+
+&lt;p&gt;The Gtk::Box#pack&lt;em&gt;start method will start at the top and work its way down in a vbox, and pack left to right in an hbox. Gtk::Box#pack&lt;/em&gt;end will do the opposite, packing from bottom to top in a vbox, and right to left in an hbox.&lt;/p&gt;
+
+&lt;p&gt;Using these methods allows us to right justify or left justify our widgets and may be mixed in any way to achieve the desired effect. We will use Gtk::Box#pack_start in most of our examples. An object may be another container or a widget. In fact, many widgets are actually containers themselves, including the button, but we usually only use a label inside a button.&lt;/p&gt;
+
+&lt;p&gt;By using these methods, GTK knows where you want to place your widgets so it can do automatic resizing and other nifty things. There are also a number of options as to how your widgets should be packed. As you can imagine, this method gives us a quite a bit of flexibility when placing and creating widgets.&lt;/p&gt;
+
+&lt;h3&gt;Details of Boxes&lt;/h3&gt;
+
+&lt;p&gt;Because of this flexibility, packing boxes in GTK can be confusing at first. There are a lot of options, and it&amp;#39;s not immediately obvious how they all fit together. In the end, however, there are basically five different styles.&lt;/p&gt;
+
+&lt;p&gt;packbox1.png&lt;/p&gt;
+
+&lt;p&gt;Each line contains one horizontal box (hbox) with several buttons. The call of Gtk::Box#pack is shorthand for the call to pack each of the buttons into the hbox. Each of the buttons is packed into the hbox the same way (i.e., same arguments to the Gtk::Box#pack_start method).&lt;/p&gt;
+
+&lt;h4&gt;Using Gtk::Box#pack_start method, looks like this:&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Box&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#pack_start(child, expand, fill, padding)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;The child argument is the object you are packing the into the box. The objects will all be buttons for now, so we&amp;#39;ll be packing buttons into boxes.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The expand argument to &lt;a href=&quot;&quot;&gt;Gtk::Box#pack_start&lt;/a&gt; and &lt;a href=&quot;&quot;&gt;Gtk::Box#pack_end&lt;/a&gt; controls how the widgets are laid out in the box:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;If expand is true&lt;/strong&gt;:
+widgets will fill in all the extra space in the box so the box is automatically expanded to fill the area allotted to it;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;If expand is false&lt;/strong&gt;:
+the box is shrunk to just fit the widgets.&lt;/p&gt;
+
+&lt;p&gt;Setting expand to false will allow you to do right and left justification of your widgets. Otherwise, they will all expand to fit into the box, and the same effect could be achieved by using only one of &lt;a href=&quot;&quot;&gt;Gtk::Box#pack_start&lt;/a&gt; or &lt;a href=&quot;&quot;&gt;Gtk::Box#pack_end&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The fill argument controls where the space given to the object by the expand option is allocated:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;If fill is true&lt;/strong&gt;:
+the object is extented to fit the allocated space;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;If fill is false&lt;/strong&gt;:
+the object is left with its original size, and extra padding is added around it.&lt;/p&gt;
+
+&lt;p&gt;Note that the fill argument only has an effect if the expand argument is true.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4&gt;Creating a new horizontal box, it looks like this:&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HBox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;homogeneous&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spacing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The homogeneous argument to &lt;a href=&quot;&quot;&gt;Gtk::HBox.new&lt;/a&gt; (and the same for &lt;a href=&quot;&quot;&gt;Gtk::VBox.new&lt;/a&gt;) controls whether each object in the box has the same size (i.e., the same width in an hbox, or the same height in a vbox). If it is set, the &lt;a href=&quot;&quot;&gt;Gtk::Box#pack_start&lt;/a&gt; or &lt;a href=&quot;&quot;&gt;Gtk::Box#pack_end&lt;/a&gt; methods work essentially as if the expand argument was always set to true.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;What&amp;#39;s the difference between spacing (set when the box is created) and padding (set when elements are packed)? Spacing is added between objects, and padding is added on either side of an object. The following screenshot should make it clearer:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;packbox2.png&lt;/p&gt;
+
+&lt;p&gt;Following is the code used to create the above screenshots. It is commented fairly heavily so I hope you won&amp;#39;t have any problems following it. Just play with it.&lt;/p&gt;
+
+&lt;h3&gt;Packing Demonstration Program&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env ruby&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;gtk2&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Make a new hbox filled with button-labels. Arguments for Gtk::HBox.new and&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Gtk::Box#pack_start we are interested are passed in to this method.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;make_box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;homogeneous&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spacing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HBox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;homogeneous&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spacing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;Gtk::Box#pack_start (button, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/ /&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Button&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Parse command line argument.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;which&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ARGV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shift&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;which&lt;/span&gt;
+    &lt;span class=&quot;vg&quot;&gt;$stderr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;usage: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$0&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; num&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;vg&quot;&gt;$stderr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;  where num is 1, 2, or 3.&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Creates the main window.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# You should always remember to connect the delete_event signal&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# to the main window. This is very important for proper intuitive&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# behavior.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;delete_event&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main_quit&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;border_width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# We create a vertical box (vbox) to pack the horizontal boxes into (created by make_box).&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# This allows us to stack the horizontal boxes filled with buttons one&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# on top of the other in this vbox.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;VBox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;which&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_i&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Creates and aligns a new label to the left side.  &lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# We&amp;#39;ll discuss this function and others in the section on Widget Attributes.&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Gtk::HBox.new(false, 0)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_alignment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# The 2 first entries are for homegeneous and spacing parameters for Gtk::HBox.new.&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# The 3 last entries are for expand, fill and padding parameters for Gtk::HBox#pack_start.&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;# Create a horizontal box with the specified parameters&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;# and pack it on top of the vertical box.&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;box2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;make_box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Insert a separator in the vertical box.&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;separator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HSeparator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;separator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Same as previous.&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Gtk::HBox.new(true, 0)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_alignment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;box2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;make_box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;separator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HSeparator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;separator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Gtk::HBox.new(false, 10)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_alignment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;box2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;make_box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;separator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HSeparator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;separator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Gtk::HBox.new(false, 0)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_alignment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;box2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;make_box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;separator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HSeparator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;separator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# This demonstrates the ability to use Gtk::Box#pack_end to&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# right justify widgets. First, we create a new box as before.&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;make_box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Create a label that will be put at the end.&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;end&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# A separator for the bottom.&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;separator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HSeparator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# This explicitly sets the separator to 400 pixels wide by 5 pixels&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# high. This is so the hbox we created will also be 400 pixels wide,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# and the &amp;quot;end&amp;quot; label will be separated from the other labels in the&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# hbox. Otherwise, all the widgets in the hbox would be packed as&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# close together as possible.&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;separator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_size_request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;400&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;separator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Creates a new box, and packs a &amp;#39;quit&amp;#39; button to it.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# This button can be used to terminate the program, exactly like the window&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# close cross.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;quitbox&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HBox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Button&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Quit&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;clicked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main_quit&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;quitbox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quitbox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;box1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Display all widgets.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show_all&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# As usual, we finish by entering the main loop, with Gtk.main.&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Packing Using Tables&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;#39;s take a look at another way of packing - Tables. These can be extremely useful in certain situations.&lt;/p&gt;
+
+&lt;p&gt;Using tables, we create a grid that we can place widgets in. The widgets may take up as many spaces as we specify.&lt;/p&gt;
+
+&lt;p&gt;The first thing to look at, of course, is the Gtk::Table.new constructor:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Table&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;homogeneous&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The first argument is the number of rows to make in the table, while the second, obviously, is the number of columns.&lt;/p&gt;
+
+&lt;p&gt;The homogeneous argument has to do with how the table&amp;#39;s boxes are sized. If homogeneous is true, the table boxes are resized to the size of the largest widget in the table. If homogeneous is false, the size of a table boxes is dictated by the tallest widget in its same row, and the widest widget in its column.&lt;/p&gt;
+
+&lt;p&gt;The rows and columns are laid out from 0 to n, where n was the number specified in Gtk::Table.new. So, if you specify rows = 2 and columns = 2, the layout would look something like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;.0          1          2
+0+----------+----------+
+ |          |          |
+1+----------+----------+
+ |          |          |
+2+----------+----------+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note that the coordinate system starts in the upper left hand corner. To place a widget into a box, use the following method:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Table&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#attach(child,&lt;/span&gt;
+                  &lt;span class=&quot;n&quot;&gt;left_attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right_attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;top_attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bottom_attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                  &lt;span class=&quot;n&quot;&gt;xoptions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yoptions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                  &lt;span class=&quot;n&quot;&gt;xpadding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ypadding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;The first argument (&amp;quot;child&amp;quot;) is the widget you wish to place in the table.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The left and right attach arguments specify where to place the widget, and how many boxes to use. If you want a button in the lower right table entry of our 2x2 table, and want it to fill that entry only, left&lt;em&gt;attach would be = 1, right&lt;/em&gt;attach = 2, top&lt;em&gt;attach = 1, bottom&lt;/em&gt;attach = 2.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now, if you wanted a widget to take up the whole top row of our 2x2 table, you&amp;#39;d use left&lt;em&gt;attach = 0, right&lt;/em&gt;attach = 2, top&lt;em&gt;attach = 0, bottom&lt;/em&gt;attach = 1.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;The xoptions and yoptions are used to specify packing options and may be bitwise OR&amp;#39;ed together*1 to allow multiple options.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;These options are:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gtk::FILL&lt;/strong&gt;
+   If the table box is larger than the widget, then this widget will expand to use all the room available.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gtk::SHRINK&lt;/strong&gt;
+   If the table widget was allocated less space than was requested (usually by the user resizing the window), then the widgets would normally just be pushed off the bottom of the window and disappear. If Gtk::SHRINK is specified, the widgets will shrink with the table.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gtk::EXPAND&lt;/strong&gt;
+   This will cause the table to expand to use up any remaining space in the window.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Padding is just like in Gtk::Box, creating a clear area around the widget specified in pixels.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Gtk::Table#attach has a lot of options. So, there&amp;#39;s a shortcut:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Table&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#attach_defaults(widget, left_attach, right_attach, top_attach, bottom_attach)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;The X and Y options default to &lt;a href=&quot;&quot;&gt;Gtk::FILL&lt;/a&gt; | &lt;a href=&quot;&quot;&gt;Gtk::EXPAND&lt;/a&gt;, and X and Y padding are set to 0. The rest of the arguments are identical to the previous method.&lt;/li&gt;
+&lt;li&gt;We also have Gtk::Table#set&lt;em&gt;row&lt;/em&gt;spacing and Gtk::Table#set&lt;em&gt;col&lt;/em&gt;spacing. These place spacing between the rows at the specified row or column.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;   &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Table&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#set_row_spacing(row, spacing)&lt;/span&gt;
+   &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Table&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#set_col_spacing(column, spacing)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note that for columns, the space goes to the right of the column, and for rows, the space goes below the row.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You can also set a consistent spacing of all rows and/or columns with:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Table&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#set_row_spacings(spacing)&lt;/span&gt;
+ &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Table&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#set_col_spacings(spacing)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note that with these calls, the last row and last column do not get any spacing.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;Table Packing Example&lt;/h3&gt;
+
+&lt;p&gt;Here we make a window with three buttons in a 2x2 table. The first two buttons will be placed in the upper row. A third, quit button, is placed in the lower row, spanning both columns.&lt;/p&gt;
+
+&lt;p&gt;Here is the source code:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env ruby&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;gtk2&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Table&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;delete_event&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main_quit&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;border_width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Creates a 2x2 table.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Table&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Button&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;button &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;clicked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hello again - button &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; was pressed&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Insert button 1 into the upper left quadrant of the table,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# and button 2 into the upper right quadrant of the table.&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attach_defaults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Button&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Quit&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;clicked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main_quit&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Insert the quit button into the both lower quadrants of the table.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attach_defaults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show_all&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        <pubDate>Mon, 22 Sep 2014 00:00:00 +0800</pubDate>
+        <link>http://idlesong.github.io/jekyll/update/2014/09/22/ruby-gtk-guide-pack/</link>
+        <guid isPermaLink="true">http://idlesong.github.io/jekyll/update/2014/09/22/ruby-gtk-guide-pack/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>guide-container</title>
+        <description>&lt;h2&gt;Container Widgets&lt;/h2&gt;
+
+&lt;h3&gt;Short Description&lt;/h3&gt;
+
+&lt;p&gt;We cover here two types of container widgets: decorators and layout containers. Then we will describe other important container widgets as mentioned on the above list.
+Container Widget&lt;/p&gt;
+
+&lt;h2&gt;Container Widget&lt;/h2&gt;
+
+&lt;p&gt;Gtk::Container class is an abstract base class for all GTK+ widgets. It introduces style properties and basic behaviour (functionality) needed by all Widgets. Container class is direct descendant of the Gtk::Widget class, hence all the Container objects are also Widgets. This is important to know because when you will have hard time finding an appropriate feature for your object it is likely that it is provided by the Widget class, which contains a large number of methods (behaviour or functionality), properties as well as signals. Nevertheless, we are here concerned only with the Container widgets.
+Decorator Containers&lt;/p&gt;
+
+&lt;h3&gt;Decorator Containers&lt;/h3&gt;
+
+&lt;p&gt;In every program so far you have encountered Gtk::Window class, a widget derived from Gtk::Bin. Bin class is a type of the container class that can hold only a single child widget. Widgets derived from this class are called decorator containers. They add some type of functionality to the child. For instance, a Gtk::Window is provides its child with the functionality of being placed in a top-level widget, a Gtk::Button makes its child into a clickable entity, a Gtk::Frame class draws a frame around its child, a Gtk::EventBox allows its child that otherwise is incapable of catching GDK events, to catch them for its child, or a Gtk::Expander hides or shows its child from users.&lt;/p&gt;
+
+&lt;h4&gt;Following is a list of classes (decorators) derived from Gtk::Bin:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;   Gtk::Window&lt;/li&gt;
+&lt;li&gt;   Gtk::Alignment&lt;/li&gt;
+&lt;li&gt;   Gtk::Frame&lt;/li&gt;
+&lt;li&gt;   Gtk::Button&lt;/li&gt;
+&lt;li&gt;   Gtk::Item&lt;/li&gt;
+&lt;li&gt;   Gtk::ComboBox&lt;/li&gt;
+&lt;li&gt;   Gtk::EventBox&lt;/li&gt;
+&lt;li&gt;   Gtk::Expander&lt;/li&gt;
+&lt;li&gt;   Gtk::HandleBox&lt;/li&gt;
+&lt;li&gt;   Gtk::ToolItem&lt;/li&gt;
+&lt;li&gt;   Gtk::ScrolledWindow&lt;/li&gt;
+&lt;li&gt;   Gtk::Viewport&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Layout Containers&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;   Gtk::Alignment - A widget which controls the alignment and size of its child&lt;/li&gt;
+&lt;li&gt;   Gtk::AspectFrame - A frame that constrains its child to a particular aspect ratio&lt;/li&gt;
+&lt;li&gt;   Gtk::HBox - A horizontal container box&lt;/li&gt;
+&lt;li&gt;   Gtk::VBox - A vertical container box&lt;/li&gt;
+&lt;li&gt;   Gtk::HButtonBox - A container for arranging buttons horizontally&lt;/li&gt;
+&lt;li&gt;   Gtk::VButtonBox - A container for arranging buttons vertically&lt;/li&gt;
+&lt;li&gt;   Gtk::Fixed - A container which allows you to position widgets at fixed coordinates&lt;/li&gt;
+&lt;li&gt;   Gtk::HPaned - A container with two panes arranged horizontally&lt;/li&gt;
+&lt;li&gt;   Gtk::VPaned - A container with two panes arranged vertically&lt;/li&gt;
+&lt;li&gt;   Gtk::Layout - Infinite scrollable area containing child widgets and/or custom drawing&lt;/li&gt;
+&lt;li&gt;   Gtk::Notebook - A tabbed notebook container&lt;/li&gt;
+&lt;li&gt;   Gtk::Table - Pack widgets in regular patterns&lt;/li&gt;
+&lt;li&gt;   Gtk::Expander - A container which can hide its child&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Container signals&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;   add&lt;/li&gt;
+&lt;li&gt;   check-resize&lt;/li&gt;
+&lt;li&gt;   remove&lt;/li&gt;
+&lt;li&gt;   set-focus-child&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Horizontal and Vertical Boxes&lt;/h3&gt;
+
+&lt;p&gt;contwidg-hwbox.png&lt;/p&gt;
+
+&lt;p&gt;The Gtk::Box is the abstract base class which provides almost all the behavior and properties for its descendants. On the other hand the horizontal and vertical box classes Gtk::HBox and Gtk::VBox, respectively provide only the functionality to create the widgets.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env ruby&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;gtk2&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;border_width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_size_request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;150&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Vd. - Boxes&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;delete_event&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;destroy&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main_quit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%w[Andrew Joe Samantha Jonatan]&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;# homogeneous, spacing&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;vbox&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;VBox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;btt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Button&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;btt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;clicked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;destroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;vbox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start_defaults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vbox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show_all&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Beside the fact that two of the programs create vertical and the other two horizontal boxes, the main difference to be noticed is in the difference how we pack the buttons. One packing instruction uses defaults, while the other takes after the child (button in our case) three additional arguments:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;expand = true; value true means the new child is to be given extra space allocated to box. The extra space will be divided evenly between all children of box that use this option.&lt;/li&gt;
+&lt;li&gt;fill = true; value true means that space given to child by the expand option is actually allocated to child, rather than just padding it. This parameter has no effect if expand is set to false.&lt;/li&gt;
+&lt;li&gt;padding = 0; this integer value represents extra space in pixels to put between this child and its neighbours&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There are actually exist four packing instance methods defined in the abstract base class Gtk::Box, from which both horizontal and vertical boxes are derived:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Box&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#pack_start(child, expand = true, fill = true, padding = 0)&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Box&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#pack_end(child, expand = true, fill = true, padding = 0)&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Box&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#pack_end_defaults(child)&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Box&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#pack_start_defaults(child)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In all of the above assigned values represent the default values.&lt;/p&gt;
+
+&lt;p&gt;For the completeness sake let me add also one of the other variants - this time the horizontal with explicitly specified &amp;quot;expand&amp;quot;, &amp;quot;fill&amp;quot;, and &amp;quot;padding&amp;quot; arguments.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env ruby&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;gtk2&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;border_width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_size_request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;150&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;H-Boxes&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;delete_event&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;destroy&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main_quit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%w[Andrew Joe Samantha Jonatan]&lt;/span&gt;
+
+           &lt;span class=&quot;c1&quot;&gt;# homogeneous, spacing&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;hbox&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HBox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;btt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Button&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;btt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;clicked&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;destroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+              &lt;span class=&quot;c1&quot;&gt;# child, expand, fill, padding&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;hbox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pack_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hbox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show_all&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Gtk::Box functionality (behaviour)&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;   &lt;strong&gt;pack_start(child, expand = true, fill = true, padding = 0)&lt;/strong&gt; - Adds child to box, packed with reference to the start of box. The child is packed after any other child packed with reference to the start of box.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;pack_end(child, expand = true, fill = true, padding = 0)&lt;/strong&gt; - Adds child to box, packed with reference to the end of box. The child is packed after (away from end of) any other child packed with reference to the end of box.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;pack&lt;em&gt;start&lt;/em&gt;defaults(widget)&lt;/strong&gt; - Adds widget to box, packed with reference to the start of box. The child is packed after any other child packed with reference to the start of box. Parameters for how to pack the child widget, expand, fill, and padding, are given their default values, true, true, and 0, respectively.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;pack&lt;em&gt;end&lt;/em&gt;defaults(widget)&lt;/strong&gt; - Adds widget to box, packed with reference to the end of box. The child is packed after (away from end of) any other child packed with reference to the end of box. Parameters for how to pack the child widget, expand, fill, and padding, are given their default values, true, true, and 0, respectively.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;homogeneous?&lt;/strong&gt; - Returns whether the box is homogeneous (all children are the same size).&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;homogeneous=(homogeneous)&lt;/strong&gt; - Sets the homogeneous field of Gtk::Box, controlling whether or not all children of box are given equal space in the box.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;set_homogeneous(homogeneous)&lt;/strong&gt; - Same as Gtk::Box#homogeneous=.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;spacing&lt;/strong&gt; - Returns the spacing.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;spacing=(spacing)&lt;/strong&gt; - Sets the spacing field of Gtk::Box, which is the number of pixels to place between children of box.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;set_spacing(spacing)&lt;/strong&gt; - Same as Gtk::Box#spacing=.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;reorder_child(child, position)&lt;/strong&gt; - Moves child to a new position in the list of box children. The list is the children field of Gtk::Box, and contains both widgets packed Gtk::PACK&lt;em&gt;START as well as widgets packed Gtk::PACK&lt;/em&gt;END, in the order that these widgets were added to box. A widget&amp;#39;s position in the box children list determines where the widget is packed into box. A child widget at some position in the list will be packed just after all other widgets of the same packing type that appear earlier in the list.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;query&lt;em&gt;child&lt;/em&gt;packing(child)&lt;/strong&gt; - Returns information about how child is packed into box.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;set&lt;em&gt;child&lt;/em&gt;packing(child, expand, fill, padding, pack_type)&lt;/strong&gt; - Sets the way child is packed into box.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;ref_accessible&lt;/strong&gt; - See Atk::Implementor#ref_accessible.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;add_child&lt;/strong&gt; - See Gtk::Buildable#add_child.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;construct_child&lt;/strong&gt; - See Gtk::Buildable#construct_child.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;get&lt;em&gt;internal&lt;/em&gt;child&lt;/strong&gt; - See Gtk::Buildable#get&lt;em&gt;internal&lt;/em&gt;child.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;name&lt;/strong&gt; - See Gtk::Buildable#name.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;name=&lt;/strong&gt; - See Gtk::Buildable#name=.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;set&lt;em&gt;buildable&lt;/em&gt;property&lt;/strong&gt; - See Gtk::Buildable#set&lt;em&gt;buildable&lt;/em&gt;property.&lt;/li&gt;
+&lt;li&gt;   &lt;strong&gt;set_name&lt;/strong&gt; - See Gtk::Buildable#set_name.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Properties&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;   homogeneous = false: true or false - Whether the children should all be the same size&lt;/li&gt;
+&lt;li&gt;   spacing: Integer - The amount of space between children&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Child Properties&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;   expand: true or false; (defauly = true) - Whether the child should receive extra space when the parent grows&lt;/li&gt;
+&lt;li&gt;   fill:true or false; (defauly = true) - Whether extra space given to the child should be allocated to the child or used as padding&lt;/li&gt;
+&lt;li&gt;   pack-type: (default = Gtk::PACK_START) - A Gtk#PackType indicating whether the child is packed with reference to the start or end of the parent&lt;/li&gt;
+&lt;li&gt;   padding: Integer - Extra space to put between the child and its neighbors, in pixels&lt;/li&gt;
+&lt;li&gt;   position: Integer - The index of the child in the parent&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 22 Sep 2014 00:00:00 +0800</pubDate>
+        <link>http://idlesong.github.io/jekyll/update/2014/09/22/ruby-gtk-guide-container/</link>
+        <guid isPermaLink="true">http://idlesong.github.io/jekyll/update/2014/09/22/ruby-gtk-guide-container/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>在MacbookAir2013上安装Ubuntu Gnome</title>
+        <description>&lt;h1&gt;在MacbookAir2013上安装Ubuntu Gnome 14.04注意事项&lt;/h1&gt;
+
+&lt;h3&gt;1.下载安装Ubuntu Gnome 14.04&lt;/h3&gt;
+
 &lt;p&gt;提示：Ubuntu Gnome 14.04已不再需要专门的Mac版本&lt;/p&gt;
 
-&lt;h3 id=&quot;httpwwwthatsthewayyoudoitme201304how-to-install-ubuntu-1304-on-macbookhtmlubuntu-gnome&quot;&gt;2.参考这个&lt;a href=&quot;http://www.thatsthewayyoudoit.me/2013/04/how-to-install-ubuntu-1304-on-macbook.html&quot;&gt;安装教程&lt;/a&gt;完成Ubuntu Gnome的安装。&lt;/h3&gt;
+&lt;h3&gt;2.参考这个&lt;a href=&quot;http://www.thatsthewayyoudoit.me/2013/04/how-to-install-ubuntu-1304-on-macbook.html&quot;&gt;安装教程&lt;/a&gt;完成Ubuntu Gnome的安装。&lt;/h3&gt;
+
 &lt;p&gt;EFI select sda (the default one)&lt;/p&gt;
 
 &lt;p&gt;注意:安装Ubuntu时一定要选择： something else(to assign the / ).&lt;/p&gt;
 
-&lt;h3 id=&quot;macbook-air-2013&quot;&gt;3.安装好系统，需针对Macbook Air 2013稍作修改&lt;/h3&gt;
+&lt;h3&gt;3.安装好系统，需针对Macbook Air 2013稍作修改&lt;/h3&gt;
+
 &lt;p&gt;Ubuntu Gnome 14.04 在MacbookAir上安装bug已不太多，稍微修改即可。&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;grub的修改
-    &lt;ul&gt;
-      &lt;li&gt;在grub中添加nosmp参数; 修改/etc/defaults/grub文件，使其永久保存；&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;wifi驱动的安装（Broadcom 802.11 Linux STA wireless driver）
-&lt;a href=&quot;http://launchpadlibrarian.net/157283339/bcmwl-kernel-source_6.30.223.141%2Bbdcom-0ubuntu2_amd64.deb&quot;&gt;driver deb&lt;/a&gt;;需要先安装dkms依赖&lt;/li&gt;
-  &lt;li&gt;按键的Bug修改
-grave asciitilde key:
-&amp;gt; xmodmap -e “keycode 49 shift = less greater”
-&amp;gt; xmodmap -e “keycode 94 shift = grave asciitilde”&lt;/li&gt;
-&lt;/ol&gt;
+&lt;li&gt;grub的修改
 
-&lt;h3 id=&quot;ubuntu-gnome&quot;&gt;4.Ubuntu Gnome配置和常用软件安装&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;输入法的安装 Fcitx google-pinyin （安装好后用Fcitx配置工具选择）&lt;/li&gt;
-  &lt;li&gt;Chrome的安装&lt;/li&gt;
-  &lt;li&gt;goagent的安装&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;reference&quot;&gt;4.reference&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.thatsthewayyoudoit.me/2013/04/how-to-install-ubuntu-1304-on-macbook.html&quot;&gt;在MacbookAir2013上安装Ubuntu&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://blogs.aerys.in/jeanmarc-leroux/2013/08/28/ubuntu-13-04-on-the-new-macbook-air-2013/&quot;&gt;修改Macbook上的ubuntu的bug&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.miek.nl/blog/archives/2013/08/31/macbook_air_61_2013_model_with_ubuntu/index.html&quot;&gt;修改Macbook上的ubuntu的bug2&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://my.oschina.net/daizhe11/blog/170150&quot;&gt;ubuntu配置和常用软件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;在grub中添加nosmp参数; 修改/etc/defaults/grub文件，使其永久保存；&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;wifi驱动的安装（Broadcom 802.11 Linux STA wireless driver）
+&lt;a href=&quot;http://launchpadlibrarian.net/157283339/bcmwl-kernel-source_6.30.223.141%2Bbdcom-0ubuntu2_amd64.deb&quot;&gt;driver deb&lt;/a&gt;;需要先安装dkms依赖&lt;/li&gt;
+&lt;li&gt;按键的Bug修改
+grave asciitilde key:
+&amp;gt; xmodmap -e &amp;quot;keycode 49 shift = less greater&amp;quot;
+&amp;gt; xmodmap -e &amp;quot;keycode 94 shift = grave asciitilde&amp;quot;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;4.Ubuntu Gnome配置和常用软件安装&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;输入法的安装 Fcitx google-pinyin （安装好后用Fcitx配置工具选择）&lt;/li&gt;
+&lt;li&gt;Chrome的安装&lt;/li&gt;
+&lt;li&gt;goagent的安装&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;4.reference&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.thatsthewayyoudoit.me/2013/04/how-to-install-ubuntu-1304-on-macbook.html&quot;&gt;在MacbookAir2013上安装Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blogs.aerys.in/jeanmarc-leroux/2013/08/28/ubuntu-13-04-on-the-new-macbook-air-2013/&quot;&gt;修改Macbook上的ubuntu的bug&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.miek.nl/blog/archives/2013/08/31/macbook_air_61_2013_model_with_ubuntu/index.html&quot;&gt;修改Macbook上的ubuntu的bug2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://my.oschina.net/daizhe11/blog/170150&quot;&gt;ubuntu配置和常用软件&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Fri, 18 Jul 2014 00:00:00 +0800</pubDate>
@@ -66,7 +1039,7 @@ grave asciitilde key:
     
       <item>
         <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory - edit this post and re-build (or run with the &lt;code&gt;-w&lt;/code&gt; switch) to see your changes!
+        <description>&lt;p&gt;You&amp;#39;ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory - edit this post and re-build (or run with the &lt;code&gt;-w&lt;/code&gt; switch) to see your changes!
 To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention: YYYY-MM-DD-name-of-post.ext.&lt;/p&gt;
 
 &lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
@@ -77,8 +1050,7 @@ To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; direc
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;.&lt;/p&gt;
-
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll&amp;#39;s GitHub repo&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Tue, 01 Jul 2014 00:14:50 +0800</pubDate>
         <link>http://idlesong.github.io/jekyll/update/2014/07/01/welcome-to-jekyll/</link>
@@ -93,133 +1065,144 @@ To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; direc
     
       <item>
         <title>cheatsheet gallery</title>
-        <description>&lt;h2 id=&quot;cheatsheet-gallery&quot;&gt;cheatsheet gallery&lt;/h2&gt;
+        <description>&lt;h2&gt;cheatsheet gallery&lt;/h2&gt;
+
 &lt;p&gt;参考github的cheatsheet， 通过css排版固定文件，然后通过快速导航&lt;/p&gt;
 
-&lt;h2 id=&quot;git&quot;&gt;git&lt;/h2&gt;
+&lt;h2&gt;git&lt;/h2&gt;
 
-&lt;h4 id=&quot;section&quot;&gt;创建新仓库&lt;/h4&gt;
+&lt;h4&gt;创建新仓库&lt;/h4&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;git init&lt;/li&gt;
+&lt;li&gt;git init&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section-1&quot;&gt;检出仓库&lt;/h4&gt;
+&lt;h4&gt;检出仓库&lt;/h4&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;git clone /path/to/repository&lt;/li&gt;
-  &lt;li&gt;git clone username@host:/path/to/repository&lt;/li&gt;
-  &lt;li&gt;git clone&lt;/li&gt;
+&lt;li&gt;git clone /path/to/repository&lt;/li&gt;
+&lt;li&gt;git clone username@host:/path/to/repository&lt;/li&gt;
+&lt;li&gt;git clone&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section-2&quot;&gt;添加与提交&lt;/h4&gt;
+&lt;h4&gt;添加与提交&lt;/h4&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;git status&lt;/li&gt;
-  &lt;li&gt;git add &lt;filename&gt;&lt;/filename&gt;&lt;/li&gt;
-  &lt;li&gt;git add .&lt;/li&gt;
-  &lt;li&gt;git commit -m “commit info”&lt;/li&gt;
-  &lt;li&gt;git push origin master&lt;/li&gt;
+&lt;li&gt;git status&lt;/li&gt;
+&lt;li&gt;git add &lt;filename&gt;&lt;/li&gt;
+&lt;li&gt;git add .&lt;/li&gt;
+&lt;li&gt;git commit -m &amp;quot;commit info&amp;quot;&lt;/li&gt;
+&lt;li&gt;git push origin master&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section-3&quot;&gt;丢弃本地代码,到服务器获取最新版本,并将本地主分支指向他&lt;/h4&gt;
+&lt;h4&gt;丢弃本地代码,到服务器获取最新版本,并将本地主分支指向他&lt;/h4&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;git fetch origin&lt;/li&gt;
-  &lt;li&gt;git reset –hard origin/master&lt;/li&gt;
+&lt;li&gt;git fetch origin&lt;/li&gt;
+&lt;li&gt;git reset --hard origin/master&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;rails&quot;&gt;rails&lt;/h2&gt;
+&lt;h2&gt;rails&lt;/h2&gt;
 
-&lt;h5 id=&quot;rails-basic-commands&quot;&gt;Rails Basic Commands&lt;/h5&gt;
+&lt;h5&gt;Rails Basic Commands&lt;/h5&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;rails new depot&lt;/li&gt;
-  &lt;li&gt;rake db:migrate&lt;/li&gt;
-  &lt;li&gt;rails g scaffold Product title:string des:text imageurl:string price:decimal&lt;/li&gt;
-  &lt;li&gt;rails g scaffold cart&lt;/li&gt;
-  &lt;li&gt;rails g scaffold line_item product_id:integer cartid:interger&lt;/li&gt;
-  &lt;li&gt;rails g scaffold order name:string address:text email:string paytype:string&lt;/li&gt;
-  &lt;li&gt;rails g controller store index&lt;/li&gt;
-  &lt;li&gt;rails g migration combine_items_in_cart&lt;/li&gt;
-  &lt;li&gt;rails g migration add_order_id_to_lineitem order_id:integer&lt;/li&gt;
-  &lt;li&gt;rails g migration add_order_id_and_other_to_lineitem order_id:inter other:string&lt;/li&gt;
-  &lt;li&gt;rails server&lt;/li&gt;
-  &lt;li&gt;rake db:seed / db:migrate / db:rollback&lt;/li&gt;
-  &lt;li&gt;rake test:units / test:functionals&lt;/li&gt;
+&lt;li&gt;rails new depot&lt;/li&gt;
+&lt;li&gt;rake db:migrate&lt;/li&gt;
+&lt;li&gt;rails g scaffold Product title:string des:text imageurl:string price:decimal&lt;/li&gt;
+&lt;li&gt;rails g scaffold cart&lt;/li&gt;
+&lt;li&gt;rails g scaffold line&lt;em&gt;item product&lt;/em&gt;id:integer cartid:interger&lt;/li&gt;
+&lt;li&gt;rails g scaffold order name:string address:text email:string paytype:string&lt;/li&gt;
+&lt;li&gt;rails g controller store index&lt;/li&gt;
+&lt;li&gt;rails g migration combine&lt;em&gt;items&lt;/em&gt;in_cart&lt;/li&gt;
+&lt;li&gt;rails g migration add&lt;em&gt;order&lt;/em&gt;id&lt;em&gt;to&lt;/em&gt;lineitem order_id:integer&lt;/li&gt;
+&lt;li&gt;rails g migration add&lt;em&gt;order&lt;/em&gt;id&lt;em&gt;and&lt;/em&gt;other&lt;em&gt;to&lt;/em&gt;lineitem order_id:inter other:string&lt;/li&gt;
+&lt;li&gt;rails server&lt;/li&gt;
+&lt;li&gt;rake db:seed / db:migrate / db:rollback&lt;/li&gt;
+&lt;li&gt;rake test:units / test:functionals&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;rails-tips&quot;&gt;rails tips&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;add colume to table(delete old migrate,delete db,g scaffold)&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;rails console&lt;/p&gt;
-
-    &lt;blockquote&gt;
-      &lt;p&gt;rails console
-&amp;gt; User.create(:name =&amp;gt; ‘dave’, :password =&amp;gt; ‘secret’,
-:password_confirmation =&amp;gt; ‘secret’)
-&amp;gt; User.count&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;rake db:setup RAILS_ENV=production&lt;/li&gt;
-  &lt;li&gt;rails server -e production or: RAILS_ENV=production rails server&lt;/li&gt;
-  &lt;li&gt;/bin/bash –login&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;rails-sqlite3&quot;&gt;rails sqlite3&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;sqlite3 -line db/development.sqlite3
+&lt;h4&gt;rails sqlite3&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sqlite3 -line db/development.sqlite3
 select * from orders;
 select * from lineitems;
 .quit;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;rails tips&lt;/h4&gt;
 
-&lt;h2 id=&quot;ruby&quot;&gt;ruby&lt;/h2&gt;
-&lt;p&gt;## linux&lt;/p&gt;
-
-&lt;h2 id=&quot;markdown&quot;&gt;Markdown&lt;/h2&gt;
-
-&lt;h2 id=&quot;postgres-with-rails&quot;&gt;postgres with rails&lt;/h2&gt;
-
-&lt;h3 id=&quot;postgres-&quot;&gt;postgres 用户命令&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;sudo su - postgres   //进入命令&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;psql -U dbuser -d exampledb -h 127.0.0.1 -p 5432&lt;/p&gt;
-  &lt;/li&gt;
+&lt;li&gt;add colume to table(delete old migrate,delete db,g scaffold)&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rails console&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;rails console&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;User.create(:name =&amp;gt; &amp;#39;dave&amp;#39;, :password =&amp;gt; &amp;#39;secret&amp;#39;,
+:password_confirmation =&amp;gt; &amp;#39;secret&amp;#39;)
+User.count&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rake db:setup RAILS_ENV=production&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rails server -e production or: RAILS_ENV=production rails server&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;/bin/bash --login&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;ruby&lt;/h2&gt;
+
+&lt;h2&gt;linux&lt;/h2&gt;
+
+&lt;h2&gt;Markdown&lt;/h2&gt;
+
+&lt;h2&gt;postgres with rails&lt;/h2&gt;
+
+&lt;h3&gt;postgres 用户命令&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;sudo su - postgres   //进入命令&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;psql -U dbuser -d exampledb -h 127.0.0.1 -p 5432&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;注意以下两条命令可以在psql中创建，但删除却不可以
 - dropuser -i -e dbuser
 - dropdb -i -e exampledb&lt;/p&gt;
 
-&lt;h3 id=&quot;psql-commandsq-&quot;&gt;psql commands(注意命令后的；\q 可在任何状态下退出)&lt;/h3&gt;
+&lt;h3&gt;psql commands(注意命令后的；\q 可在任何状态下退出)&lt;/h3&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;postgre=# CREATE USER dbuser With Password ‘password’;&lt;/li&gt;
-  &lt;li&gt;postgre=# Create database exampledb owner dbuser;&lt;/li&gt;
-  &lt;li&gt;postgre=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;&lt;/li&gt;
-  &lt;li&gt;postgre=# \q&lt;/li&gt;
-  &lt;li&gt;postgre=# \l list all databases&lt;/li&gt;
-  &lt;li&gt;postgre=# \td&lt;/li&gt;
-  &lt;li&gt;postgre=# \du list all users&lt;/li&gt;
+&lt;li&gt;postgre=# CREATE USER dbuser With Password &amp;#39;password&amp;#39;;&lt;/li&gt;
+&lt;li&gt;postgre=# Create database exampledb owner dbuser;&lt;/li&gt;
+&lt;li&gt;postgre=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;&lt;/li&gt;
+&lt;li&gt;postgre=# \q&lt;/li&gt;
+&lt;li&gt;postgre=# \l list all databases&lt;/li&gt;
+&lt;li&gt;postgre=# \td&lt;/li&gt;
+&lt;li&gt;postgre=# \du list all users&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;notes&quot;&gt;notes&lt;/h3&gt;
+&lt;h3&gt;notes&lt;/h3&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;Don’t forget host: localhost. //&lt;/li&gt;
-  &lt;li&gt;create role myapp with createdb login password ‘password1’&lt;/li&gt;
-  &lt;li&gt;Pipeline issue: in stylesheets references just reference application.css&lt;/li&gt;
+&lt;li&gt;Don&amp;#39;t forget host: localhost. //&lt;/li&gt;
+&lt;li&gt;create role myapp with createdb login password &amp;#39;password1&amp;#39;&lt;/li&gt;
+&lt;li&gt;Pipeline issue: in stylesheets references just reference application.css&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;setup-ruby-on-rails-with-postgres&quot;&gt;setup-ruby-on-rails-with-postgres&lt;/h3&gt;
+&lt;h3&gt;setup-ruby-on-rails-with-postgres&lt;/h3&gt;
+
 &lt;p&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-setup-ruby-on-rails-with-postgres&quot;&gt;how-to-setup-ruby-on-rails-with-postgres&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;note: Don’t forget host: localhost. //database.yml&lt;/p&gt;
+&lt;p&gt;note: Don&amp;#39;t forget host: localhost. //database.yml&lt;/p&gt;
 
-&lt;h3 id=&quot;local-postgres-setup&quot;&gt;local postgres setup&lt;/h3&gt;
+&lt;h3&gt;local postgres setup&lt;/h3&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;config.consider_all_requests_local = true&lt;/li&gt;
-  &lt;li&gt;rake db:setup RAILS_ENV=production&lt;/li&gt;
-  &lt;li&gt;rake assets:precompile&lt;/li&gt;
-  &lt;li&gt;rails server -e production  //or: RAILS_ENV=production rails server&lt;/li&gt;
+&lt;li&gt;config.consider&lt;em&gt;all&lt;/em&gt;requests_local = true&lt;/li&gt;
+&lt;li&gt;rake db:setup RAILS_ENV=production&lt;/li&gt;
+&lt;li&gt;rake assets:precompile&lt;/li&gt;
+&lt;li&gt;rails server -e production  //or: RAILS_ENV=production rails server&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2&gt;bootstrap&lt;/h2&gt;
 </description>
         <pubDate>Tue, 01 Jul 2014 00:00:00 +0800</pubDate>
         <link>http://idlesong.github.io/jekyll/update/2014/07/01/cheatsheet/</link>
