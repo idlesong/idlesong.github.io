@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Welcome to Jekyll!</title>
+    <title>Ubuntu Gnome常用软件</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
-    <link rel="canonical" href="http://idlesong.github.io/jekyll/update/2014/07/01/welcome-to-jekyll/">
+    <link rel="canonical" href="http://idlesong.github.io/jekyll/update/2014/11/12/ubuntuGnomeTips/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -60,23 +60,69 @@
       <div class="post">
 
   <header class="post-header">
-    <h1>Welcome to Jekyll!</h1>
-    <p class="meta">Jul 1, 2014</p>
+    <h1>Ubuntu Gnome常用软件</h1>
+    <p class="meta">Nov 12, 2014</p>
   </header>
 
   <article class="post-content">
-  <p>You&#39;ll find this post in your <code>_posts</code> directory - edit this post and re-build (or run with the <code>-w</code> switch) to see your changes!
-To add new posts, simply add a file in the <code>_posts</code> directory that follows the convention: YYYY-MM-DD-name-of-post.ext.</p>
+  <h2>UbuntuGnome 常用软件</h2>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<h2>中文输入法（fcitx-googlepinyin）</h2>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">&quot;Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">)</span>
-<span class="c1">#=&gt; prints &#39;Hi, Tom&#39; to STDOUT.</span></code></pre></div>
+<ol>
+<li>sudo apt-get install fcitx-googlepinyin</li>
+<li>fcitx-config (+googlepinyin,maybe need restart to show)</li>
+<li>default shortcut: ctrl+space</li>
+</ol>
 
-<p>Check out the <a href="http://jekyllrb.com">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll&#39;s GitHub repo</a>.</p>
+<h2>翻墙软件</h2>
+
+<h2>Atom</h2>
+
+<ol>
+<li>sudo add-apt-repository ppa:webupd8team/atom<br></li>
+<li>sudo apt-get update</li>
+<li>sudo apt-get install atom</li>
+</ol>
+
+<h2>ruby,rails环境的安装</h2>
+
+<p>1.
+1.</p>
+
+<h2>twister</h2>
+
+<h3>compile &amp; install</h3>
+
+<ol>
+<li>sudo apt-get update</li>
+<li>sudo apt-get install git autoconf libtool build-essential libboost-all-dev libssl-dev libdb++-dev libminiupnpc-dev</li>
+<li>git clone https://github.com/miguelfreitas/twister-core.git</li>
+<li>cd twister-core</li>
+<li>./bootstrap.sh</li>
+<li>./configure</li>
+<li>make</li>
+<li>mkdir ~/.twister</li>
+<li>git clone https://github.com/miguelfreitas/twister-html.git ~/.twister/html</li>
+</ol>
+
+<h3>run</h3>
+
+<ol>
+<li>./twisterd -rpcuser=user -rpcpassword=pwd -rpcallowip=127.0.0.1</li>
+<li>http://127.0.0.1:28332/index.html</li>
+</ol>
+
+<h2>Create App Launcher(desktop shortcut)</h2>
+
+<p>In 14.04 To create a shortcut on the desktop to an existing application: the
+simpelest solution is to copy the application&#39;s desktop file to the Desktop:</p>
+
+<ul>
+<li>go to /usr/share/applications,right click on the application&#39;s desktop file &gt;copy,</li>
+<li>go to your desktop, right click &gt;paste.</li>
+<li>Dont&#39;t forget to make it executable, its correct icon will appear after you made it executable.</li>
+</ul>
 
   </article>
 

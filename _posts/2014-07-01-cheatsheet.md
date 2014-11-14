@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "cheatsheet gallery"
+title:  "cheatsheet git,rails,markdown,jekyll,ruby"
 categories: jekyll update
 ---
-## cheatsheet gallery
+## cheatsheet(git,rails)
 参考github的cheatsheet， 通过css排版固定文件，然后通过快速导航
 
 ## git
@@ -18,7 +18,7 @@ categories: jekyll update
 
 #### 添加与提交
 - git status
-- git add <filename>
+- git add <filename> / git add -u
 - git add .
 - git commit -m "commit info"
 - git push origin master
@@ -63,13 +63,6 @@ categories: jekyll update
 - rails server -e production or: RAILS_ENV=production rails server
 - /bin/bash --login
 
-
-
-## ruby
-## linux
-
-## Markdown
-
 ## postgres with rails
 
 ### postgres 用户命令
@@ -107,4 +100,11 @@ note: Don't forget host: localhost. //database.yml
 - rake assets:precompile
 - rails server -e production  //or: RAILS_ENV=production rails server
 
+## ruby
+## linux
+
+## Markdown
+
 ## bootstrap
+
+##
