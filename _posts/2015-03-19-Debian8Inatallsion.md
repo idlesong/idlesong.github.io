@@ -27,10 +27,7 @@ categories: linux
 
 
 ### gnome-software
-### Atom
-### Shadowsocks
-
-## install software using command line
+1. /etc/apt/sourcelist: add Unstable and testing sources
 
 ```
 su
@@ -38,7 +35,9 @@ apt-get update
 apt-cache search gnome-music
 apt-get install gnome-music
 su - username
-```
+
+### Shadowsocks
+
 
 
 ##### install gnome-software
