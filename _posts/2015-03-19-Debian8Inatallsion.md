@@ -16,17 +16,11 @@ categories: linux
 
 ### tips of Debian 8 installation
 1. disk partion: (1)disk format: xfs (2)bootable: on
-1. install gnome-desktop need net mirrors
-1. install software using command line
-```
-su
-apt-get update
-apt-cache search gnome-music
-apt-get install gnome-music
-su - username
-```
+1. install gnome-desktop need net mirrors (1 CD)
+
+
 ## common software install tips
-### 中文输入法 fcitx－googlepinyin｜rime
+### 中文输入法 fcitx-googlepinyin｜rime
 1. sudo apt-get install fcitx-googlepinyin
 1. fcitx-config (+googlepinyin,maybe need restart to show)
 1. default shortcut: ctrl+space
@@ -36,6 +30,15 @@ su - username
 ### Atom
 ### Shadowsocks
 
+## install software using command line
+
+```
+su
+apt-get update
+apt-cache search gnome-music
+apt-get install gnome-music
+su - username
+```
 
 
 ##### install gnome-software
