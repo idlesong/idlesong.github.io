@@ -34,7 +34,7 @@ categories: jekyll update
 - rake db:migrate
 - rails g scaffold Product title:string des:text imageurl:string price:decimal
 - rails g scaffold cart
-- rails g scaffold line_item product_id:integer cartid:interger
+- rails g scaffold line_item product_id:integer cartid:integer
 - rails g scaffold order name:string address:text email:string paytype:string
 - rails g controller store index
 - rails g migration combine_items_in_cart
@@ -53,12 +53,12 @@ categories: jekyll update
 #### rails tips
 - add colume to table(delete old migrate,delete db,g scaffold)
 - rails console
-
+``` ruby
     >rails console
     >> User.create(:name => 'dave', :password => 'secret',
   :password_confirmation => 'secret')
     >> User.count
-
+```
 - rake db:setup RAILS_ENV=production
 - rails server -e production or: RAILS_ENV=production rails server
 - /bin/bash --login
@@ -107,4 +107,5 @@ note: Don't forget host: localhost. //database.yml
 
 ## bootstrap
 
-##
+## Atom
+[atom shortcut](http://d2wy8f7a9ursnm.cloudfront.net/atom-editor-cheat-sheet.pdf)
