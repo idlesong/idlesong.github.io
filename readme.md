@@ -1,13 +1,13 @@
 # Tech Notes
 ## technical stacks
-[git](./_drafts/techNotes/git.md)
-[markdown](./_drafts/techNotes/markdown.md)
-[atom](./_drafts/techNotes/atom.md)
-[rails](./drafts/techNotes/rails.md)
-[ruby](./_drafts/techNotes/ruby.md)
-[javascript](./_drafts/techNotes/javascript.md)
-[react-native ignite](./_drafts/techNotes/ignite.md)
-[linux](./_drafts/techNotes/linux.md)
+[git](./_drafts/techNotes/git.md) |
+[markdown](./_drafts/techNotes/markdown.md) |
+[atom](./_drafts/techNotes/atom.md) |
+[rails](./drafts/techNotes/rails.md) |
+[ruby](./_drafts/techNotes/ruby.md) |
+[javascript](./_drafts/techNotes/javascript.md) |
+[react-native-ignite](./_drafts/techNotes/ignite.md) |
+[linux](./_drafts/techNotes/linux.md) |
 
 ## git
 [git入门教程](http://rogerdudler.github.io/git-guide/)
@@ -32,12 +32,12 @@
 
 ## markdown
 [github markdown syntax](https://guides.github.com/features/mastering-markdown/)
+
+### [slides: remark](https://github.com/gnab/remark)
+### [markdown-to-slides](https://github.com/partageit/markdown-to-slides)
 ```
 markdown-to-slides -i markdown.md -o ./output_path/slideName.html
 ```
-### [github markdown](https://guides.github.com/features/mastering-markdown/)
-### [slides: remark](https://github.com/gnab/remark)
-### [markdown-to-slides](https://github.com/partageit/markdown-to-slides)
 
 ## atom
 ### atom shortcut
@@ -88,12 +88,7 @@ markdown-to-slides -i markdown.md -o ./output_path/slideName.html
 
 ## react-native ignite
 [ignite](https://github.com/infinitered/ignite)
-## cheatsheet
-reactotron-cli
-
-```
-npm start tron
-```
+### reactotron app
 
 ## linux
 ### Linux Commands
@@ -103,8 +98,3 @@ npm start tron
 ### Debian
 #### Debian installation(with software)
 ### Gnome
-### Softwares（常用软件）
-1. 输入法
-1. 翻墙软件
-1. Atom
-1. 工作环境：rails
