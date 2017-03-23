@@ -2,6 +2,7 @@
 layout: post
 title:  "Debian 8 and common softwares installation "
 categories: linux
+tags: [debian, linux]
 ---
 ## Debian 8 installation
 ### Prepare boot media(USB stick)

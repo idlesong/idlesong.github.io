@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "Ubuntu Gnome常用软件"
-categories: jekyll update
+categories: linux
+tags: [ubuntu, gnome]
 ---
 ## UbuntuGnome 常用软件
 

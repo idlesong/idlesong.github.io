@@ -1,16 +1,62 @@
-# Site settings
-title: Idlesong's mind space
-email: idlesong at gmail.com
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
-baseurl: ""
-url: "http://idlesong.github.io"
-twitter_username: idlesong
-github_username:  idlesong
+# Site Info
+title: Imagine space of idlesong
+tagline: 'Imagine space of idlesong'
+description: 'Imagine space of <a href="http://idlesong.github.io" target="_blank">@idlesong</a>.'
+baseurl: ''
+url: http://idlesong.github.io
+logo: '/public/logo.png'
 
-# Build settings
-#markdown: kramdown
-markdown: redcarpet
-#redcarpet:
-#  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
-
+# Site configurations
+gems:
+  - jekyll-paginate
+markdown: kramdown
+kramdown:
+  input: GFM
+excerpt_separator: "<!-- more -->"
+sass:
+  style: compressed
+  sass_dir: _scss
+paginate: 5
+paginate_path: '/blog/page:num'
 permalink: pretty
+
+version: 1.0.0
+
+# About/contact
+author:
+  name: Idlesong
+  description: Enjoy work, enjoy colorful life.
+  gravatar: 3c2986ad7ac1f2230ea3596f44563328 # md5 hash of your email address
+  contact:
+    # linkedin: <hide>
+    github:    https://github.com/idlesong
+    # facebook:  <hide>
+    twitter:   https://twitter.com/Li_Zhihao
+    # weibo:     http://weibo.com/41173780
+    # email:     http://www.google.com/recaptcha/mailhide/d?k=01I3lZFiZYng9N3QxYEtsDaQ==&c=31wAnZkuKqcG0ATAqJN8Z3ln5kkYLA9TwkGc-IbygpM=
+
+# Navigation (2nd level links supported)
+nav:
+  Home:
+    - '/'
+  Blog:
+    - '/blog/'
+    - { Categories: '/blog/categories/' }
+    - { Tags: '/blog/tags/' }
+  About:
+    - '/about/'
+  Github Project:
+    - 'http://idlesong.github.io/'
+
+# Where are tags and categories displayed
+tag_page: '/blog/tags/'
+category_page: '/blog/categories/'
+
+hero:
+  image: /public/img/we_will_be_giants_by_yalestewart.jpg
+  caption: Original Artwork &copy; <a href="http://yalestewart.deviantart.com/art/We-Will-Be-Giants-370176475">Yale Stewart</a>
+
+# Puglins
+mathjax: true # whether support mathjax
+google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
+disqus_short_name: 'your_short_name' # leave blank if you don't want disqus

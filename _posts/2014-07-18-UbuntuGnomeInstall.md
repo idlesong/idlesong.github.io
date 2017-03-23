@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "Ubuntu Gnome安装（MacbookAir2013）"
-categories: jekyll update
+categories: linux
+tags: [ubuntu, gnome]
 ---
 # 在MacbookAir2013上安装Ubuntu Gnome 14.04注意事项
 

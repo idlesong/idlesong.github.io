@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      cheatsheet git,rails,markdown,jekyll,ruby &middot; Imagine space of idlesong
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/main.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"> </script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], processEscapes: true } });
+  </script>
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="sidebar-personal-info">
+      <div class="sidebar-personal-info-section">
+        <a href="http://gravatar.com/3c2986ad7ac1f2230ea3596f44563328">
+          <!-- <img src="http://www.gravatar.com/avatar/3c2986ad7ac1f2230ea3596f44563328?s=350" title="View on Gravatar" alt="View on Gravatar" /> -->
+            <img src="/public/idlesong.png" />
+        </a>
+      </div>
+      <div class="sidebar-personal-info-section">
+        <p>Enjoy work, enjoy colorful life.</p>
+      </div>
+      
+      
+      
+      <div class="sidebar-personal-info-section">
+        <p> Follow me:
+        
+        
+        
+        <a href="https://github.com/idlesong">
+          <i class="fa fa-github" aria-hidden="true"></i>
+        </a>
+        
+        |
+        
+        
+        
+        <a href="https://twitter.com/Li_Zhihao">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        
+        
+        
+        </p>
+      </div>
+      
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    
+      
+      
+      
+
+      
+
+      <span class="">
+        <a class="sidebar-nav-item " href="/">
+          Home
+        </a>
+
+        
+      </span>
+
+    
+      
+      
+      
+
+      
+
+      <span class="foldable">
+        <a class="sidebar-nav-item " href="/blog/">
+          Blog
+        </a>
+
+        
+          
+            
+            
+            
+              <a class="sidebar-nav-item sidebar-nav-item-sub " href="/blog/categories/">
+                Categories
+              </a>
+          
+        
+          
+            
+            
+            
+              <a class="sidebar-nav-item sidebar-nav-item-sub " href="/blog/tags/">
+                Tags
+              </a>
+          
+        
+      </span>
+
+    
+      
+      
+      
+
+      
+
+      <span class="">
+        <a class="sidebar-nav-item " href="/about/">
+          About
+        </a>
+
+        
+      </span>
+
+    
+      
+      
+      
+
+      
+
+      <span class="">
+        <a class="sidebar-nav-item " href="http://idlesong.github.io/">
+          Github Project
+        </a>
+
+        
+      </span>
+
+    
+
+    <span class="sidebar-nav-item">Currently v1.0.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+    &copy; 2017 Idlesong. This work is liscensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+    </p>
+    <p>
+    Powered by <a href="http://jekyllrb.com">jekyll</a> and <a href="http://codinfox.github.io">codinfox-lanyon</a>
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home" title="Imagine space of idlesong">
+              <img class="masthead-logo" src="/public/logo.png"/>
+            </a>
+            <small>Imagine space of idlesong</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">cheatsheet git,rails,markdown,jekyll,ruby</h1>
+  <span class="post-date">01 Jul 2014</span>
+   | 
+  
+    <a href="/blog/tags/#tech" class="post-tag">tech</a>
+  
+    <a href="/blog/tags/#cheatsheet" class="post-tag">cheatsheet</a>
+  
+  
+  <article>
+    <h2 id="cheatsheetgitrails">cheatsheet(git,rails)</h2>
+<p>参考github的cheatsheet， 通过css排版固定文件，然后通过快速导航</p>
+
+<h2 id="git">git</h2>
+
+<h4 id="section">创建新仓库</h4>
+<ul>
+  <li>git init</li>
+</ul>
+
+<h4 id="section-1">检出仓库</h4>
+<ul>
+  <li>git clone /path/to/repository</li>
+  <li>git clone username@host:/path/to/repository</li>
+  <li>git clone</li>
+</ul>
+
+<h4 id="section-2">添加与提交</h4>
+<ul>
+  <li>git status</li>
+  <li>git add <filename> / git add -u</filename></li>
+  <li>git add .</li>
+  <li>git commit -m “commit info”</li>
+  <li>git push origin master</li>
+</ul>
+
+<h4 id="section-3">丢弃本地代码,到服务器获取最新版本,并将本地主分支指向他</h4>
+<ul>
+  <li>git fetch origin</li>
+  <li>git reset –hard origin/master</li>
+</ul>
+
+<h2 id="rails">rails</h2>
+
+<h5 id="rails-basic-commands">Rails Basic Commands</h5>
+<ul>
+  <li>rails new depot</li>
+  <li>rake db:migrate</li>
+  <li>rails g scaffold Product title:string des:text imageurl:string price:decimal</li>
+  <li>rails g scaffold cart</li>
+  <li>rails g scaffold line_item product_id:integer cartid:integer</li>
+  <li>rails g scaffold order name:string address:text email:string paytype:string</li>
+  <li>rails g controller store index</li>
+  <li>rails g migration combine_items_in_cart</li>
+  <li>rails g migration add_order_id_to_lineitem order_id:integer</li>
+  <li>rails g migration add_order_id_and_other_to_lineitem order_id:inter other:string</li>
+  <li>rails server</li>
+  <li>rake db:seed / db:migrate / db:rollback</li>
+  <li>rake test:units / test:functionals</li>
+</ul>
+
+<h4 id="rails-sqlite3">rails sqlite3</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>sqlite3 -line db/development.sqlite3
+select * from orders;
+select * from lineitems;
+.quit;
+</code></pre>
+</div>
+
+<h4 id="rails-tips">rails tips</h4>
+<ul>
+  <li>add colume to table(delete old migrate,delete db,g scaffold)</li>
+  <li>rails console
+    <div class="language-ruby highlighter-rouge"><pre class="highlight"><code>  <span class="o">&gt;</span><span class="n">rails</span> <span class="n">console</span>
+  <span class="o">&gt;&gt;</span> <span class="no">User</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">'dave'</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s1">'secret'</span><span class="p">,</span>
+<span class="ss">:password_confirmation</span> <span class="o">=&gt;</span> <span class="s1">'secret'</span><span class="p">)</span>
+  <span class="o">&gt;&gt;</span> <span class="no">User</span><span class="p">.</span><span class="nf">count</span>
+</code></pre>
+    </div>
+  </li>
+  <li>rake db:setup RAILS_ENV=production</li>
+  <li>rails server -e production or: RAILS_ENV=production rails server</li>
+  <li>/bin/bash –login</li>
+</ul>
+
+<h2 id="postgres-with-rails">postgres with rails</h2>
+
+<h3 id="postgres-">postgres 用户命令</h3>
+<ul>
+  <li>
+    <p>sudo su - postgres   //进入命令</p>
+  </li>
+  <li>
+    <p>psql -U dbuser -d exampledb -h 127.0.0.1 -p 5432</p>
+  </li>
+</ul>
+
+<p>注意以下两条命令可以在psql中创建，但删除却不可以</p>
+<ul>
+  <li>dropuser -i -e dbuser</li>
+  <li>dropdb -i -e exampledb</li>
+</ul>
+
+<h3 id="psql-commandsq-">psql commands(注意命令后的；\q 可在任何状态下退出)</h3>
+<ul>
+  <li>postgre=# CREATE USER dbuser With Password ‘password’;</li>
+  <li>postgre=# Create database exampledb owner dbuser;</li>
+  <li>postgre=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;</li>
+  <li>postgre=# \q</li>
+  <li>postgre=# \l list all databases</li>
+  <li>postgre=# \td</li>
+  <li>postgre=# \du list all users</li>
+</ul>
+
+<h3 id="notes">notes</h3>
+<ul>
+  <li>Don’t forget host: localhost. //</li>
+  <li>create role myapp with createdb login password ‘password1’</li>
+  <li>Pipeline issue: in stylesheets references just reference application.css</li>
+</ul>
+
+<h3 id="setup-ruby-on-rails-with-postgres">setup-ruby-on-rails-with-postgres</h3>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-setup-ruby-on-rails-with-postgres">how-to-setup-ruby-on-rails-with-postgres</a></p>
+
+<p>note: Don’t forget host: localhost. //database.yml</p>
+
+<h3 id="local-postgres-setup">local postgres setup</h3>
+<ul>
+  <li>config.consider_all_requests_local = true</li>
+  <li>rake db:setup RAILS_ENV=production</li>
+  <li>rake assets:precompile</li>
+  <li>rails server -e production  //or: RAILS_ENV=production rails server</li>
+</ul>
+
+<h2 id="ruby">ruby</h2>
+<h2 id="linux">linux</h2>
+
+<h2 id="markdown">Markdown</h2>
+
+<h2 id="bootstrap">bootstrap</h2>
+
+<h2 id="atom">Atom</h2>
+<p><a href="http://d2wy8f7a9ursnm.cloudfront.net/atom-editor-cheat-sheet.pdf">atom shortcut</a></p>
+
+  </article>
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/tech/2017/03/21/TechStacks/">
+            Technical stacks
+            <small>21 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/linux/2015/03/19/Debian8Inatallsion/">
+            Debian 8 and common softwares installation 
+            <small>19 Mar 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/linux/2014/11/12/ubuntuGnomeTips/">
+            Ubuntu Gnome常用软件
+            <small>12 Nov 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+<div class="comments">
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>
+var disqus_config = function () {
+  this.page.url = 'http://localhost:4000/tech/2014/07/01/cheatsheet/'; // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = '/tech/2014/07/01/cheatsheet'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() {
+  var d = document, s = d.createElement('script');
+  s.src = '//your_short_name.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if (target === toggle) {
+            checkbox.checked = !checkbox.checked;
+            e.preventDefault();
+          } else if (checkbox.checked && !sidebar.contains(target)) {
+            /* click outside the sidebar when sidebar is open */
+            checkbox.checked = false;
+          }
+        }, false);
+      })(document);
+    </script>
+    
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-00000000-1', 'auto');
+ga('send', 'pageview');
+    </script>
+    
+  </body>
+  
+  <script id="dsq-count-scr" src="//your_short_name.disqus.com/count.js" async></script>
+  
+</html>

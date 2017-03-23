@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "cheatsheet git,rails,markdown,jekyll,ruby"
-categories: jekyll update
+categories: tech
+tags: [tech, cheatsheet]
 ---
 ## cheatsheet(git,rails)
 参考github的cheatsheet， 通过css排版固定文件，然后通过快速导航
