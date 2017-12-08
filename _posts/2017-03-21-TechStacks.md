@@ -43,6 +43,7 @@ tags: [git, markdown, atom, rails, ruby, react-native, javascript, ignite, linux
 ```
 markdown-to-slides -i markdown.md -o ./output_path/slideName.html
 ```
+### Chrome print to pdf with 'Window Resizer Extension'
 
 ## atom
 ### atom shortcut

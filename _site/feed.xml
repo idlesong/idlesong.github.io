@@ -3,11 +3,93 @@
   <channel>
     <title>Imagine space of idlesong</title>
     <description>Imagine space of &lt;a href=&quot;http://idlesong.github.io&quot; target=&quot;_blank&quot;&gt;@idlesong&lt;/a&gt;.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 23 Mar 2017 17:49:30 +0800</pubDate>
-    <lastBuildDate>Thu, 23 Mar 2017 17:49:30 +0800</lastBuildDate>
+    <link>http://idlesong.github.io/</link>
+    <atom:link href="http://idlesong.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 08 Dec 2017 17:36:00 +0800</pubDate>
+    <lastBuildDate>Fri, 08 Dec 2017 17:36:00 +0800</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>HostBlogOverIPFS</title>
+        <description>&lt;h2 id=&quot;hostblogoveripfs&quot;&gt;HostBlogOverIPFS&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;install IPFS(js-ipfs)
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; npm install ipfs --global
+&amp;gt; jsipfs --help
+Commands:
+  bitswap               A set of commands to manipulate the bitswap agent.
+  block                 Manipulate raw IPFS blocks.
+  bootstrap             Show or edit the list of bootstrap peers.
+  commands              List all available commands
+  config &amp;lt;key&amp;gt; [value]  Get and set IPFS config values
+  daemon                Start a long-running daemon process
+# ...
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Start local ipfs node
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;jsipfs init
+&amp;gt;jsipfs daemon
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;check http://localhost:5002/webui&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Add blog to ipfs node
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;ipfs add -r public
+added  QmdrWEFDnRzeKfXq48CtWPYUxGo5A41yuDJE1MS622UU9f public
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;$SITE_HASH:  QmdrWEFDnRzeKfXq48CtWPYUxGo5A41yuDJE1MS622UU9f&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;visit the blog
+    &lt;ul&gt;
+      &lt;li&gt;check http://localhost:8080/ipfs/$SITE_HASH&lt;/li&gt;
+      &lt;li&gt;check http://gateway.ipfs.io/ipfs/$SITE_HASH&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://gateway.ipfs.io/ipfs/QmdrWEFDnRzeKfXq48CtWPYUxGo5A41yuDJE1MS622UU9f&quot;&gt;idlesong’s blog&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;notes&quot;&gt;notes&lt;/h3&gt;
+&lt;h4 id=&quot;js-ipfs-different-with-go-ipfs&quot;&gt;js-ipfs different with go-ipfs&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;default repo location: ~/.jsipfs (can be changed with env variable IPFS_PATH)&lt;/li&gt;
+  &lt;li&gt;default swarm port: 4002&lt;/li&gt;
+  &lt;li&gt;default API port: 5002&lt;/li&gt;
+  &lt;li&gt;default Bootstrap is off, to enable it set IPFS_BOOTSTRAP=1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;reference&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/ipfs/js-ipfs&quot;&gt;js-ipfs&lt;/a&gt;
+&lt;a href=&quot;https://ipfs.io/docs/getting-started/&quot;&gt;ipfs getting started&lt;/a&gt;
+&lt;a href=&quot;http://esgbox.com/20170413.html&quot;&gt;Hexo+IPFS搭建个人免服务器独立博客&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 08 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://idlesong.github.io/tech/2017/12/08/HostBlogOverIPFS/</link>
+        <guid isPermaLink="true">http://idlesong.github.io/tech/2017/12/08/HostBlogOverIPFS/</guid>
+        
+        <category>git</category>
+        
+        <category>markdown</category>
+        
+        <category>atom</category>
+        
+        <category>rails</category>
+        
+        <category>ruby</category>
+        
+        <category>react-native</category>
+        
+        <category>javascript</category>
+        
+        <category>ignite</category>
+        
+        <category>linux</category>
+        
+        
+        <category>tech</category>
+        
+      </item>
     
       <item>
         <title>Technical stacks</title>
@@ -58,6 +140,7 @@
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;markdown-to-slides -i markdown.md -o ./output_path/slideName.html
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;h3 id=&quot;chrome-print-to-pdf-with-window-resizer-extension&quot;&gt;Chrome print to pdf with ‘Window Resizer Extension’&lt;/h3&gt;
 
 &lt;h2 id=&quot;atom&quot;&gt;atom&lt;/h2&gt;
 &lt;h3 id=&quot;atom-shortcut&quot;&gt;atom shortcut&lt;/h3&gt;
@@ -127,8 +210,8 @@ select * from lineitems;
 &lt;h3 id=&quot;gnome&quot;&gt;Gnome&lt;/h3&gt;
 </description>
         <pubDate>Tue, 21 Mar 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/tech/2017/03/21/TechStacks/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2017/03/21/TechStacks/</guid>
+        <link>http://idlesong.github.io/tech/2017/03/21/TechStacks/</link>
+        <guid isPermaLink="true">http://idlesong.github.io/tech/2017/03/21/TechStacks/</guid>
         
         <category>git</category>
         
@@ -204,8 +287,8 @@ su - username
 &lt;/ol&gt;
 </description>
         <pubDate>Thu, 19 Mar 2015 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/linux/2015/03/19/Debian8Inatallsion/</link>
-        <guid isPermaLink="true">http://localhost:4000/linux/2015/03/19/Debian8Inatallsion/</guid>
+        <link>http://idlesong.github.io/linux/2015/03/19/Debian8Inatallsion/</link>
+        <guid isPermaLink="true">http://idlesong.github.io/linux/2015/03/19/Debian8Inatallsion/</guid>
         
         <category>debian</category>
         
@@ -289,8 +372,8 @@ simpelest solution is to copy the application’s desktop file to the Desktop:&l
 &lt;/ul&gt;
 </description>
         <pubDate>Wed, 12 Nov 2014 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/linux/2014/11/12/ubuntuGnomeTips/</link>
-        <guid isPermaLink="true">http://localhost:4000/linux/2014/11/12/ubuntuGnomeTips/</guid>
+        <link>http://idlesong.github.io/linux/2014/11/12/ubuntuGnomeTips/</link>
+        <guid isPermaLink="true">http://idlesong.github.io/linux/2014/11/12/ubuntuGnomeTips/</guid>
         
         <category>ubuntu</category>
         
@@ -349,8 +432,8 @@ xmodmap -e “keycode 94 shift = grave asciitilde”&lt;/p&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Fri, 18 Jul 2014 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/linux/2014/07/18/UbuntuGnomeInstall/</link>
-        <guid isPermaLink="true">http://localhost:4000/linux/2014/07/18/UbuntuGnomeInstall/</guid>
+        <link>http://idlesong.github.io/linux/2014/07/18/UbuntuGnomeInstall/</link>
+        <guid isPermaLink="true">http://idlesong.github.io/linux/2014/07/18/UbuntuGnomeInstall/</guid>
         
         <category>ubuntu</category>
         
@@ -498,8 +581,8 @@ select * from lineitems;
 &lt;p&gt;&lt;a href=&quot;http://d2wy8f7a9ursnm.cloudfront.net/atom-editor-cheat-sheet.pdf&quot;&gt;atom shortcut&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 01 Jul 2014 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/tech/2014/07/01/cheatsheet/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2014/07/01/cheatsheet/</guid>
+        <link>http://idlesong.github.io/tech/2014/07/01/cheatsheet/</link>
+        <guid isPermaLink="true">http://idlesong.github.io/tech/2014/07/01/cheatsheet/</guid>
         
         <category>tech</category>
         
@@ -551,8 +634,8 @@ select * from lineitems;
 &lt;p&gt;Thanks!&lt;/p&gt;
 </description>
         <pubDate>Thu, 02 Jan 2014 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2014/01/02/introducing-lanyon/</link>
-        <guid isPermaLink="true">http://localhost:4000/2014/01/02/introducing-lanyon/</guid>
+        <link>http://idlesong.github.io/2014/01/02/introducing-lanyon/</link>
+        <guid isPermaLink="true">http://idlesong.github.io/2014/01/02/introducing-lanyon/</guid>
         
         
       </item>
@@ -686,8 +769,8 @@ select * from lineitems;
 &lt;p&gt;Want to see something else added? &lt;a href=&quot;https://github.com/poole/poole/issues/new&quot;&gt;Open an issue.&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 01 Jan 2014 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2014/01/01/example-content/</link>
-        <guid isPermaLink="true">http://localhost:4000/2014/01/01/example-content/</guid>
+        <link>http://idlesong.github.io/2014/01/01/example-content/</link>
+        <guid isPermaLink="true">http://idlesong.github.io/2014/01/01/example-content/</guid>
         
         
       </item>
@@ -705,8 +788,8 @@ select * from lineitems;
 &lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Tue, 31 Dec 2013 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2013/12/31/whats-jekyll/</link>
-        <guid isPermaLink="true">http://localhost:4000/2013/12/31/whats-jekyll/</guid>
+        <link>http://idlesong.github.io/2013/12/31/whats-jekyll/</link>
+        <guid isPermaLink="true">http://idlesong.github.io/2013/12/31/whats-jekyll/</guid>
         
         
       </item>

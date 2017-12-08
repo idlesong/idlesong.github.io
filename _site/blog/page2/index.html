@@ -197,6 +197,166 @@ MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], proces
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/tech/2014/07/01/cheatsheet/">
+        cheatsheet git,rails,markdown,jekyll,ruby
+      </a>
+    </h1>
+
+    <span class="post-date">01 Jul 2014</span>
+     | 
+    
+    <a href="/blog/tags/#tech" class="post-tag">tech</a>
+    
+    <a href="/blog/tags/#cheatsheet" class="post-tag">cheatsheet</a>
+    
+    
+
+    <article>
+      <h2 id="cheatsheetgitrails">cheatsheet(git,rails)</h2>
+<p>参考github的cheatsheet， 通过css排版固定文件，然后通过快速导航</p>
+
+<h2 id="git">git</h2>
+
+<h4 id="section">创建新仓库</h4>
+<ul>
+  <li>git init</li>
+</ul>
+
+<h4 id="section-1">检出仓库</h4>
+<ul>
+  <li>git clone /path/to/repository</li>
+  <li>git clone username@host:/path/to/repository</li>
+  <li>git clone</li>
+</ul>
+
+<h4 id="section-2">添加与提交</h4>
+<ul>
+  <li>git status</li>
+  <li>git add <filename> / git add -u</filename></li>
+  <li>git add .</li>
+  <li>git commit -m “commit info”</li>
+  <li>git push origin master</li>
+</ul>
+
+<h4 id="section-3">丢弃本地代码,到服务器获取最新版本,并将本地主分支指向他</h4>
+<ul>
+  <li>git fetch origin</li>
+  <li>git reset –hard origin/master</li>
+</ul>
+
+<h2 id="rails">rails</h2>
+
+<h5 id="rails-basic-commands">Rails Basic Commands</h5>
+<ul>
+  <li>rails new depot</li>
+  <li>rake db:migrate</li>
+  <li>rails g scaffold Product title:string des:text imageurl:string price:decimal</li>
+  <li>rails g scaffold cart</li>
+  <li>rails g scaffold line_item product_id:integer cartid:integer</li>
+  <li>rails g scaffold order name:string address:text email:string paytype:string</li>
+  <li>rails g controller store index</li>
+  <li>rails g migration combine_items_in_cart</li>
+  <li>rails g migration add_order_id_to_lineitem order_id:integer</li>
+  <li>rails g migration add_order_id_and_other_to_lineitem order_id:inter other:string</li>
+  <li>rails server</li>
+  <li>rake db:seed / db:migrate / db:rollback</li>
+  <li>rake test:units / test:functionals</li>
+</ul>
+
+<h4 id="rails-sqlite3">rails sqlite3</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>sqlite3 -line db/development.sqlite3
+select * from orders;
+select * from lineitems;
+.quit;
+</code></pre>
+</div>
+
+<h4 id="rails-tips">rails tips</h4>
+<ul>
+  <li>add colume to table(delete old migrate,delete db,g scaffold)</li>
+  <li>rails console
+    <div class="language-ruby highlighter-rouge"><pre class="highlight"><code>  <span class="o">&gt;</span><span class="n">rails</span> <span class="n">console</span>
+  <span class="o">&gt;&gt;</span> <span class="no">User</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">'dave'</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s1">'secret'</span><span class="p">,</span>
+<span class="ss">:password_confirmation</span> <span class="o">=&gt;</span> <span class="s1">'secret'</span><span class="p">)</span>
+  <span class="o">&gt;&gt;</span> <span class="no">User</span><span class="p">.</span><span class="nf">count</span>
+</code></pre>
+    </div>
+  </li>
+  <li>rake db:setup RAILS_ENV=production</li>
+  <li>rails server -e production or: RAILS_ENV=production rails server</li>
+  <li>/bin/bash –login</li>
+</ul>
+
+<h2 id="postgres-with-rails">postgres with rails</h2>
+
+<h3 id="postgres-">postgres 用户命令</h3>
+<ul>
+  <li>
+    <p>sudo su - postgres   //进入命令</p>
+  </li>
+  <li>
+    <p>psql -U dbuser -d exampledb -h 127.0.0.1 -p 5432</p>
+  </li>
+</ul>
+
+<p>注意以下两条命令可以在psql中创建，但删除却不可以</p>
+<ul>
+  <li>dropuser -i -e dbuser</li>
+  <li>dropdb -i -e exampledb</li>
+</ul>
+
+<h3 id="psql-commandsq-">psql commands(注意命令后的；\q 可在任何状态下退出)</h3>
+<ul>
+  <li>postgre=# CREATE USER dbuser With Password ‘password’;</li>
+  <li>postgre=# Create database exampledb owner dbuser;</li>
+  <li>postgre=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;</li>
+  <li>postgre=# \q</li>
+  <li>postgre=# \l list all databases</li>
+  <li>postgre=# \td</li>
+  <li>postgre=# \du list all users</li>
+</ul>
+
+<h3 id="notes">notes</h3>
+<ul>
+  <li>Don’t forget host: localhost. //</li>
+  <li>create role myapp with createdb login password ‘password1’</li>
+  <li>Pipeline issue: in stylesheets references just reference application.css</li>
+</ul>
+
+<h3 id="setup-ruby-on-rails-with-postgres">setup-ruby-on-rails-with-postgres</h3>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-setup-ruby-on-rails-with-postgres">how-to-setup-ruby-on-rails-with-postgres</a></p>
+
+<p>note: Don’t forget host: localhost. //database.yml</p>
+
+<h3 id="local-postgres-setup">local postgres setup</h3>
+<ul>
+  <li>config.consider_all_requests_local = true</li>
+  <li>rake db:setup RAILS_ENV=production</li>
+  <li>rake assets:precompile</li>
+  <li>rails server -e production  //or: RAILS_ENV=production rails server</li>
+</ul>
+
+<h2 id="ruby">ruby</h2>
+<h2 id="linux">linux</h2>
+
+<h2 id="markdown">Markdown</h2>
+
+<h2 id="bootstrap">bootstrap</h2>
+
+<h2 id="atom">Atom</h2>
+<p><a href="http://d2wy8f7a9ursnm.cloudfront.net/atom-editor-cheat-sheet.pdf">atom shortcut</a></p>
+
+    <article>
+    <div class="post-more">
+      
+      <a href="/tech/2014/07/01/cheatsheet/#disqus_thread"> <i class="fa fa-comments" aria-hidden="true"></i>Comment</a>&nbsp;
+      
+      <a href="/tech/2014/07/01/cheatsheet/"><i class="fa fa-plus-circle" aria-hidden="true"></i>Read more</a>
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/2014/01/02/introducing-lanyon/">
         Introducing Lanyon
       </a>
