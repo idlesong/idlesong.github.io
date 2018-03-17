@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "HostBlogOverIPFS"
+title:  "Host Blog Over IPFS"
 categories: tech
-tags: [git, markdown, atom, rails, ruby, react-native, javascript, ignite, linux]
+tags: [ipfs, blog]
 ---
-## HostBlogOverIPFS
+## Host blog over IPFS
 1. blog powered by jekyll
 ```
 >jekyll build
@@ -39,7 +39,7 @@ added QmZsfVcdi6Q6TqFioQDgzGWxjdwft8da6mcGy8HjamV87p _site
 $SITE_HASH:  QmZsfVcdi6Q6TqFioQDgzGWxjdwft8da6mcGy8HjamV87p
 
 1. visit the blog
- - check http://localhost:8080/ipfs/$SITE_HASH
+ - check http://localhost:9090/ipfs/$SITE_HASH
  - check http://gateway.ipfs.io/ipfs/$SITE_HASH
  - [idlesong's blog](http://gateway.ipfs.io/ipfs/QmZsfVcdi6Q6TqFioQDgzGWxjdwft8da6mcGy8HjamV87p)
 
@@ -53,6 +53,7 @@ $SITE_HASH:  QmZsfVcdi6Q6TqFioQDgzGWxjdwft8da6mcGy8HjamV87p
 - default Bootstrap is off, to enable it set IPFS_BOOTSTRAP=1
 
 ## reference
-[js-ipfs](https://github.com/ipfs/js-ipfs)
-[ipfs getting started](https://ipfs.io/docs/getting-started/)
-[Hexo+IPFS搭建个人免服务器独立博客](http://esgbox.com/20170413.html)
+- [blog powered by jekll](https://jekyllrb.com/)
+- [js-ipfs](https://github.com/ipfs/js-ipfs)
+- [ipfs getting started](https://ipfs.io/docs/getting-started/)
+- [Hexo+IPFS搭建个人免服务器独立博客](http://esgbox.com/20170413.html)
