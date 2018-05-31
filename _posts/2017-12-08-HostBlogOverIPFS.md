@@ -42,7 +42,7 @@ $SITE_HASH:  QmZsfVcdi6Q6TqFioQDgzGWxjdwft8da6mcGy8HjamV87p
  - check http://localhost:9090/ipfs/$SITE_HASH
  - check http://gateway.ipfs.io/ipfs/$SITE_HASH
  - [idlesong's blog](http://gateway.ipfs.io/ipfs/QmZsfVcdi6Q6TqFioQDgzGWxjdwft8da6mcGy8HjamV87p)
-
+ - [tutorials](http://127.0.0.1:9090/ipfs/QmdPtC3T7Kcu9iJg6hYzLBWR5XCDcYMY7HV685E3kH3EcS/2015/09/15/hosting-a-website-on-ipfs/index.html)  
 
 
 ### notes
@@ -52,8 +52,12 @@ $SITE_HASH:  QmZsfVcdi6Q6TqFioQDgzGWxjdwft8da6mcGy8HjamV87p
 - default API port: 5002
 - default Bootstrap is off, to enable it set IPFS_BOOTSTRAP=1
 
+#### web extension
+- http://localhost:5002/webui/ should be http://localhost:5002/webui
+
 ## reference
 - [blog powered by jekll](https://jekyllrb.com/)
 - [js-ipfs](https://github.com/ipfs/js-ipfs)
 - [ipfs getting started](https://ipfs.io/docs/getting-started/)
 - [Hexo+IPFS搭建个人免服务器独立博客](http://esgbox.com/20170413.html)
+- [Beaker dat](https://lifent.xyz/)

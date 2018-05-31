@@ -58,6 +58,7 @@ if (__DEV__) console.tron.log(formatTime)
 ## extend tech stacks
 ### react-native-amap3d
 ### bluetooth
+[react-native-ble-plx](https://github.com/Polidea/react-native-ble-plx)
 
 ## tips: full work steps
 ```
