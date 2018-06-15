@@ -32,19 +32,48 @@ tags: [Debian, Linux]
   - content font size: ctrl + '+'
 
 ## Common softwares installation
-### 中文输入法 fcitx-googlepinyin｜rime
-1. sudo apt-get install fcitx-googlepinyin
-1. fcitx-config (+googlepinyin,maybe need restart to show)
-1. default shortcut: ctrl+space
+### 中文输入法 ibus-pinyin, ibus-rime
+1. Setup Chinese Language first
+```
+$ sudo vi /etc/locale.gen
+# uncomment zh.CN.UTF-8 UTF-8
+$ locale.gen
+# gnome-settings/Region & Language, select 汉语
+```
+1. install ibus-pinyin, ibus-rime
+1. ibus-setup
 
 ### Node, react-native, yarn, ignite
-1. [node & npm](https://nodejs.org/en/download/package-manager/)
 
+1. install node/npm
 ```
 curl -sSL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
-1. react-native: ```npm install -g react-native-cli```
+1. install react-native-cli && ignite
+```
+$ npm install -g react-native-cli
+$ npm install -g ignite-cli
+```
+
+1. create react-native project with ignite
+```
+$ ignite new PizzaApp
+```
+
+1. run
+```
+$ npm start
+# run avd from android studio, or use a command as below ?
+$ ~/Android/sdk/tools/emulator -avd Nexus_5X_API_23 -netdelay none -netspeed full
+$ react-native run-android
+```
+
+1. [react-native: android](https://facebook.github.io/react-native/docs/getting-started.html)
+1. [node & npm](https://nodejs.org/en/download/package-manager/)
+1.  [react-native.cn](https://reactnative.cn/docs/0.51/getting-started.html)
+1. [android.cn](https://developer.android.google.cn/)
+1. tips: GFW will cause a lot of strange problems.
 
 ### ruby, rails
 
@@ -55,3 +84,5 @@ sudo apt-get install -y nodejs
 2. [10分钟掌握Linux vi编辑器常见命令的使用，最简单的vi编辑器教程](http://c.biancheng.net/cpp/html/2735.html)
 3. [intel wifi drivers: iwlwifi](https://packages.debian.org/jessie/firmware-iwlwifi)
 4. [25 apt-get commands](https://www.tecmint.com/useful-basic-commands-of-apt-get-and-apt-cache-for-package-management/)
+5. [Chinese input need set Chinese language first](https://www.linuxdashen.com/debian-8%e5%a6%82%e4%bd%95%e5%b0%86%e8%af%ad%e8%a8%80%e4%bb%8e%e8%8b%b1%e6%96%87%e6%9b%b4%e6%94%b9%e4%b8%ba%e4%b8%ad%e6%96%87)
+[英文环境下使用中文输入法](https://blog.csdn.net/u010187139/article/details/40859267)
