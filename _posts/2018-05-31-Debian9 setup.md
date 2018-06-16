@@ -43,25 +43,25 @@ $ locale.gen
 1. install ibus-pinyin, ibus-rime
 1. ibus-setup
 
-### Node, react-native, yarn, ignite
+### Node/npm, yarn, react-native, ignite setup
 
-1. install node/npm
+1. [install node/npm](https://nodejs.org/en/download/package-manager/)
 ```
 curl -sSL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
-1. install react-native-cli && ignite
+1. install react-native-cli && ignite(reactotron)
 ```
 $ npm install -g react-native-cli
 $ npm install -g ignite-cli
 ```
-
+ - Reactotron(download, unzip, run reactotron; install dependencies)
 1. create react-native project with ignite
 ```
 $ ignite new PizzaApp
 ```
 
-1. run
+1. react-native run
 ```
 $ npm start
 # run avd from android studio, or use a command as below ?
@@ -70,10 +70,9 @@ $ react-native run-android
 ```
 
 1. [react-native: android](https://facebook.github.io/react-native/docs/getting-started.html)
-1. [node & npm](https://nodejs.org/en/download/package-manager/)
-1.  [react-native.cn](https://reactnative.cn/docs/0.51/getting-started.html)
-1. [android.cn](https://developer.android.google.cn/)
-1. tips: GFW will cause a lot of strange problems.
+1. GFW issues:
+ - May cause many strange iusses, such as curl.
+ - mirros: [react-native.cn](https://reactnative.cn/docs/0.51/getting-started.html); [android.cn](https://developer.android.google.cn/)
 
 ### ruby, rails
 
@@ -85,4 +84,6 @@ $ react-native run-android
 3. [intel wifi drivers: iwlwifi](https://packages.debian.org/jessie/firmware-iwlwifi)
 4. [25 apt-get commands](https://www.tecmint.com/useful-basic-commands-of-apt-get-and-apt-cache-for-package-management/)
 5. [Chinese input need set Chinese language first](https://www.linuxdashen.com/debian-8%e5%a6%82%e4%bd%95%e5%b0%86%e8%af%ad%e8%a8%80%e4%bb%8e%e8%8b%b1%e6%96%87%e6%9b%b4%e6%94%b9%e4%b8%ba%e4%b8%ad%e6%96%87)
-[英文环境下使用中文输入法](https://blog.csdn.net/u010187139/article/details/40859267)
+1. [英文环境下使用中文输入法](https://blog.csdn.net/u010187139/article/details/40859267)
+1. [50 most used linux commands](https://www.thegeekstuff.com/2010/11/50-linux-commands/?utm%255fsource=feedburner)
+1. [gnome: create launcher shortcut ](https://unix.stackexchange.com/questions/211005/create-launcher-shortcut)
