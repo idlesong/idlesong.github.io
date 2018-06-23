@@ -32,6 +32,7 @@ $ locale.gen
 ```
  - install ibus-pinyin, ibus-rime
  - ibus-setup
+```
 
 ### Gnome Tweaks
 1. Gnome: Adwaita Dark; Font size 13
@@ -46,11 +47,27 @@ $ locale.gen
 #### Atom
 1. install: Gnome-software with Flathub
 1. tweak font size: [change atom ui font size](https://discuss.atom.io/t/how-to-set-the-font-for-the-settings-ui-and-the-command-browser/13498); content font size: ctrl + '+'
+1. Themes: Solarized light
+1. Packages for javascript: linter, linter-js-standard
+1. [12-favorite Atom tips](https://www.sitepoint.com/12-favorite-atom-tips-and-shortcuts-to-improve-your-workflow/)
+1. custom shortcuts(Edit/Keymap):
+```
+'atom-text-editor':
+  'ctrl-left': 'editor:move-to-beginning-of-line'
+  'ctrl-right': 'editor:move-to-end-of-line'
+```
 
 #### firefox
 1. install: [Gnome-software with Flathub repository](https://firefox-flatpak.mojefedora.cz/)
 1. extensions: NoSquint Plus(Manage site-specific zoom levels and color settings)
-1. or use firefox_esr  
+1. or use firefox_esr
+
+### Gnome useful tips
+1. Gnome Help / Useful keyboard shortcuts:
+  - Super
+  - Super + Tab, Super + `
+  - Super + Arrow up: Maximize
+  - Super + Arrow down: Unmaximize
 
 ### References
 1. [How can I run Debian stable but install some packages from testing?](http://serverfault.com/questions/22414/how-can-i-run-debian-stable-but-install-some-packages-from-testing)
