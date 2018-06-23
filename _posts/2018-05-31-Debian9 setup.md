@@ -59,7 +59,7 @@ $ locale.gen
 
 #### firefox
 1. install: [Gnome-software with Flathub repository](https://firefox-flatpak.mojefedora.cz/)
-1. extensions: NoSquint Plus(Manage site-specific zoom levels and color settings)
+1. extensions: NoSquint Plus(Zoom 125%)
 1. or use firefox_esr
 
 ### Gnome useful tips

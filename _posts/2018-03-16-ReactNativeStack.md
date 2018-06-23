@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "ignite tech stacks"
+title:  "react-native(ignite) tech stacks"
 categories: linux
 ---
-# ignite tech stacks
+# react-native(ignite) tech stacks
 ## basic tech stacks
 ### ignite
 1. ignite -h
@@ -57,6 +57,8 @@ if (__DEV__) console.tron.log(formatTime)
 
 ## extend tech stacks
 ### react-native-amap3d
+[react-native-amap3d](https://github.com/qiuxiang/react-native-amap3d)
+
 ### bluetooth
 [react-native-ble-plx](https://github.com/Polidea/react-native-ble-plx)
 
