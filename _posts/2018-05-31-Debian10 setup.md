@@ -72,5 +72,6 @@ $ locale.gen
 1. [25 apt-get commands](https://www.tecmint.com/useful-basic-commands-of-apt-get-and-apt-cache-for-package-management/)
 1. [Chinese input need set Chinese language first](https://www.linuxdashen.com/debian-8%e5%a6%82%e4%bd%95%e5%b0%86%e8%af%ad%e8%a8%80%e4%bb%8e%e8%8b%b1%e6%96%87%e6%9b%b4%e6%94%b9%e4%b8%ba%e4%b8%ad%e6%96%87)
 1. [英文环境下使用中文输入法](https://blog.csdn.net/u010187139/article/details/40859267)
+1. [Ubuntu Chinese inputs](https://jingyan.baidu.com/article/bad08e1ef4b2f109c85121b7.html)
 1. [50 most used linux commands](https://www.thegeekstuff.com/2010/11/50-linux-commands/?utm%255fsource=feedburner)
 1. [gnome: create launcher shortcut ](https://unix.stackexchange.com/questions/211005/create-launcher-shortcut)
