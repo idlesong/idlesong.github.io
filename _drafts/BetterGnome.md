@@ -1,4 +1,22 @@
 ## Gnome Damme Lies 改进
+### gnome rust
+### gedit with rust
+
+### celebro app/ Alfred app
+1. quick search & quick look(webview)
+1. gnome shell search extension? [SearchProvider](https://developer.gnome.org/SearchProvider/)
+1. wikipedia dictionary extension.
+1. search provoider for web applications
+  - wikipedia
+  - dictionary(youdao?)
+  - cheatsheet: git? ruby? linux commands
+1. notes/todo    
+1. bring celebro plugings to gnome extensions?
+  - devdocs
+  - define
+  - youdao
+  - emoj
+
 **如果按照github的思路改造应该不错**：
 
 #### 图形化git在Damne Lies的应用（毕竟翻译的人不是开发者）：
@@ -29,20 +47,16 @@
 ## Gtk ruby
 - 整合一个类似rails一样的教程网站
 
-## App 资源
-- Command Apps need GUI
-- Gnome applications
-
 ## gnome 畅想
-- GirFFI 能否改进成类似rails的框架（MVC），这样就不需要IDE了
+- GirFFI 能否改进成类似rails的框架（MVC），这样就不需要IDE了 -> rust
 - Gnome javascript/css，有没可能搞个Browser式的调试工具
 
 ## gnome software
 - 评论中的 关键字，留言者如果未标注label，其他人可以标注并通知原评论者，可按label显示
-- 自动装机工具：各种应用，特别是Software中有
+- 自动装机工具：各种应用，特别是Software中有 -> editor's choise app
 - 类似7zip之类的还没有GUI，如何简洁地添加一个GUI，有什么机制可以快速地将经典命令行转为GUI
 
-## gnome software web(apps dictionary)
+## gnome software web(apps dictionary) -> flathub
 gnome-webkit theme
 git - pps
 

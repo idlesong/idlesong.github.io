@@ -16,7 +16,7 @@ tags: [Debian, Linux]
 ### configure & tweaks
 1. Gnome Tweaks: Adwaita Dark; Font size 11(default); Scaling factor: 1.25
 1. [Flathub setup for Gnome Software](https://flatpak.org/setup/Debian/)
-1. [sudo setup](https://wiki.debian.org/sudo)
+1. [sudo setup](https://linuxhandbook.com/create-sudo-user/) `sudo usermod -aG sudo <username>`
 
 ### tips
 1. Debian butter is testing, but *Debian testing is stable enough*
@@ -35,8 +35,7 @@ $ sudo /usr/sbin/locale-gen
  1. install ibus-rime `sudo apt install ibus-rime`
  1. ibus-setup
  1. gnome-settings/Region & Language, select English
- 1. tips: `ctrl+``, Atom has ibus issue
-
+ 1. tips: `ctrl+`\`, Atom has ibus issue
 
 #### Atom
 1. install: Gnome-software with Flathub
@@ -58,7 +57,7 @@ $ sudo /usr/sbin/locale-gen
 
 ### Debian & Gnome useful tips
 1. Gnome Help / Useful keyboard shortcuts:
-  - Super
+  - Super: 1. search & launch: apps & **settings**
   - Super + Tab, Super + `
   - Super + Arrow up: Maximize
   - Super + Arrow down: Unmaximize

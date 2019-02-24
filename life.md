@@ -10,3 +10,5 @@ permalink: /life/
 ### Tech with life
 
 ### Books
+
+黑客帝国 比喻

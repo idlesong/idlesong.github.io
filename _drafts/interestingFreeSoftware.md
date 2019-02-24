@@ -7,9 +7,15 @@
 
 ### Gnome
 1. planets of gnome
+1. flathub
 
-### Fedora
+### others
 1. Plume
 1. ipfs
   - wikipedia on ipfs
-1. zeronet  
+1. zeronet
+1. martrix
+  - fratcl
+
+### rust
+https://www.quora.com/Which-is-the-most-promising-GUI-framework-for-Rust  

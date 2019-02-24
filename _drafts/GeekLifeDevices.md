@@ -17,7 +17,7 @@
 1. NAS
 1. SD card(512G)
   - family: Video, photos.  
-  - couple: Marriage photos, Photos(Posters), videos
+  - party: Marriage photos, Photos(Posters), videos
   - fancy sources: TV shows, sexy video; AV
 1. Sources
   - Movies(BT search engine Zhihu?)
