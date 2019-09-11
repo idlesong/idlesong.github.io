@@ -17,6 +17,20 @@ a group will define a labels subsystem.
 -    小组成员共同保存
 -    订阅的内容，自动保存在本地。
 
+### Demo
+- planet.gnome.org
+- solidot.org
+- prismo.news
+
 ### References
+- interests_label@groups_labels : relationships between labels is the key
 - Activitypub is a better solution? or IPFS is the better one?
--
+- rust_awesome is a good example of a label sub_system.
+ - everyone can have a fork or clone.
+ - ownself's fork can modify freely, simply(by dnd).
+- plume label?
+
+- label relationships(alians)
+  - includes
+  - belongs to
+  - similar
