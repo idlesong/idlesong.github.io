@@ -1,23 +1,14 @@
-## rust tips
+## rust
+### rust, cargo, rustup
+- cargo new help
+- rustup show
+- rust std
+- rust examples
 
-rustup show
-
-cargo new help
-
-
-### cargo-gtkrs
-cargo install cargo-script
-cargo install --force cargo-script
-
-$ echo 'fn main() { println!("Hello, World!"); }' > hello.rs
-$ cargo script hello.rs
-Hello, World!
-$ cargo script hello # you can leave off the file extension
-Hello, World!
-
-https://github.com/DanielKeep/cargo-script
-
+### cargo-gtkrs cmd/tempalte
+cargo gtkrs cmd user case
 ```
+cargo install cargo-gtkrs
 cargo gtkrs new (with examples)
 cargo gtkrs add switch
 cargo gtkrs add searchbar
@@ -26,3 +17,5 @@ cargo gtkrs add list
 cargo gtkrs add panned_list
 ```
 [gnome pattern](https://gitlab.gnome.org/Teams/Design/mockup-resources)
+
+[refer to cargo-script](https://github.com/DanielKeep/cargo-script)

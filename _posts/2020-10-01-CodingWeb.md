@@ -1,5 +1,11 @@
-# rails
-## cheatsheet
+---
+layout: post
+title:  "cheatsheet git,rails,markdown,jekyll,ruby"
+categories: tech
+tags: [tech, cheatsheet]
+permalink: /coding_web/
+---
+## rails
 
 ##### Rails Basic Commands
 - rails new depot
@@ -71,3 +77,22 @@ note: Don't forget host: localhost. //database.yml
 - rake db:setup RAILS_ENV=production
 - rake assets:precompile
 - rails server -e production  //or: RAILS_ENV=production rails server
+
+## rails API (postman)
+- postman
+- [使用rails构建api实践](https://ruby-china.org/topics/25822)
+- [Saving multiple objects in a single call in rails](http://stackoverflow.com/questions/2509320/saving-multiple-objects-in-a-single-call-in-rails)
+- [Create Nested Object with Rails 4-json call](http://stackoverflow.com/questions/17394098/create-nested-object-with-rails-4-json-call)
+
+## javascript
+#### ES6 tutorials
+[ES6 tutorials](http://javascript.ruanyifeng.com)
+
+## ignite [official](https://github.com/infinitered/ignite)
+#### cheatsheet
+#### Notes
+reactotron-cli
+
+```
+npm start tron
+```
