@@ -31,14 +31,14 @@ author:
     # linkedin: <hide>
     github:    https://github.com/idlesong
     # facebook:  <hide>
-    twitter:   https://twitter.com/Li_Zhihao
+    # twitter:   https://twitter.com/Li_Zhihao
     # weibo:     http://weibo.com/41173780
     # email:     http://www.google.com/recaptcha/mailhide/d?k=01I3lZFiZYng9N3QxYEtsDaQ==&c=31wAnZkuKqcG0ATAqJN8Z3ln5kkYLA9TwkGc-IbygpM=
 
 # Navigation (2nd level links supported)
 nav:
   Home:
-    - '/'
+    - '/blog/'
   Blog:
     - '/blog/'
     - { Categories: '/blog/categories/' }
