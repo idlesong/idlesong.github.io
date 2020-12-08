@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Debian 10(buster) and common software installation"
-categories: Linux
+categories: linux
 tags: [Debian, Linux]
 ---
 ## Debian Buster installation

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Coding base tools: git, markdown, atom, linux cmd"
-categories: technical_stacks, tech
+categories: technical_stacks
 tags: [tech, cheatsheet, git, markdown, atom, linux]
 permalink: /coding_base_tools/
 ---

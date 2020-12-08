@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Coding Rust ♥ Gnome: rust, gtkrs, flatpak"
-categories: technical_stacks, tech
+categories: technical_stacks
 tags: [tech, cheatsheet, rust, gtk, flatpak]
 permalink: /coding_rust_gnome/
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "react-native(ignite) on Debian10"
-categories: Linux
+categories: linux
 tags: [Debian, Linux, react-native]
 ---
 ## react-native(ignite) on Debian 10
@@ -37,4 +37,4 @@ $ react-native run-android
  - [react-native getting started on android ](https://facebook.github.io/react-native/docs/getting-started.html)
  - GFW may cause many strange iusses, such as use curl.
  - mirros: [react-native.cn](https://reactnative.cn/docs/0.51/getting-started.html); [android.cn](https://developer.android.google.cn/)
- - [android emulator: instead kvm?](https://stackoverflow.com/questions/34266247/could-not-launch-qemu-windows-x86-64-qemu-system-i386-exe-no-such-file-or-d/34348073#34348073) 
+ - [android emulator: instead kvm?](https://stackoverflow.com/questions/34266247/could-not-launch-qemu-windows-x86-64-qemu-system-i386-exe-no-such-file-or-d/34348073#34348073)

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Coding - Web: rails, react-native, ignite"
-categories: technical_stacks, tech
+categories: technical_stacks
 tags: [tech, cheatsheet]
 permalink: /coding_web/
 ---
