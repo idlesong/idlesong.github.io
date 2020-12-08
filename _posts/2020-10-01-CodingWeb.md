@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "cheatsheet git,rails,markdown,jekyll,ruby"
-categories: tech
+title:  "Coding - Web: rails, react-native, ignite"
+categories: technical_stacks, tech
 tags: [tech, cheatsheet]
 permalink: /coding_web/
 ---
 ## rails
 
-##### Rails Basic Commands
+#### Rails Basic Commands
 - rails new depot
 - rake db:migrate
 - rails g scaffold Product title:string des:text imageurl:string price:decimal
