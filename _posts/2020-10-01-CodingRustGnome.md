@@ -67,11 +67,11 @@ pip3 install meson
 cargo gtkrs cmd user case
 ```
 cargo install cargo-gtkrs
-cargo gtkrs new (with examples) # like ignite
+cargo generate (with examples) # like ignite
 cargo gtkrs add switch
 cargo gtkrs add searchbar
 cargo gtkrs add grid_list
-cargo gtkrs add list
+cargo gtkrs add list (snappit: builder ui, signals)
 cargo gtkrs add panned_list
 ```
 add pattern with [gnome pattern](https://gitlab.gnome.org/Teams/Design/mockup-resources)
