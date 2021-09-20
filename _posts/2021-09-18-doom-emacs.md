@@ -1,11 +1,16 @@
+---
+layout: post
+title:  "Doom emacs notes"
+categories: tech_life
+tags: [yunohost, tech_life, raspberrypi]
+---
+
 # Doom emacs notes
 
 ## emacs tutorial
 C-x c f
 C-x C-s
 C-s
-
-M-x neo tree
 
 ## doom tutorial
 C-c w L : open recent closed project
@@ -30,6 +35,13 @@ export EMACS="/usr/bin/flatpak run org.gnu.emacs"
 
 
 1. use proxy; or github taobao mirror to run .emacs.d/doom install
+
+## configuration
+1. .doom.d目录下初始有三个配置文件
+    init.el
+    packages.el
+    config.el
+
 ## doom configure .doom.d/init.el
    - neotree
    - quit
@@ -42,6 +54,6 @@ export EMACS="/usr/bin/flatpak run org.gnu.emacs"
 
 
 ## reference
-[Emacs 笔记 (一) —— 安装与配置 Doom Emacs](https://shigaro.org/2020/07/01/emacs-1/)
+[Emacs 笔记 (一) —— 安装与配置 Doom Emacs](https://shigaro.horg/2020/07/01/emacs-1/)
 [linux命令行代理神器-proxychains](https://zhuanlan.zhihu.com/p/166375631)
 [fix ERROR: ld.so: object 'libproxychains.so.3' from LD_PRELOAD cannot be preloaded](https://blog.csdn.net/think_ycx/article/details/108199296)
