@@ -8,8 +8,10 @@ tags: [yunohost, tech_life, raspberrypi]
 # Doom emacs notes
 
 ## common key bindings
+
 ### emacs key bindings
 1. editing
+
 ```
 C-f, C-b, C-p, C-n
 M-f, M-b
@@ -22,12 +24,14 @@ C-x C-t ## swith with above line
 ```
 
 1. general
+
 ```
 C-h ->k, ->b->b, ->d
 cua-mode C-c C-v C-x
 ```
 
 1. files
+
 ```
 C-x c f ## find file
 C-x C-s ## save file
@@ -36,6 +40,7 @@ C-s     ## search files
 ```
 
 1. Markdown or org-mode
+
 ```
 C-c C-p ## previous
 C-c C-n ## next
@@ -45,6 +50,7 @@ C-arrow down, arrow up  ## next, previous paragraph
 ```
 
 ### doom key bindings
+
 ```
 C-c w L ## reload last session
 C-c n a ## open org-agenda
