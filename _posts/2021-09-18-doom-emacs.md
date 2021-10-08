@@ -7,9 +7,10 @@ tags: [yunohost, tech_life, raspberrypi]
 
 # Doom emacs notes
 
-## emacs tutorial
+## common key bindings
 ### emacs key bindings
 1. editing
+```
 C-f, C-b, C-p, C-n
 M-f, M-b
 C-a, C-e, M-a, M-e
@@ -18,26 +19,33 @@ M-<, M->## jump to begining, end of file
 
 C-k, C-S-Backspace
 C-x C-t ## swith with above line
+```
 
 1. general
+```
 C-h ->k, ->b->b, ->d
 cua-mode C-c C-v C-x
+```
 
 1. files
+```
 C-x c f ## find file
 C-x C-s ## save file
 C-x C-c ## exit emacs
 C-s     ## search files
+```
 
 1. Markdown or org-mode
+```
 C-c C-p ## previous
 C-c C-n ## next
 C-c C-u ## up
 C-c C-b ## back
 C-arrow down, arrow up  ## next, previous paragraph
+```
 
-## doom tutorial
 ### doom key bindings
+```
 C-c w L ## reload last session
 C-c n a ## open org-agenda
 C-c f r ## recent opened files
@@ -48,15 +56,17 @@ C-c f p ## open private configuration
 C-c p f ## projectile: jump to a file with completion
 C-c c k ## view functions/macro's document
 C-c c d ## jump to defination
+```
 
-## terminal eshell
-M-x eshell with highlight?
+## Common packages
+1. terminal eshell
+   - M-x eshell with highlight?
 
-## check, spell check
-flycheck rust?
-flyspell
+1. check, spell check
+   - flycheck rust?
+   - flyspell
 
-### configuration
+## configuration
 1. .doom.d目录下初始有三个配置文件
     init.el
     packages.el
@@ -67,7 +77,7 @@ flyspell
 (cua-mode t)
 ```
 
-## doom configure .doom.d/init.el
+### doom configure .doom.d/init.el
    - neotree
    - quit
    - vterm
