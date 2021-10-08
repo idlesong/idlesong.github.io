@@ -12,10 +12,14 @@ sudo systemctl status ssh
 sudo systemctl enable ssh
 ```
 
+1. enable ssh on Windows headless way
+create a ssh file in root folder
+
 1. password
 ``` shell
 sudo passwd <USERNAME> # username root; current user leave blank
 ```
+
 
 ## Docker & Docker-compose
 
@@ -31,6 +35,13 @@ sudo apt-get install -y python3 python3-pip
 
 sudo pip3 install docker-compose
 ```
+
+[patch for libseccomp](https://docs.linuxserver.io/faq#libseccomp)
+```
+    wget http://ftp.us.debian.org/debian/pool/main/libs/libseccomp/libseccomp2_2.4.4-1~bpo10+1_armhf.deb
+    sudo dpkg -i libseccomp2_2.4.4-1~bpo10+1_armhf.deb
+```
+
 
 [install docker](https://pimylifeup.com/raspberry-pi-docker/)
 [install issues debug](https://stackoverflow.com/questions/39100641/docker-service-start-failed)
@@ -81,6 +92,10 @@ n   - login: defalut: admin, admin123
 1. nextcloud
    - official docker?
 1. syncthing
+   - 
+1. piwigo
+   [install guide](https://xmanyou.com/install-piwigo-with-docker-in-minutes/)
+1. heimdall
 
 ## debug
 1. check port & stop process
@@ -121,7 +136,7 @@ services:
   samba:
     image: dperson/samba
     environment:
-      TZ: 'EST5EDT'
+      - TZ=/etc/timezone:/etc/timezone:ro
     networks:
       - default
     ports:
@@ -136,14 +151,261 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /mnt:/mnt:z
-      - /mnt2:/mnt2:z
-    command: '-s "Mount;/mnt" -s "Bobs Volume;/mnt2;yes;no;no;bob" -u "bob;bobspasswd" -p'
+      - ./share:/share
+    command: '-s "SambaShare;/share;yes;no;no;bob" -u "bob;bobspasswd" -p'
 
 networks:
   default:
 ```
 
+
+```
+---
+version: "2.1"
+services:
+  transmission:
+    image: ghcr.io/linuxserver/transmission
+    container_name: transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=/etc/timezone:/etc/timezone:ro
+      - TRANSMISSION_WEB_HOME=/combustion-release/ #optional
+    volumes:
+      - ./config:/config
+      - ./downloads:/downloads
+      - ./watch:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: unless-stopped
+```
+
+```
+version: "3"
+services:
+  piwigo:
+    image: lscr.io/linuxserver/piwigo
+    network_mode: bridge
+    ports:
+      - 80:80
+    links:
+      - db
+
+  db:
+    image: linuxserver/mariadb
+    network_mode: bridge
+    environment:
+      MYSQL_USER: "piwigo"
+      MYSQL_PASSWORD: "piwigo"
+      MYSQL_DATABASE: "piwigo"
+      MYSQL_RANDOM_ROOT_PASSWORD: "true"
+
+```
+
+```
+---
+version: "2.1"
+services:
+  calibre-web:
+    image: lscr.io/linuxserver/calibre-web
+    container_name: calibre-web
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=/etc/timezone:/etc/timezone:ro
+      - DOCKER_MODS=linuxserver/calibre-web:calibre #optional
+      - OAUTHLIB_RELAX_TOKEN_SCOPE=1 #optional
+    volumes:
+      - ./config:/config
+      - ./library:/books
+    ports:
+      - 8083:8083
+    restart: unless-stopped
+```
+
+```
+---
+version: "2.1"
+services:
+  syncthing:
+    image: lscr.io/linuxserver/syncthing
+    container_name: syncthing
+    hostname: syncthing #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=/etc/timezone:/etc/timezone:ro
+    volumes:
+      - ./config:/config
+      - ./data1:/data1
+    ports:
+      - 8384:8384
+      - 22000:22000/tcp
+      - 22000:22000/udp
+      - 21027:21027/udp
+    restart: unless-stopped
+```
+
+
+```
+---
+version: "2.1"
+services:
+  heimdall:
+    image: lscr.io/linuxserver/heimdall
+    container_name: heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=/etc/timezone:/etc/timezone:ro
+    volumes:
+      - ./config:/config
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+```
+
+```
+---
+version: "2.1"
+services:
+  jellyfin:
+    image: ghcr.io/linuxserver/jellyfin
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - ./config:/config
+      - ./tvshows:/data/tvshows
+      - ./movies:/data/movies
+      - /opt/vc/lib:/opt/vc/lib #optional
+    ports:
+      - 8096:8096
+      - 8920:8920 #optional
+      - 7359:7359/udp #optional
+      - 1900:1900/udp #optional
+    restart: unless-stopped
+```
+
+
+```
+version: '3'
+
+services:
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud
+    volumes:
+      - ./mynextcloud/:/var/www/html
+      - ./mynextcloud/apps:/var/www/html/custom_apps
+      - ./mynextcloud/config:/var/www/html/config
+      - ./mynextcloud/data:/var/www/html/data
+    ports:
+      - 8090:80
+    depends_on:
+      - mariadb
+    restart: always      
+
+  mariadb:
+    image: linuxserver/mariadb
+    restart: always
+    volumes:
+      - ./mynextcloud/mariadb:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=nextcloud
+      - MYSQL_PASSWORD=nextcloud
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+    ports:
+      - "3306:3306"
+    restart: always
+
+---
+version: "2.1"
+services:
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud
+    container_name: nextcloud
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=/etc/timezone:/etc/timezone:ro
+    volumes:
+      - ./config:/config
+      - ./data:/data
+    ports:
+      - 443:443
+    restart: unless-stopped
+
+```
+
+```
+---
+version: "2.1"
+services:
+  kodi:
+    image: linuxserver/docker-kodi-headless
+    container_name: kodi
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=/etc/timezone:/etc/timezone:ro
+    volumes:
+      - ./config:/config/.kodi
+    ports:
+      - 8085:8080
+      - 9090:9090
+      - 9777:9777/udp
+    restart: unless-stopped
+
+```
+
+```
+version: "3"
+services:
+  kodi:
+    image: linuxserver/kodi-headless
+    network_mode: bridge
+    ports:
+      - 8096:8096
+    links:
+      - db
+
+  db:
+    image: linuxserver/mariadb
+    network_mode: bridge
+    environment:
+      MYSQL_USER: "kodi"
+      MYSQL_PASSWORD: "kodi"
+      MYSQL_DATABASE: "kodi"
+      MYSQL_RANDOM_ROOT_PASSWORD: "true"
+
+```
+
+```
+---
+version: "2.1"
+services:
+  heimdall:
+    image: lscr.io/linuxserver/heimdall
+    container_name: heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=/etc/timezone:/etc/timezone:ro
+    volumes:
+      - ./config:/config
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+```
+
+## tips & reference
 Note:
 command:  # -s "Share name; share path in docker; all workgroup visable; not read only(writeabl); forbidden guest; assign owner; assign super user; assign users with write rights"
 
