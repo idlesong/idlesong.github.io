@@ -2,7 +2,7 @@
 layout: post
 title:  "Doom emacs notes"
 categories: tech_life
-tags: [yunohost, tech_life, raspberrypi]
+tags: [doom, emacs, tech_life, linux]
 ---
 
 # Doom emacs notes

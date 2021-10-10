@@ -1,6 +1,12 @@
-# My Docker Server notes
+---
+layout: post
+title:  "My Docker Server notes"
+categories: tech_life
+tags: [docker, tech_life, raspberrypi]
+---
 
-## Raspberry pi Server
+# My Docker Server on Raspberry Pi4
+## Raspberry pi OS install & config
 1. install raspberry OS lite 
 1. apt update && upgrade
 
@@ -21,7 +27,7 @@ sudo passwd <USERNAME> # username root; current user leave blank
 ```
 
 
-## Docker & Docker-compose
+## Install Docker & Docker-compose
 
 ``` shell
 curl -fsSL https://get.docker.com -o get-docker.sh
@@ -56,7 +62,7 @@ docker-compose logs
 ```
 -v /etc/localtime:/etc/localtime:ro
 
-## cockpit http://localhost:9090
+## Host App: cockpit
 ``` 
 sudo apt install cockpit cockpit-docker
 sudo apt install firewalld #iptables 1.8.2 has bugs
@@ -72,62 +78,32 @@ sudo systemctl status cockpit.socket
 ```
 
 
-## Docker Apps
-1. calibre-web http://localhost:8083 works!
-   - [calibre-web docker](https://github.com/linuxserver/docker-calibre-web/)
-   - copy [metadata.db](https://github.com/kovidgoyal/calibre/blob/master/src/calibre/db/tests/metadata.db) to calibre-library
-n   - login: defalut: admin, admin123
-   - chmod 777
-1. portainer 
-   - deploy: localhsot: works!
-   - docker managerment
-1. samba 
-   - deploy localhost \\localhost\share works
-   - [samba docker](https://github.com/dperson/samba)
-1. kodi
-   - web UI
-1. emby 
-   - deploy: https://localhost:8096 works!
-   - [linuxserver docker](https://docs.linuxserver.io/images/docker-emby)
-1. nextcloud
-   - official docker?
-1. syncthing
-   - 
-1. piwigo
-   [install guide](https://xmanyou.com/install-piwigo-with-docker-in-minutes/)
-1. heimdall
+## Popular Docker Apps
+### heimdall
+- [heimdall docker](https://docs.linuxserver.io/images/docker-heimdall)
+- note: url need add http://
 
-## debug
-1. check port & stop process
 ```
-lsof -i:8000 #-i port number
-netstat -tunlp | grep 8080 # port number
-kill -9 PID #PID: process number
-```
-
-### docker-compose.yml examples
-Emby
-```
+---
 version: "2.1"
 services:
-  emby:
-    image: ghcr.io/linuxserver/emby
-    container_name: emby
+  heimdall:
+    image: lscr.io/linuxserver/heimdall
+    container_name: heimdall
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=/etc/timezone:/etc/timezone:ro
     volumes:
-      - ./library:/config
-      - ./tvshows:/data/tvshows
-      - ./movies:/data/movies
-      - /opt/vc/lib:/opt/vc/lib #optional
+      - ./config:/config
     ports:
-      - 8096:8096
-      - 8920:8920 #optional
-    devices:
+      - 80:80
+      - 443:443
     restart: unless-stopped
 ```
+   
+### samba 
+- [samba docker](https://github.com/dperson/samba)
 
 ```
 version: '3.4'
@@ -158,6 +134,66 @@ networks:
   default:
 ```
 
+Note:
+command:  # -s "Share name; share path in docker; all workgroup visable; not read only(writeabl); forbidden guest; assign owner; assign super user; assign users with write rights"
+
+### emby 
+- [linuxserver docker](https://docs.linuxserver.io/images/docker-emby)
+
+```
+version: "2.1"
+services:
+  emby:
+    image: ghcr.io/linuxserver/emby
+    container_name: emby
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=/etc/timezone:/etc/timezone:ro
+    volumes:
+      - ./library:/config
+      - ./tvshows:/data/tvshows
+      - ./movies:/data/movies
+      - /opt/vc/lib:/opt/vc/lib #optional
+    ports:
+      - 8096:8096
+      - 8920:8920 #optional
+    devices:
+    restart: unless-stopped
+```
+
+### jellyfin
+- [jellyfin docker](https://github.com/linuxserver/docker-jellyfin)
+
+```
+---
+version: "2.1"
+services:
+  jellyfin:
+    image: ghcr.io/linuxserver/jellyfin
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=/etc/timezone:/etc/timezone:ro
+    volumes:
+      - ./config:/config
+      - ./tvshows:/data/tvshows
+      - ./movies:/data/movies
+      - /opt/vc/lib:/opt/vc/lib #optional
+    ports:
+      - 8096:8096
+      - 8920:8920 #optional
+      - 7359:7359/udp #optional
+      - 1900:1900/udp #optional
+    restart: unless-stopped
+```
+
+
+
+
+### transmission
+- [transmission docker](https://docs.linuxserver.io/images/docker-transmission)
 
 ```
 ---
@@ -182,48 +218,8 @@ services:
     restart: unless-stopped
 ```
 
-```
-version: "3"
-services:
-  piwigo:
-    image: lscr.io/linuxserver/piwigo
-    network_mode: bridge
-    ports:
-      - 80:80
-    links:
-      - db
-
-  db:
-    image: linuxserver/mariadb
-    network_mode: bridge
-    environment:
-      MYSQL_USER: "piwigo"
-      MYSQL_PASSWORD: "piwigo"
-      MYSQL_DATABASE: "piwigo"
-      MYSQL_RANDOM_ROOT_PASSWORD: "true"
-
-```
-
-```
----
-version: "2.1"
-services:
-  calibre-web:
-    image: lscr.io/linuxserver/calibre-web
-    container_name: calibre-web
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=/etc/timezone:/etc/timezone:ro
-      - DOCKER_MODS=linuxserver/calibre-web:calibre #optional
-      - OAUTHLIB_RELAX_TOKEN_SCOPE=1 #optional
-    volumes:
-      - ./config:/config
-      - ./library:/books
-    ports:
-      - 8083:8083
-    restart: unless-stopped
-```
+### syncthing
+- [syncthing docker](https://docs.linuxserver.io/images/docker-syncthing)
 
 ```
 ---
@@ -248,50 +244,8 @@ services:
     restart: unless-stopped
 ```
 
-
-```
----
-version: "2.1"
-services:
-  heimdall:
-    image: lscr.io/linuxserver/heimdall
-    container_name: heimdall
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=/etc/timezone:/etc/timezone:ro
-    volumes:
-      - ./config:/config
-    ports:
-      - 80:80
-      - 443:443
-    restart: unless-stopped
-```
-
-```
----
-version: "2.1"
-services:
-  jellyfin:
-    image: ghcr.io/linuxserver/jellyfin
-    container_name: jellyfin
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-    volumes:
-      - ./config:/config
-      - ./tvshows:/data/tvshows
-      - ./movies:/data/movies
-      - /opt/vc/lib:/opt/vc/lib #optional
-    ports:
-      - 8096:8096
-      - 8920:8920 #optional
-      - 7359:7359/udp #optional
-      - 1900:1900/udp #optional
-    restart: unless-stopped
-```
-
+### nextcloud
+   - official docker?
 
 ```
 version: '3'
@@ -343,6 +297,34 @@ services:
 
 ```
 
+## Testing Apps
+### piwigo
+   [install guide](https://xmanyou.com/install-piwigo-with-docker-in-minutes/)
+
+```
+version: "3"
+services:
+  piwigo:
+    image: lscr.io/linuxserver/piwigo
+    network_mode: bridge
+    ports:
+      - 80:80
+    links:
+      - db
+
+  db:
+    image: linuxserver/mariadb
+    network_mode: bridge
+    environment:
+      MYSQL_USER: "piwigo"
+      MYSQL_PASSWORD: "piwigo"
+      MYSQL_DATABASE: "piwigo"
+      MYSQL_RANDOM_ROOT_PASSWORD: "true"
+
+```
+
+### kodi-headless
+   - web UI
 ```
 ---
 version: "2.1"
@@ -386,27 +368,44 @@ services:
 
 ```
 
+### calibre-web
+   - [calibre-web docker](https://github.com/linuxserver/docker-calibre-web/)
+   - copy [metadata.db](https://github.com/kovidgoyal/calibre/blob/master/src/calibre/db/tests/metadata.db) to calibre-library
+   - login: defalut: admin, admin123
+   - chmod 777
+
 ```
 ---
 version: "2.1"
 services:
-  heimdall:
-    image: lscr.io/linuxserver/heimdall
-    container_name: heimdall
+  calibre-web:
+    image: lscr.io/linuxserver/calibre-web
+    container_name: calibre-web
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=/etc/timezone:/etc/timezone:ro
+      - DOCKER_MODS=linuxserver/calibre-web:calibre #optional
+      - OAUTHLIB_RELAX_TOKEN_SCOPE=1 #optional
     volumes:
       - ./config:/config
+      - ./library:/books
     ports:
-      - 80:80
-      - 443:443
+      - 8083:8083
     restart: unless-stopped
+```
+   
+1. portainer 
+   - deploy: localhsot: works!
+   - docker managerment
+
+## debug
+1. check port & stop process
+```
+lsof -i:8000 #-i port number
+netstat -tunlp | grep 8080 # port number
+kill -9 PID #PID: process number
 ```
 
 ## tips & reference
-Note:
-command:  # -s "Share name; share path in docker; all workgroup visable; not read only(writeabl); forbidden guest; assign owner; assign super user; assign users with write rights"
-
 https://jackstromberg.com/2021/07/how-to-add-buster-backports-to-a-raspberry-pi/
