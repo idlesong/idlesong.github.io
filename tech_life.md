@@ -4,12 +4,14 @@ title: Enjoy tech & colorful life
 permalink: /tech_life/
 ---
 ## For Colorful life
-1. Tech with life
-   - linux notebook
-     - favorite apps: github
-     - gnome os
-   - raspberrypi & yunohost
-1. local life
+### Tech & life
+1. Linux
+   - Debian & gnome os
+   - Efficiency & coding
+   - Favorite apps(flathub)
+1. Personal server
+   - Debian & Docker & Raspberry pi
+   - Movies, musics, photos, books
+1. Local life
    - local history
-1. books
-   - goodreads
+

@@ -11,6 +11,7 @@ tags: [docker, tech_life, raspberrypi]
 1. apt update && upgrade
 
 1. enable ssh
+
 ``` shell
 sudo systemctl start ssh
 
@@ -22,6 +23,7 @@ sudo systemctl enable ssh
 create a ssh file in root folder
 
 1. password
+
 ``` shell
 sudo passwd <USERNAME> # username root; current user leave blank
 ```
@@ -133,9 +135,6 @@ services:
 networks:
   default:
 ```
-
-Note:
-command:  # -s "Share name; share path in docker; all workgroup visable; not read only(writeabl); forbidden guest; assign owner; assign super user; assign users with write rights"
 
 ### emby 
 - [linuxserver docker](https://docs.linuxserver.io/images/docker-emby)
