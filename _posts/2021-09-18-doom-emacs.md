@@ -81,8 +81,8 @@ close window                C-x 0
 close other window          C-x 1
 split window Horirental     C-x 2
 split window Vertical       C-x 3
-shrink-window-horizontally  C-x { 
-shrink-window-horizontally  C-u 25 C-x {
+narrower window             C-x { 
+wider window 25 times       C-u 25 C-x {
 ```
 
 Files & buffers
@@ -98,35 +98,37 @@ dired open                  C-c f d
 jump dired from this buffer C-c o- #C-x C-j
 open dired to project root  C-c p D
 
-goto next line                  SPC
-up to parent dictionary      ^
-goto previous file line      <
-goto next file line          >
-goto describled file line    j
-                              
-open item in other window    o
-insert this subdictionary    i
+goto next line              SPC
+up to parent dictionary     ^
+goto previous file line     <
+goto next file line         >
+goto describled file line   j
+                             
+open item in other window   o
+insert this subdictionary   i
 ```
 
-CUA rectangular regions editing
+Others
 
 ```
-Enter or exit rectangular  C-RET
+Enter /exit CUA rectangular  C-RET
+Eshell: toggle popup window  C-c o e
+Youdao: youdao input         C-c o y
+Quick-Calc                   C-x * q
 ```
 
 ## Common packages
-1. terminal eshell
-   - M-x eshell with highlight?
-
 1. check, spell check
    - flycheck rust?
    - flyspell
+1. eshell
+1. youdao
 
 ## configuration
 1. .doom.d目录下初始有三个配置文件
-    init.el
-    packages.el
-    config.el
+   - init.el
+   - packages.el
+   - config.el
 1. use cua-mode
 
 ```
