@@ -17,7 +17,6 @@ Moving arround:             Back       Forth
   move by line              C-p        C-n
   move by sentence          M-a        M-e
   goto end of line          C-a        C-e
-  top or bottom of buffer   C-x [      C-x ] ## markdown page
   top or bottom of buffer   M-<        M->
   center screen here        C-l 
                                         
@@ -56,8 +55,9 @@ Markdown or org-mode
   outline back same level   C-c C-b
   foreword block            M-}
   backword block            M-{
-  next paragraph            C-<down> 
-  previous paragraph        C-<up>
+  forward paragraph         C-<down>   M-n 
+  backward paragraph        C-<up>     M-p
+  top or bottom of buffer   C-x [      C-x ]
 
 Doom Emacs key bindings
   reload last session       C-c w L 
@@ -69,8 +69,49 @@ Doom Emacs key bindings
                                                 
 Projectile 
   find file with completion C-c p f 
+  open dired in root        C-c f D
   lockup functions document C-c c k 
   lookup defination         C-c c d 
+```
+
+Windowns
+
+```
+close window                C-x 0
+close other window          C-x 1
+split window Horirental     C-x 2
+split window Vertical       C-x 3
+shrink-window-horizontally  C-x { 
+shrink-window-horizontally  C-u 25 C-x {
+```
+
+Files & buffers
+```
+open current opened files   C-c f r
+Kill buffer                 C-x k
+```
+
+[Dired shortcuts](https://zhuanlan.zhihu.com/p/156907392)
+
+```
+dired open                  C-c f d  
+jump dired from this buffer C-c o- #C-x C-j
+open dired to project root  C-c p D
+
+goto next line                  SPC
+up to parent dictionary      ^
+goto previous file line      <
+goto next file line          >
+goto describled file line    j
+                              
+open item in other window    o
+insert this subdictionary    i
+```
+
+CUA rectangular regions editing
+
+```
+Enter or exit rectangular  C-RET
 ```
 
 ## Common packages
@@ -90,7 +131,26 @@ Projectile
 
 ```
 # note add below to config.el
+
+(setq kill-whole-line t)
+
+(setq confirm-kill-emacs nil)
+
+(setq ispell-program-name "aspell")
+
 (cua-mode t)
+
+(map! "M-p" #'backward-paragraph
+      "M-n" #'forward-paragraph
+      "C-M-p" #'cua-scroll-down
+      "C-M-n" #'cua-scroll-up)
+
+(map! :map markdown-mode-map
+        "M-n" #'markdown-forward-paragraph
+        "M-p" #'markdown-backward-paragraph
+        "C-M-p" #'cua-scroll-down)
+        "C-M-n" #'cua-scroll-up
+
 ```
 
 ### doom configure .doom.d/init.el

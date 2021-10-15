@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Yunohost over Raspberry Pi"
+title:  "Nextcloud & Samba over Raspberry Pi"
 categories: tech_life
 tags: [yunohost, tech_life, raspberrypi]
 ---
