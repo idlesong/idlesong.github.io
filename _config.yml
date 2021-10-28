@@ -5,6 +5,7 @@ description: 'Imagine space of <a href="http://idlesong.github.io" target="_blan
 baseurl: ''
 url: http://idlesong.github.io
 logo: '/public/logo.png'
+remote_theme: jekyll/minima
 
 # Site configurations
 gems:

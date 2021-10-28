@@ -64,6 +64,14 @@ docker-compose logs
 ```
 -v /etc/localtime:/etc/localtime:ro
 
+## mount external USB drive
+- note: mount usb drive
+```
+sudo fdisk -l
+sudo mount /dev/sda1 /mnt
+```
+
+
 ## Host App: cockpit
 ``` 
 sudo apt install cockpit cockpit-docker
@@ -80,8 +88,10 @@ sudo systemctl status cockpit.socket
 ```
 
 
-## Popular Docker Apps
-### heimdall
+# Popular Docker Apps
+
+## heimdall
+
 - [heimdall docker](https://docs.linuxserver.io/images/docker-heimdall)
 - note: url need add http://
 
@@ -135,6 +145,15 @@ services:
 networks:
   default:
 ```
+
+- note: support SMB1
+```
+  docker exec -i -t samba /bin/bash
+  vi /etc/samba/smb.conf
+  server min protocol = LANMAN1
+```
+-I  Add an include option at the end of the smb.conf
+
 
 ### emby 
 - [linuxserver docker](https://docs.linuxserver.io/images/docker-emby)
@@ -368,10 +387,11 @@ services:
 ```
 
 ### calibre-web
-   - [calibre-web docker](https://github.com/linuxserver/docker-calibre-web/)
-   - copy [metadata.db](https://github.com/kovidgoyal/calibre/blob/master/src/calibre/db/tests/metadata.db) to calibre-library
-   - login: defalut: admin, admin123
-   - chmod 777
+
+- [calibre-web docker](https://github.com/linuxserver/docker-calibre-web/)
+- copy [metadata.db](https://github.com/kovidgoyal/calibre/blob/master/src/calibre/db/tests/metadata.db) to calibre-library
+- login: defalut: admin, admin123
+- chmod 777 metadata.db
 
 ```
 ---
@@ -405,6 +425,18 @@ lsof -i:8000 #-i port number
 netstat -tunlp | grep 8080 # port number
 kill -9 PID #PID: process number
 ```
+
+## advanced notes
+1. rsync to local (avoid to setup git environment)
+```
+## local to remote
+$ rsync -avz /local_path/docker/ username@docker_server:/home/username/docker/
+## remote to local
+$ rsync -avz username@docker_server:/home/username/docker/ /local_path/docker
+```
+1. git init, git push, git clone to github
+   - ignore config folders ``` *config*/```
+1. 
 
 ## tips & reference
 https://jackstromberg.com/2021/07/how-to-add-buster-backports-to-a-raspberry-pi/

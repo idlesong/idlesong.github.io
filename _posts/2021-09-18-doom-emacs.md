@@ -23,7 +23,6 @@ Moving arround:             Back       Forth
 Deleting and editing        Back       Forth  
   delete word               M-del      C-d
   delete rest of line       M-0 C-k    C-k
-  delete whole line         C-S-Backspace
   swith with above line     C-x C-t
   cua-mode                  C-c C-v C-x C-z
   cua rectangular start     C-RET and arrow keys
