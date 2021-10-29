@@ -56,7 +56,7 @@ plugins:
  - jekyll-feed
  - jekyll-seo-tag
 
-=======
+# =======
 # Site Info
 #title: Imagine space of idlesong
 #tagline: 'Imagine space of idlesong'
@@ -97,21 +97,21 @@ logo: '/public/logo.png'
 #    # email:     http://www.google.com/recaptcha/mailhide/d?k=01I3lZFiZYng9N3QxYEtsDaQ==&c=31wAnZkuKqcG0ATAqJN8Z3ln5kkYLA9TwkGc-IbygpM=
 #
 # Navigation (2nd level links supported)
-nav:
- Home:
-   - '/blog/'
- Blog:
-   - '/blog/'
-   - { Categories: '/blog/categories/' }
-   - { Tags: '/blog/tags/' }
- Technical stacks:
-   - '/tech_stacks/'
- Tech & life:
-   - '/tech_life'
-
-# Where are tags and categories displayed
-tag_page: '/blog/tags/'
-category_page: '/blog/categories/'
+# nav:
+#  Home:
+#    - '/blog/'
+#  Blog:
+#    - '/blog/'
+#    - { Categories: '/blog/categories/' }
+#    - { Tags: '/blog/tags/' }
+#  Technical stacks:
+#    - '/tech_stacks/'
+#  Tech & life:
+#    - '/tech_life'
+#
+# # Where are tags and categories displayed
+# tag_page: '/blog/tags/'
+# category_page: '/blog/categories/'
 
 #hero:
 #  image: /public/img/we_will_be_giants_by_yalestewart.jpg
