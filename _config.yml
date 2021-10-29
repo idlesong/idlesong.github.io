@@ -9,46 +9,46 @@ logo: '/public/logo.png'
 remote_theme: aterenin/minima-reboot
 
 # Site configurations
-gems:
-  - jekyll-paginate
-markdown: kramdown
-kramdown:
-  input: GFM
-excerpt_separator: "<!-- more -->"
-sass:
-  style: compressed
-  sass_dir: _scss
-paginate: 5
-paginate_path: '/blog/page:num'
-permalink: pretty
-
-version: 1.0.0
-
+#ems:
+# - jekyll-paginate
+#arkdown: kramdown
+#ramdown:
+# input: GFM
+#xcerpt_separator: "<!-- more -->"
+#ass:
+# style: compressed
+# sass_dir: _scss
+#aginate: 5
+#aginate_path: '/blog/page:num'
+#ermalink: pretty
+#
+#ersion: 1.0.0
+#
 # About/contact
-author:
-  name: Idlesong
-  description: Enjoy work, enjoy colorful life.
-  gravatar: 3c2986ad7ac1f2230ea3596f44563328 # md5 hash of your email address
-  contact:
-    # linkedin: <hide>
-    github:    https://github.com/idlesong
-    # facebook:  <hide>
-    # twitter:   https://twitter.com/Li_Zhihao
-    # weibo:     http://weibo.com/41173780
-    # email:     http://www.google.com/recaptcha/mailhide/d?k=01I3lZFiZYng9N3QxYEtsDaQ==&c=31wAnZkuKqcG0ATAqJN8Z3ln5kkYLA9TwkGc-IbygpM=
-
+#uthor:
+# name: Idlesong
+# description: Enjoy work, enjoy colorful life.
+# gravatar: 3c2986ad7ac1f2230ea3596f44563328 # md5 hash of your email address
+# contact:
+#   # linkedin: <hide>
+#   github:    https://github.com/idlesong
+#   # facebook:  <hide>
+#   # twitter:   https://twitter.com/Li_Zhihao
+#   # weibo:     http://weibo.com/41173780
+#   # email:     http://www.google.com/recaptcha/mailhide/d?k=01I3lZFiZYng9N3QxYEtsDaQ==&c=31wAnZkuKqcG0ATAqJN8Z3ln5kkYLA9TwkGc-IbygpM=
+#
 # Navigation (2nd level links supported)
-nav:
-  Home:
-    - '/blog/'
-  Blog:
-    - '/blog/'
-    - { Categories: '/blog/categories/' }
-    - { Tags: '/blog/tags/' }
-  Technical stacks:
-    - '/tech_stacks/'
-  Tech & life:
-    - '/tech_life'
+#av:
+# Home:
+#   - '/blog/'
+# Blog:
+#   - '/blog/'
+#   - { Categories: '/blog/categories/' }
+#   - { Tags: '/blog/tags/' }
+# Technical stacks:
+#   - '/tech_stacks/'
+# Tech & life:
+#   - '/tech_life'
 
 # Where are tags and categories displayed
 tag_page: '/blog/tags/'
