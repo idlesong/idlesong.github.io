@@ -38,7 +38,7 @@ logo: '/public/logo.png'
 #   # email:     http://www.google.com/recaptcha/mailhide/d?k=01I3lZFiZYng9N3QxYEtsDaQ==&c=31wAnZkuKqcG0ATAqJN8Z3ln5kkYLA9TwkGc-IbygpM=
 #
 # Navigation (2nd level links supported)
-#av:
+#nav:
 # Home:
 #   - '/blog/'
 # Blog:
@@ -51,8 +51,8 @@ logo: '/public/logo.png'
 #   - '/tech_life'
 
 # Where are tags and categories displayed
-tag_page: '/blog/tags/'
-category_page: '/blog/categories/'
+# tag_page: '/blog/tags/'
+# category_page: '/blog/categories/'
 
 #hero:
 #  image: /public/img/we_will_be_giants_by_yalestewart.jpg
