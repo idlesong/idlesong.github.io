@@ -6,7 +6,7 @@ baseurl: ''
 url: http://idlesong.github.io
 logo: '/public/logo.png'
 # remote_theme: jekyll/minima
-remote_theme: aterenin/minima-reboot
+# remote_theme: aterenin/minima-reboot
 
 # Site configurations
 #ems:
