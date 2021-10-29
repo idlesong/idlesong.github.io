@@ -436,7 +436,7 @@ $ rsync -avz username@docker_server:/home/username/docker/ /local_path/docker
 ```
 1. git init, git push, git clone to github
    - ignore config folders ``` *config*/```
-1. 
+
 
 ## tips & reference
 https://jackstromberg.com/2021/07/how-to-add-buster-backports-to-a-raspberry-pi/

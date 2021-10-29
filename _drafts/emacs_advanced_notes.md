@@ -9,7 +9,7 @@ C-x C-f /host.server.com:/home/idlesong/myfile.md
 
 docker files
 - docker
-- jellyfin
+- jellyfin 
 - config docker-compose.yml
 - git ignore configs
 
