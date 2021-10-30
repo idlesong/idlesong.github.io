@@ -31,9 +31,9 @@ minima:
     # keybase: jekyll
 
     # Mastodon instances
-    # mastodon:
-    # - username: jekyll
-    #   instance: example.com
+    mastodon:
+     - username: idlesong
+       instance: social.librem.one
     # - username: jekyll2
     #   instance: example.com
 
@@ -50,6 +50,8 @@ header_pages:
   - about.md
   - tags.md
   - categories.md
+  - life.md
+  - tech_life.md
 
 # Build settings
 theme: minima
