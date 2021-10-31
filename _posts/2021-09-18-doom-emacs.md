@@ -1,6 +1,5 @@
 ---
 layout: post
-title:  "Doom emacs notes"
 categories: tech_life
 tags: [doom, emacs, tech_life, linux]
 ---
