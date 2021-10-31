@@ -20,7 +20,7 @@ After tested some solution, it seems the pure Docker solution on Raspberry is my
     - docker-compose parameters can config easily. 
   - Security
 
-![raspberrypi NAS](/raspberrypi_NAS/gun.jpg)
+![raspberrypi NAS](/images/raspberrypi_NAS/gun.jpg)
 
 
 ### Raspberry pi OS install & config
