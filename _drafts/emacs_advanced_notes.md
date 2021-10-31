@@ -14,4 +14,13 @@ docker files
 - git ignore configs
 
 
+1. Dired
+Dired full list and brief list(only name) 
+```Shift + 9```
+
+
+1. eshell
+toggle in new buffer
+```C c o e```
+1. Magit
 

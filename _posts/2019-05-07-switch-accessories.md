@@ -1,7 +1,7 @@
 ### Nentento switch console accessories
 1. Nentento labo
-![switch_labo.jpg](../images/switch_labo.png)
-![nentendo_labo.jpg](../images/nentendo_labo.jpg)
+![switch_labo.jpg](/images/switch_labo.png)
+![nentendo_labo.jpg](/images/nentendo_labo.jpg)
 1. drum stick
 ![drum_stick](../images/drum_stick.png)
 1. fishing rod
