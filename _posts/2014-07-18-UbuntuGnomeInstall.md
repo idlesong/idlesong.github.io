@@ -4,7 +4,7 @@ title:  "Ubuntu Gnome安装（MacbookAir2013）"
 categories: linux
 tags: [ubuntu, gnome]
 ---
-# 在MacbookAir2013上安装Ubuntu Gnome 14.04注意事项
+## 在MacbookAir2013上安装Ubuntu Gnome 14.04注意事项
 
 ### 1.下载安装Ubuntu Gnome 14.04
 提示：Ubuntu Gnome 14.04已不再需要专门的Mac版本

@@ -1,10 +1,9 @@
 ---
 layout: post
+title: "Doom emacs notes"
 categories: tech_life
 tags: [doom, emacs, tech_life, linux]
 ---
-
-# Doom emacs notes
 
 ### Doom emacs shortcuts
 [Emacs shortcut cheatsheet](https://courses.cs.washington.edu/courses/cse351/16wi/sections/1/Cheatsheet-emacs.pdf)
@@ -103,6 +102,12 @@ goto next file line         >
 goto describled file line   j
                              
 open item in other window   o
+toggle brief & full view    (
+create dir in Dired         +
+Copy files to destination   C
+Rename or move file/dir     R
+Delete file/dir             D
+
 insert this subdictionary   i
 ```
 
