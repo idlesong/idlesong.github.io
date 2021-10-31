@@ -4,8 +4,9 @@ title:  "My self-hosting - Docker Server on Pi "
 categories: tech_life
 tags: [docker, tech_life, raspberrypi]
 ---
-
 ## My Docker Server on Pi(Raspberry Pi4)
+
+![raspberrypi NAS](/images/raspberrypi_NAS.jpg)
 
 There are lots of interesting self-host solutions: Yunohost, Sandbox, Freedom Box, HomeLabOS and more.
 After tested some solution, it seems the pure Docker solution on Raspberry is my best choise:
@@ -19,9 +20,6 @@ After tested some solution, it seems the pure Docker solution on Raspberry is my
   - Customize
     - docker-compose parameters can config easily. 
   - Security
-
-![raspberrypi NAS](/images/raspberrypi_NAS.jpg)
-
 
 ### Raspberry pi OS install & config
 1. install raspberry OS lite 
