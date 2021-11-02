@@ -5,8 +5,8 @@ categories: tech_life
 tags: [docker, tech_life, raspberrypi]
 ---
 
-# My Docker Server on Raspberry Pi4
-## Raspberry pi OS install & config
+## My Docker Server on Raspberry Pi4
+### Raspberry pi OS install & config
 1. install raspberry OS lite 
 1. apt update && upgrade
 
@@ -29,7 +29,7 @@ sudo passwd <USERNAME> # username root; current user leave blank
 ```
 
 
-## Install Docker & Docker-compose
+### Install Docker & Docker-compose
 
 ``` shell
 curl -fsSL https://get.docker.com -o get-docker.sh
@@ -64,7 +64,7 @@ docker-compose logs
 ```
 -v /etc/localtime:/etc/localtime:ro
 
-## mount external USB drive
+### mount external USB drive
 - note: mount usb drive
 ```
 sudo fdisk -l
@@ -72,7 +72,7 @@ sudo mount /dev/sda1 /mnt
 ```
 
 
-## Host App: cockpit
+### Host App: cockpit
 ``` 
 sudo apt install cockpit cockpit-docker
 sudo apt install firewalld #iptables 1.8.2 has bugs
@@ -88,9 +88,9 @@ sudo systemctl status cockpit.socket
 ```
 
 
-# Popular Docker Apps
+## Popular Docker Apps
 
-## heimdall
+### heimdall
 
 - [heimdall docker](https://docs.linuxserver.io/images/docker-heimdall)
 - note: url need add http://

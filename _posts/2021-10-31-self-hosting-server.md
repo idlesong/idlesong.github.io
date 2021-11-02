@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "My self-hosting - Docker Server on Pi "
+title:  "My self-hosting - Docker Server on Pi"
 categories: tech_life
 tags: [docker, tech_life, raspberrypi]
 ---
@@ -21,10 +21,12 @@ After tested some solution, it seems the pure Docker solution on Raspberry is my
     - docker-compose parameters can config easily. 
   - Security
 
-### Raspberry pi OS install & config
+### Raspberry pi OS install & configuration
+#### Install pi OS
 1. install raspberry OS lite 
 1. apt update && upgrade
-1. enable ssh
+
+#### enable ssh
 
 ``` shell
 sudo systemctl start ssh
@@ -33,14 +35,32 @@ sudo systemctl status ssh
 sudo systemctl enable ssh
 ```
 
-  - or enable ssh headless way
-    - create a ssh file in root folder
-1. password
+1. or enable ssh headless way
+   - create a ssh file in root folder
+1. set password
 
 ``` shell
 sudo passwd <USERNAME> # username root; current user leave blank
 ```
 
+
+####  mount external USB drive(auto mount)
+- note: mount usb drive
+```
+sudo fdisk -l
+sudo mount /dev/sda1 /mnt
+```
+
+```
+sudo mkdir /media/extdisk
+ls -l /dev/disk/by-uuid
+sudo nano /etc/fstab ## UUID=1610029410027ACF /media/extdisk auto nofail,uid=33,gid=33,noatime 0 0
+sudo umount /dev/sda1
+sudo mount -a
+sudo reboot
+```
+
+[moutn usb drive](https://pimylifeup.com/raspberry-pi-mount-usb-drive/)
 
 ### Install Docker & Docker-compose
 
@@ -68,7 +88,8 @@ sudo pip3 install docker-compose
 [install issues debug](https://stackoverflow.com/questions/39100641/docker-service-start-failed)
 [docker install overlay issues](https://raspberrypi.stackexchange.com/questions/114665/failed-to-mount-overlay-no-such-device-when-start-docker-in-raspberry-pi-4)
 
-docker commands
+docker-compose commands
+
 ```
 nano docker-compose.yml
 docker-compose up -d
@@ -77,15 +98,13 @@ docker-compose logs
 ```
 -v /etc/localtime:/etc/localtime:ro
 
-### mount external USB drive
-- note: mount usb drive
-```
-sudo fdisk -l
-sudo mount /dev/sda1 /mnt
-```
 
 
-## debug
+## Backup and sync config files
+1. git init, git push, git clone to github
+   - ignore config folders ``` *config*/```
+
+## Debuging
 1. check port & stop process
 ```
 lsof -i:8000 #-i port number
@@ -93,16 +112,7 @@ netstat -tunlp | grep 8080 # port number
 kill -9 PID #PID: process number
 ```
 
-## advanced notes
-1. rsync to local (avoid to setup git environment)
-```
-## local to remote
-$ rsync -avz /local_path/docker/ username@docker_server:/home/username/docker/
-## remote to local
-$ rsync -avz username@docker_server:/home/username/docker/ /local_path/docker
-```
-1. git init, git push, git clone to github
-   - ignore config folders ``` *config*/```
+## Popular Docker Apps
 
 ### Host App: cockpit
 ``` 
@@ -119,8 +129,6 @@ sudo systemctl enable cockpit.socket
 sudo systemctl status cockpit.socket
 ```
 
-## Popular Docker Apps
-
 ### heimdall
 
 - [heimdall docker](https://docs.linuxserver.io/images/docker-heimdall)
@@ -130,9 +138,9 @@ sudo systemctl status cockpit.socket
 - [samba docker](https://github.com/dperson/samba)
 - note: support SMB1
 ```
-  docker exec -i -t samba /bin/bash
+  sudo docker exec -i -t samba_samba_1 /bin/bash
   vi /etc/samba/smb.conf
-  server min protocol = LANMAN1
+  server min protocol = LANMAN1 #change not add new line
 ```
 -I  Add an include option at the end of the smb.conf
 

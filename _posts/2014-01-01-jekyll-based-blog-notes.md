@@ -16,6 +16,9 @@ header_pages:
 
 [Use tags and categories in your jekyll based Github Pages](https://codinfox.github.io/dev/2015/03/06/use-tags-and-categories-in-your-jekyll-based-github-pages/)
 
+### favicons
+1. Head over to https://realfavicongenerator.net/ to add your own favicons.
+
 ### images notes
 use absolute path like ```/image/photo.png```
 
