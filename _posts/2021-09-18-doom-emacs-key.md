@@ -1,12 +1,14 @@
 ---
 layout: post
-title: "Doom emacs notes"
+title: "Doom emacs key bindings and configuration"
 categories: tech_life
 tags: [doom, emacs, tech_life, linux]
 ---
 
 ### Doom emacs shortcuts
 [Emacs shortcut cheatsheet](https://courses.cs.washington.edu/courses/cse351/16wi/sections/1/Cheatsheet-emacs.pdf)
+
+Emacs basics
 
 ```
 Moving arround:             Back       Forth
@@ -16,7 +18,8 @@ Moving arround:             Back       Forth
   move by sentence          M-a        M-e
   goto end of line          C-a        C-e
   top or bottom of buffer   M-<        M->
-  center screen here        C-l 
+  center screen here        C-l
+  move by half screen       M-r
                                         
 Deleting and editing        Back       Forth  
   delete word               M-del      C-d
@@ -44,31 +47,6 @@ Searching
 Abort and Exiting Emacs:
   abort actions             C-g
   exit emacs                C-x C-c 
-
-Markdown or org-mode
-  previous outline          C-c C-p 
-  next outline              C-c C-n 
-  out line up               C-c C-u 
-  outline back same level   C-c C-b
-  foreword block            M-}
-  backword block            M-{
-  forward paragraph         C-<down>   M-n 
-  backward paragraph        C-<up>     M-p
-  top or bottom of buffer   C-x [      C-x ]
-
-Doom Emacs key bindings
-  reload last session       C-c w L 
-  open org-agenda           C-c n a 
-  recent opened files       C-c f r 
-  open project              C-c p p 
-  jump to bookmark          C-c s m 
-  open private config       C-c f p 
-                                                
-Projectile 
-  find file with completion C-c p f 
-  open dired in root        C-c f D
-  lockup functions document C-c c k 
-  lookup defination         C-c c d 
 ```
 
 Windowns
@@ -82,14 +60,15 @@ narrower window             C-x {
 wider window 25 times       C-u 25 C-x {
 ```
 
-Files & buffers
+Files & buffers & projects
 ```
+open project                C-c p p 
 open current opened files   C-c f r
+find file                   C-c f f
 Kill buffer                 C-x k
 ```
 
-[Dired shortcuts](https://zhuanlan.zhihu.com/p/156907392)
-
+Dired
 ```
 dired open                  C-c f d  
 jump dired from this buffer C-c o- #C-x C-j
@@ -110,6 +89,51 @@ Delete file/dir             D
 
 insert this subdictionary   i
 ```
+
+[Dired shortcuts](https://zhuanlan.zhihu.com/p/156907392)
+
+
+avy 
+```
+avy goto char in line       M-g f
+avy goto char               M-g c
+avy goto line(compatible)   M-g g
+avy goto word-1             M-g w
+avy goto word-0             M-g e
+```
+
+Markdown or org-mode
+```
+  previous outline          C-c C-p 
+  next outline              C-c C-n 
+  out line up               C-c C-u 
+  outline back same level   C-c C-b
+  foreword block            M-}
+  backword block            M-{
+  forward paragraph         C-<down>   M-n 
+  backward paragraph        C-<up>     M-p
+  top or bottom of buffer   C-x [      C-x ]
+```
+
+Doom Emacs key bindings
+```
+  reload last session       C-c w L 
+  open org-agenda           C-c n a 
+  recent opened files       C-c f r 
+  open project              C-c p p 
+  jump to bookmark          C-c s m 
+  open private config       C-c f p
+  
+```
+
+Projectile 
+```
+  find file with completion C-c p f 
+  open dired in root        C-c f D
+  lockup functions document C-c c k 
+  lookup defination         C-c c d 
+```
+
 
 Others
 
@@ -148,32 +172,21 @@ Quick-Calc                   C-x * q
 (map! "M-p" #'backward-paragraph
       "M-n" #'forward-paragraph
       "C-M-p" #'cua-scroll-down
-      "C-M-n" #'cua-scroll-up)
+      "C-M-n" #'cua-scroll-up
+      "C-c o y" #'youdao-dictionary-search-from-input
+      "M-g c" #'avy-goto-char
+      "M-g s" #'avy-goto-char-2
+      "M-g f" #'avy-goto-char-in-line
+      "M-g g" #'avy-goto-line
+      "M-g w" #'avy-goto-word-1
+      "M-g e" #'avy-goto-word-0
+      )
 
 (map! :map markdown-mode-map
         "M-n" #'markdown-forward-paragraph
         "M-p" #'markdown-backward-paragraph
-        "C-M-p" #'cua-scroll-down)
-        "C-M-n" #'cua-scroll-up
+        "C-M-p" #'cua-scroll-down
+        "C-M-n" #'cua-scroll-up)
 
 ```
 
-### doom configure .doom.d/init.el
-   - neotree
-   - quit
-   - vterm
-
-`M-x all-the-icons-install-fonts`
-
-## tips & reference
-1. Doom Emacs for flatpak's Emacs
-
-```
-# add to your shell config (.zshrc or .bashrc)
-export EMACS="/usr/bin/flatpak run org.gnu.emacs"
-```
-
-1. use proxy; or github taobao mirror to run .emacs.d/doom install
-[Emacs 笔记 (一) —— 安装与配置 Doom Emacs](https://shigaro.horg/2020/07/01/emacs-1/)
-[linux命令行代理神器-proxychains](https://zhuanlan.zhihu.com/p/166375631)
-[fix ERROR: ld.so: object 'libproxychains.so.3' from LD_PRELOAD cannot be preloaded](https://blog.csdn.net/think_ycx/article/details/108199296)

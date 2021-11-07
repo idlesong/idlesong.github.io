@@ -20,10 +20,12 @@ permalink: /tech_life/
 
 ### Tech & life
 1. Linux
+   - tags [debian, gnome, linux](http://idlesong.github.io/tags/)
    - Debian & gnome os
    - Efficiency & coding
    - Favorite apps(flathub)
 1. Personal server
+   - tags[docker, raspberrypi](http://idlesong.github.io/tags/)
    - Debian & Docker & Raspberry pi
    - Movies, musics, photos, books
 1. Local life

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "My self-hosting - Docker Server on Pi"
+title:  "Self-hosting - Docker Server on Pi"
 categories: tech_life
 tags: [docker, tech_life, raspberrypi]
 ---
