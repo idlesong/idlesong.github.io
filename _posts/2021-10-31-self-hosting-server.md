@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "Self-hosting - Docker Server on Pi"
+title:  "Docker Server on Pi - Self-hosting"
 categories: tech_life
 tags: [docker, tech_life, raspberrypi]
 ---
-## My Docker Server on Pi(Raspberry Pi4)
+## Docker Server on Pi(Raspberry Pi4)
 
 ![raspberrypi NAS](/images/raspberrypi_NAS.jpg)
 

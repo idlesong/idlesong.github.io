@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Personal Docker Server on Raspberry Pi4"
+title:  "Docker Server on Pi - docker-compose.yml"
 categories: tech_life
 tags: [docker, tech_life, raspberrypi]
 ---
 
-## My Docker Server on Raspberry Pi4
+## Docker Server on Raspberry Pi4
 ### Raspberry pi OS install & config
 1. install raspberry OS lite 
 1. apt update && upgrade
