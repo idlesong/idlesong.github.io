@@ -11,7 +11,7 @@
   - dictionary(youdao?)
   - cheatsheet: git? ruby? linux commands
 1. notes/todo    
-1. bring celebro plugings to gnome extensions?
+1. bring celebro plugins to gnome extensions?
   - devdocs
   - define
   - youdao
@@ -49,11 +49,11 @@
 
 ## gnome 畅想
 - GirFFI 能否改进成类似rails的框架（MVC），这样就不需要IDE了 -> rust
-- Gnome javascript/css，有没可能搞个Browser式的调试工具
+- Gnome JavaScript/CSS，有没可能搞个Browser式的调试工具
 
 ## gnome software
 - 评论中的 关键字，留言者如果未标注label，其他人可以标注并通知原评论者，可按label显示
-- 自动装机工具：各种应用，特别是Software中有 -> editor's choise app
+- 自动装机工具：各种应用，特别是Software中有 -> editor's choice app
 - 类似7zip之类的还没有GUI，如何简洁地添加一个GUI，有什么机制可以快速地将经典命令行转为GUI
 
 ## gnome software web(apps dictionary) -> flathub

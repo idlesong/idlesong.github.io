@@ -49,7 +49,7 @@ Abort and Exiting Emacs:
   exit emacs                C-x C-c 
 ```
 
-Windowns
+Windows
 
 ```
 close window                C-x 0
@@ -113,6 +113,7 @@ Markdown or org-mode
   forward paragraph         C-<down>   M-n 
   backward paragraph        C-<up>     M-p
   top or bottom of buffer   C-x [      C-x ]
+  cycle global heading      S-TAB
 ```
 
 Doom Emacs key bindings
@@ -122,8 +123,7 @@ Doom Emacs key bindings
   recent opened files       C-c f r 
   open project              C-c p p 
   jump to bookmark          C-c s m 
-  open private config       C-c f p
-  
+  open private config       C-c f p  
 ```
 
 Projectile 
@@ -144,19 +144,20 @@ Youdao: youdao input         C-c o y
 Quick-Calc                   C-x * q
 ```
 
-## Common packages
-1. check, spell check
-   - flycheck rust?
-   - flyspell
-1. eshell
-1. youdao
-
 ## configuration
 1. .doom.d目录下初始有三个配置文件
    - init.el
    - packages.el
    - config.el
 1. use cua-mode
+
+## Common packages
+1. check, spell check
+   - flyspell
+   - flycheck rust?
+1. eshell
+1. youdao
+
 
 ```
 # note add below to config.el

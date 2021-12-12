@@ -14,14 +14,14 @@
 1. ipfs
   - wikipedia on ipfs
 1. zeronet
-1. martrix
-  - fratcl
+1. matrix
+  - fractal
 
 ### rust
 https://www.quora.com/Which-is-the-most-promising-GUI-framework-for-Rust  
 
 ### social purpose company(purism)
-1. Privacy is personal digital perverty
+1. Privacy is personal digital property
   - cost: privacy & safe;
   - own: service & convince.
   - safe risk;

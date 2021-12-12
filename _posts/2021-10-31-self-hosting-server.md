@@ -9,7 +9,7 @@ tags: [docker, tech_life, raspberrypi]
 ![raspberrypi NAS](/images/raspberrypi_NAS.jpg)
 
 There are lots of interesting self-host solutions: Yunohost, Sandbox, Freedom Box, HomeLabOS and more.
-After tested some solution, it seems the pure Docker solution on Raspberry is my best choise:
+After tested some solution, it seems the pure Docker solution on Raspberry is my best choice:
 - Raspberry Pi4: low cost popular open source hardware, fit family self-hosting.
 - Docker compose: 
   - Simple & clean
@@ -60,7 +60,7 @@ sudo mount -a
 sudo reboot
 ```
 
-[moutn usb drive](https://pimylifeup.com/raspberry-pi-mount-usb-drive/)
+[mount USB drive](https://pimylifeup.com/raspberry-pi-mount-usb-drive/)
 
 ### Install Docker & Docker-compose
 
@@ -173,12 +173,12 @@ sudo systemctl status cockpit.socket
 
 - [calibre-web docker](https://github.com/linuxserver/docker-calibre-web/)
 - copy [metadata.db](https://github.com/kovidgoyal/calibre/blob/master/src/calibre/db/tests/metadata.db) to calibre-library
-- login: defalut: admin, admin123
+- login: default: admin, admin123
 - chmod 777 metadata.db
    
 1. portainer 
    - deploy: localhsot: works!
-   - docker managerment
+   - docker management
 
 ## tips & reference
 https://jackstromberg.com/2021/07/how-to-add-buster-backports-to-a-raspberry-pi/

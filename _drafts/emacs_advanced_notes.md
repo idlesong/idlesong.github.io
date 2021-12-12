@@ -1,5 +1,5 @@
-# Emacs advanced notes
-## Editing and managing files remotely
+## Emacs advanced notes
+### Editing and managing files remotely
 
 tramp
 
@@ -13,8 +13,14 @@ docker files
 - config docker-compose.yml
 - git ignore configs
 
+### Magit
 
-1. Dired
 
-1. Magit
+### flyspell
+
+- flyspell-mode
+- flyspell-buffer
+- flyspell-correct-word
+
+
 

@@ -24,15 +24,16 @@ export EMACS="/usr/bin/flatpak run org.gnu.emacs"
 ```
 
 #### install doom and fetch own .doom.d
-1. install doom
-```
-git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-~/.emacs.d/bin/doom install
-```
-note: setup github mirror before run `.emacs.d/doom install`
+1. clone doom to ~/.emacs.d
+1. [setup github mirror for doom(China only)](https://emacs-china.org/t/doom-emacs/16069) before run `.emacs.d/doom install`
+1. fetch your own .doom.d
+1. doom sync
 
-1. fetch own .doom.d
 ```
+# clone doom to ~/.emacs.d
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+git config --global url.https://github.com.cnpmjs.org/.insteadof https://github.com/
+~/.emacs.d/bin/doom install
 mv ~/.doom.d ~/.doom.d.bk
 git clone git@github.com:idlesong/.doom.d.git
 ~/.emacs.d/bin/doom sync
