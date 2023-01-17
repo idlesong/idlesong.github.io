@@ -22,4 +22,13 @@ https://www.uedbox.com/post/54994/
 https://868888.net/
 
 
+### mount extenal usb disk
+sudo fdisk -l   #show all disks
+ls -l /dev/disk/by-uuid  
+  
+https://blog.csdn.net/qq_34529861/article/details/104259009
+
+x-systemd.device_timeout 3    
+  
+
 

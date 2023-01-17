@@ -317,6 +317,7 @@ services:
 
 ## Testing Apps
 ### nextcloud all in one
+
 ```
 version: "3.8"
 
