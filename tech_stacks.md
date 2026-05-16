@@ -13,4 +13,4 @@ tags: [git, markdown, atom, rails, ruby, react-native, javascript, ignite, linux
 [markdown](https://guides.github.com/features/mastering-markdown/)|cargo, rustc, rustup| ruby, [rails](https://guides.rubyonrails.org/)
 [python](https://quickref.me/python.html)|rust docs: [std](https://doc.rust-lang.org/std/index.html), [examples](https://doc.rust-lang.org/stable/rust-by-example/)| react-native, [ignite](https://github.com/infinitered/ignite), [reactotron]()
 [linux cmd](https://images.linoxide.com/linux-cheat-sheet.pdf)/[WSL]() | gtkrs [doc](https://gtk-rs.org/), [book](https://gtk-rs.org/gtk4-rs/stable/latest/book/), [examples](https://github.com/gtk-rs/examples)|
-: | gnome, flatpak| :
+[mirros]() | gnome, flatpak| :
